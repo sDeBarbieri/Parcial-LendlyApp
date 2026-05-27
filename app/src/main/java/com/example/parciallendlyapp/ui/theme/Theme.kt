@@ -12,32 +12,38 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = ContentPrimary,
+    primary = InteractiveAccent,        // En modo oscuro suele usarse el color más brillante
+    onPrimary = BaseDark,
     secondary = ContentSecondary,
-    tertiary = ContentTertiary
+    tertiary = InteractivePrimary,
+    background = BaseDark,              // Fondo oscuro
+    onBackground = BaseLight,           // Texto claro
+    surface = BaseDark,
+    onSurface = BaseLight,
+    error = SentimentNegative
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = ContentPrimary,
-    secondary = ContentSecondary,
-    tertiary = ContentTertiary
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = InteractivePrimary,        // Tu verde oscuro principal
+    onPrimary = BaseContrast,           // Texto blanco sobre primario
+    secondary = ContentSecondary,       // Gris oscuro
+    onSecondary = BaseContrast,
+    tertiary = InteractiveAccent,       // Verde brillante para acentos
+    background = BackgroundScreen,      // Blanco puro
+    onBackground = ContentPrimary,      // Texto casi negro
+    surface = BackgroundElevated,       // Blanco para tarjetas/superficies
+    onSurface = ContentPrimary,
+    error = SentimentNegative,          // Rojo de error
+    onError = BaseContrast,
+    outline = BorderNeutral,            // Color para bordes
+    secondaryContainer = BackgroundNeutral // Fondo suave para botones secundarios
 )
 
 @Composable
 fun ParcialLendlyAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
