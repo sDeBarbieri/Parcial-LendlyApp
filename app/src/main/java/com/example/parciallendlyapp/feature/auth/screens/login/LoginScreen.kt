@@ -1,4 +1,4 @@
-package com.example.parciallendlyapp.feature.auth.pages.login
+package com.example.parciallendlyapp.feature.auth.screens.login
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button

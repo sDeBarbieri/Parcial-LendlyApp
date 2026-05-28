@@ -1,4 +1,4 @@
-package com.example.parciallendlyapp.feature.splash.pages
+package com.example.parciallendlyapp.feature.splash.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
