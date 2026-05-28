@@ -94,7 +94,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 repeat(pages.size) { iteration ->
-                    val color = if (pagerState.currentPage == iteration) InteractiveAccent else Color(0xFF1E3A00)
+                    val color = if (pagerState.currentPage == iteration) InteractiveAccent else InteractivePrimary
                     Box(
                         modifier = Modifier
                             .padding(horizontal = 4.dp)
@@ -112,8 +112,8 @@ fun OnboardingScreen(onFinish: () -> Unit) {
                     onClick = { /* Handle Log In */ },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(56.dp),
-                    shape = RoundedCornerShape(28.dp),
+                        .height(48.dp), // Ajustado a 48px
+                    shape = RoundedCornerShape(100.dp), // Ajustado a 100px
                     border = BorderStroke(1.dp, Color.White),
                     colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
                 ) {
@@ -125,7 +125,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
                     )
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(8.dp)) // Gap ajustado a 8px
 
                 Button(
                     onClick = { onFinish() },
@@ -135,8 +135,8 @@ fun OnboardingScreen(onFinish: () -> Unit) {
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(56.dp),
-                    shape = RoundedCornerShape(28.dp)
+                        .height(48.dp), // Ajustado a 48px
+                    shape = RoundedCornerShape(100.dp) // Ajustado a 100px
                 ) {
                     Text(
                         text = "Sign up for free",
@@ -155,12 +155,12 @@ fun OnboardingScreen(onFinish: () -> Unit) {
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = InteractiveAccent,
-                        contentColor = InteractivePrimary
+                        contentColor = ContentPrimary // Cambiado a ContentPrimary para contraste
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(56.dp),
-                    shape = RoundedCornerShape(28.dp)
+                        .height(48.dp), // Ajustado a 48px
+                    shape = RoundedCornerShape(100.dp) // Ajustado a 100px
                 ) {
                     Text(
                         text = "Get Started",
