@@ -27,7 +27,7 @@ fun BottomNavBar(navController: NavHostController) {
     NavigationBar {
         listOf(
             Triple(Routes.HOME, "Home", R.drawable.share_home),
-            Triple(Routes.LOANS, "Loans", R.drawable.share_credit_card),
+            Triple(Routes.LOANS, "Loan", R.drawable.share_credit_card),
             Triple(Routes.SHOP, "Shop", R.drawable.share_shopping_bag),
             Triple(Routes.HISTORY, "History", R.drawable.share_update),
             Triple(Routes.MANAGE, "Manage", R.drawable.share_grid_view),
