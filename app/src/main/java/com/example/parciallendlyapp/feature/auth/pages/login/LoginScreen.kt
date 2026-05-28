@@ -1,0 +1,15 @@
+package com.example.parciallendlyapp.feature.auth.pages.login
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+
+@Composable
+fun LoginScreen(onLoginSuccess: () -> Unit) {
+    Column{
+        Button(onClick = onLoginSuccess) {
+            Text("LoginScreen")
+        }
+    }
+}
