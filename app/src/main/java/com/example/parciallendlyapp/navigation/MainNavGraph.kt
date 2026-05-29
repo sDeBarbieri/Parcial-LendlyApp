@@ -7,11 +7,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.parciallendlyapp.feature.history.pages.HistoryScreen
-import com.example.parciallendlyapp.feature.home.pages.HomeScreen
-import com.example.parciallendlyapp.feature.loans.pages.LoanScreen
-import com.example.parciallendlyapp.feature.manage.pages.ManageScreen
-import com.example.parciallendlyapp.feature.shop.pages.ShopScreen
+import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
+import com.example.parciallendlyapp.feature.home.screens.HomeScreen
+import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
+import com.example.parciallendlyapp.feature.manage.screens.ManageScreen
+import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
 
 @Composable
 fun MainNavGraph() {

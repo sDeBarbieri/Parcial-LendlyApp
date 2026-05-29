@@ -28,3 +28,6 @@ val SentimentWarning = Color(0xFFEDC843)
 val BaseContrast = Color(0xFFFFFFFF)
 val BaseLight = Color(0xFFFFFFFF)
 val BaseDark = Color(0xFF121511)
+
+val OnboardingTitle = Color(0xFFB1D18A)
+val OnboardingDescription = Color(0xFFE5F5EA)

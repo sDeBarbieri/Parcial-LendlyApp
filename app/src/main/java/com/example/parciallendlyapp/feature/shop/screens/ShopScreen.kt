@@ -1,4 +1,4 @@
-package com.example.parciallendlyapp.feature.shop.pages
+package com.example.parciallendlyapp.feature.shop.screens
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
