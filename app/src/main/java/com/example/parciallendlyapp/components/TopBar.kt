@@ -31,7 +31,7 @@ fun TopBar(
                         contentDescription = "Profile",
                         modifier = Modifier
                             .size(width = 17.dp, height = 15.5.dp),
-                        tint = ContentPrimary
+                        tint = MaterialTheme.colorScheme.onBackground
                     )
                 }
             }
@@ -60,7 +60,7 @@ fun TopBar(
                         contentDescription = "Notifications",
                         modifier = Modifier
                             .size(width = 15.dp, height = 19.2.dp),
-                        tint = ContentPrimary
+                        tint = MaterialTheme.colorScheme.onBackground
                     )
                 }
             }

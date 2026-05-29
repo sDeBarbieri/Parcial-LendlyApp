@@ -29,5 +29,9 @@ val BaseContrast = Color(0xFFFFFFFF)
 val BaseLight = Color(0xFFFFFFFF)
 val BaseDark = Color(0xFF121511)
 
+val SolidDark = Color(0xFF121511)
+
+val LightGray = Color(0xFF6A6C6A)
+
 val OnboardingTitle = Color(0xFFB1D18A)
 val OnboardingDescription = Color(0xFFE5F5EA)
