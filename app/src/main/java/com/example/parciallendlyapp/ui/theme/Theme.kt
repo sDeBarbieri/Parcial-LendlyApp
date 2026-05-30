@@ -20,7 +20,8 @@ private val DarkColorScheme = darkColorScheme(
     onBackground = BaseLight,           // Texto claro
     surface = BaseDark,
     onSurface = BaseLight,
-    error = SentimentNegative
+    error = SentimentNegative,
+    onTertiary = BaseLight
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -36,7 +37,9 @@ private val LightColorScheme = lightColorScheme(
     error = SentimentNegative,          // Rojo de error
     onError = BaseContrast,
     outline = BorderNeutral,            // Color para bordes
-    secondaryContainer = BackgroundNeutral // Fondo suave para botones secundarios
+    secondaryContainer = BackgroundNeutral, // Fondo suave para botones secundarios
+    onTertiary = BaseDark,
+    onSecondaryContainer = LightGray
 )
 
 @Composable

@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.parciallendlyapp.feature.auth.pages.login.LoginScreen
-import com.example.parciallendlyapp.feature.onboarding.pages.OnboardingScreen
-import com.example.parciallendlyapp.feature.splash.pages.SplashScreen
+import com.example.parciallendlyapp.feature.auth.screens.login.LoginScreen
+import com.example.parciallendlyapp.feature.onboarding.screens.OnboardingScreen
+import com.example.parciallendlyapp.feature.splash.screens.SplashScreen
 
 @Composable
 fun AppNavGraph(){

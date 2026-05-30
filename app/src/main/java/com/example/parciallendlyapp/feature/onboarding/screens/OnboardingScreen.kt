@@ -1,4 +1,4 @@
-package com.example.parciallendlyapp.feature.onboarding.pages
+package com.example.parciallendlyapp.feature.onboarding.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -21,24 +21,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.feature.onboarding.domain.model.OnboardingPage
+import com.example.parciallendlyapp.feature.onboarding.domain.model.OnboardingPageModel
 import com.example.parciallendlyapp.ui.theme.*
 import kotlinx.coroutines.launch
 
 @Composable
 fun OnboardingScreen(onFinish: () -> Unit) {
     val pages = listOf(
-        OnboardingPage(
+        OnboardingPageModel(
             title = "QUICK LOANS",
             description = "Trusted for easy,\nfast loan approvals.",
             imageRes = R.drawable.onboarding_1
         ),
-        OnboardingPage(
+        OnboardingPageModel(
             title = "LOAN PRODUCT\nIN-APP",
             description = "Many products to loan.",
             imageRes = R.drawable.onboarding_2
         ),
-        OnboardingPage(
+        OnboardingPageModel(
             title = "TRACK & PAY\nEASILY",
             description = "", // No se ve descripción en la imagen 3
             imageRes = R.drawable.onboarding_3
@@ -175,7 +175,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
 }
 
 @Composable
-fun OnboardingContent(page: OnboardingPage) {
+fun OnboardingContent(page: OnboardingPageModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
