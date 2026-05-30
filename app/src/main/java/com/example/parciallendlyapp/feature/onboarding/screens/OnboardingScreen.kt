@@ -26,7 +26,10 @@ import com.example.parciallendlyapp.ui.theme.*
 import kotlinx.coroutines.launch
 
 @Composable
-fun OnboardingScreen(onFinish: () -> Unit) {
+fun OnboardingScreen(
+    onLoginClick: () -> Unit,
+    onSignUpClick: () -> Unit
+) {
     val pages = listOf(
         OnboardingPageModel(
             title = "QUICK LOANS",
@@ -109,7 +112,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
             if (pagerState.currentPage == pages.size - 1) {
                 LendlyButton(
                     text = "Log In",
-                    onClick = { /* Handle Log In */ },
+                    onClick = onLoginClick,
                     containerColor = Color.Transparent,
                     contentColor = Color.White,
                     border = BorderStroke(1.dp, Color.White)
@@ -119,7 +122,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
 
                 LendlyButton(
                     text = "Sign up for free",
-                    onClick = { onFinish() },
+                    onClick = onSignUpClick,
                     containerColor = InteractiveAccent,
                     contentColor = ContentPrimary
                 )

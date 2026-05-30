@@ -17,11 +17,16 @@ fun AppNavGraph(){
             SplashScreen(onNavigate = {navController.navigate(Routes.ONBOARDING)})
         }
         composable(Routes.ONBOARDING){
-            OnboardingScreen(onFinish = {navController.navigate(Routes.LOGIN)})
+            OnboardingScreen(
+                onLoginClick = { navController.navigate(Routes.LOGIN) },
+                onSignUpClick = { navController.navigate(Routes.VERIFY_PHONE) }
+            )
         }
         composable(Routes.LOGIN){
             LoginScreen(onLoginSuccess = {
-                navController.navigate(Routes.VERIFY_PHONE)
+                navController.navigate(Routes.MAIN) {
+                    popUpTo(Routes.ONBOARDING) { inclusive = true }
+                }
             })
         }
         composable(Routes.VERIFY_PHONE) {
@@ -29,7 +34,7 @@ fun AppNavGraph(){
                 onBackClick = { navController.popBackStack() },
                 onSendCodeClick = { _, _ ->
                     navController.navigate(Routes.MAIN) {
-                        popUpTo(Routes.LOGIN) { inclusive = true }
+                        popUpTo(Routes.ONBOARDING) { inclusive = true }
                     }
                 }
             )

@@ -29,16 +29,40 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
     var password by remember { mutableStateOf("123123123") }
     var passwordVisible by remember { mutableStateOf(false) }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = BackgroundScreen
-    ) {
+    Scaffold(
+        bottomBar = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.White)
+            ) {
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = BorderNeutral
+                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(24.dp)
+                        .navigationBarsPadding()
+                ) {
+                    LendlyButton(
+                        text = "Log In",
+                        onClick = onLoginSuccess,
+                        containerColor = InteractiveAccent,
+                        contentColor = ContentPrimary
+                    )
+                }
+            }
+        }
+    ) { padding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 24.dp, vertical = 32.dp)
+                .padding(padding)
+                .padding(horizontal = 24.dp)
         ) {
-            Spacer(modifier = Modifier.height(80.dp))
+            Spacer(modifier = Modifier.height(48.dp))
 
             // Logo Section
             Box(
@@ -155,16 +179,6 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
                 fontSize = 14.sp,
                 color = ContentLink,
                 textDecoration = TextDecoration.Underline
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            // Login Button
-            LendlyButton(
-                text = "Log In",
-                onClick = onLoginSuccess,
-                containerColor = InteractiveAccent,
-                contentColor = ContentPrimary
             )
         }
     }
