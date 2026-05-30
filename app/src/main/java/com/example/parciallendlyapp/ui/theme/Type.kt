@@ -16,7 +16,8 @@ val Montserrat = FontFamily(
 
 val Inter = FontFamily(
     Font(R.font.inter_regular, FontWeight.Normal),
-    Font(R.font.inter_medium, FontWeight.Medium)
+    Font(R.font.inter_medium, FontWeight.Medium),
+    Font(R.font.inter_semi_bold, FontWeight.SemiBold)
 )
 
 val Typography = Typography(

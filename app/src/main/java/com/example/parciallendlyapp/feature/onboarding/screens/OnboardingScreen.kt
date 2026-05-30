@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -21,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
+import com.example.parciallendlyapp.components.LendlyButton
 import com.example.parciallendlyapp.feature.onboarding.domain.model.OnboardingPageModel
 import com.example.parciallendlyapp.ui.theme.*
 import kotlinx.coroutines.launch
@@ -108,67 +108,34 @@ fun OnboardingScreen(onFinish: () -> Unit) {
 
             if (pagerState.currentPage == pages.size - 1) {
                 // Last Page: Log In and Sign up for free
-                OutlinedButton(
+                LendlyButton(
+                    text = "Log In",
                     onClick = { /* Handle Log In */ },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp), // Ajustado a 48px
-                    shape = RoundedCornerShape(100.dp), // Ajustado a 100px
-                    border = BorderStroke(1.dp, Color.White),
-                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
-                ) {
-                    Text(
-                        text = "Log In",
-                        fontFamily = Montserrat,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
-                }
+                    containerColor = Color.Transparent,
+                    contentColor = Color.White,
+                    border = BorderStroke(1.dp, Color.White)
+                )
 
                 Spacer(modifier = Modifier.height(8.dp)) // Gap ajustado a 8px
 
-                Button(
+                LendlyButton(
+                    text = "Sign up for free",
                     onClick = { onFinish() },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = InteractiveAccent,
-                        contentColor = ContentPrimary
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp), // Ajustado a 48px
-                    shape = RoundedCornerShape(100.dp) // Ajustado a 100px
-                ) {
-                    Text(
-                        text = "Sign up for free",
-                        fontFamily = Montserrat,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
-                }
+                    containerColor = InteractiveAccent,
+                    contentColor = ContentPrimary
+                )
             } else {
                 // Other Pages: Get Started
-                Button(
+                LendlyButton(
+                    text = "Get Started",
                     onClick = {
                         scope.launch {
                             pagerState.animateScrollToPage(pagerState.currentPage + 1)
                         }
                     },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = InteractiveAccent,
-                        contentColor = ContentPrimary // Cambiado a ContentPrimary para contraste
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp), // Ajustado a 48px
-                    shape = RoundedCornerShape(100.dp) // Ajustado a 100px
-                ) {
-                    Text(
-                        text = "Get Started",
-                        fontFamily = Montserrat,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
-                }
+                    containerColor = InteractiveAccent,
+                    contentColor = ContentPrimary
+                )
             }
         }
     }
@@ -238,4 +205,3 @@ fun OnboardingContent(page: OnboardingPageModel) {
         }
     }
 }
-
