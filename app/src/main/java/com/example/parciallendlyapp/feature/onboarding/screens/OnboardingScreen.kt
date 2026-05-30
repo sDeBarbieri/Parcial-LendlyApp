@@ -49,14 +49,15 @@ fun OnboardingScreen(onFinish: () -> Unit) {
     val scope = rememberCoroutineScope()
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .background(ContentPrimary)
+            .padding(vertical = 32.dp) // Padding de 32dp en top y bottom solicitado
     ) {
         // Logo Section
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 32.dp), // Solo padding arriba para el logo
+                .fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -66,14 +67,13 @@ fun OnboardingScreen(onFinish: () -> Unit) {
             )
         }
 
-        // EL GAP DE 32PX (DP) CON EL LOGO
         Spacer(modifier = Modifier.height(32.dp))
 
         // Pager Section
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.weight(1f),
-            verticalAlignment = Alignment.Top // Alinea el contenido del pager al tope
+            verticalAlignment = Alignment.Top
         ) { position ->
             OnboardingContent(page = pages[position])
         }
@@ -82,7 +82,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 32.dp, start = 32.dp, end = 32.dp),
+                .padding(horizontal = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Pager Indicators (Dots)
@@ -107,7 +107,6 @@ fun OnboardingScreen(onFinish: () -> Unit) {
             Spacer(modifier = Modifier.height(24.dp))
 
             if (pagerState.currentPage == pages.size - 1) {
-                // Last Page: Log In and Sign up for free
                 LendlyButton(
                     text = "Log In",
                     onClick = { /* Handle Log In */ },
@@ -116,7 +115,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
                     border = BorderStroke(1.dp, Color.White)
                 )
 
-                Spacer(modifier = Modifier.height(8.dp)) // Gap ajustado a 8px
+                Spacer(modifier = Modifier.height(8.dp))
 
                 LendlyButton(
                     text = "Sign up for free",
@@ -125,7 +124,6 @@ fun OnboardingScreen(onFinish: () -> Unit) {
                     contentColor = ContentPrimary
                 )
             } else {
-                // Other Pages: Get Started
                 LendlyButton(
                     text = "Get Started",
                     onClick = {
@@ -147,38 +145,34 @@ fun OnboardingContent(page: OnboardingPageModel) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Contenedor de la imagen
+        // Contenedor de la imagen - ajustado para que ocupe más espacio y llene el ancho
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1.3f), // Reducimos un poco el peso para dar aire abajo
-            contentAlignment = Alignment.BottomEnd // Alineamos al fondo y a la derecha
+                .weight(1.5f),
+            contentAlignment = Alignment.BottomCenter
         ) {
             Image(
                 painter = painterResource(id = page.imageRes),
                 contentDescription = null,
                 modifier = Modifier
-                    .padding(start = 24.dp) // Margen izquierdo de Figma
+                    .fillMaxHeight()
                     .fillMaxWidth()
-                    // Mantiene la forma 674x333 sin importar el dispositivo
-                    .aspectRatio(674f / 333f),
-                alignment = Alignment.CenterEnd,
-                // FIT asegura que la imagen se vea COMPLETA sin recortes
-                contentScale = ContentScale.Fit
+                    .padding(start = 24.dp), // Agregado 24dp de padding izquierdo
+                contentScale = ContentScale.FillWidth
             )
         }
 
-        // Gap de 32dp exactos entre la imagen y el título
         Spacer(modifier = Modifier.height(32.dp))
 
         // Sección de textos
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f)
-                .padding(horizontal = 32.dp),
+                .padding(horizontal = 32.dp)
+                .weight(1f),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top // Los textos empiezan arriba del espacio sobrante
+            verticalArrangement = Arrangement.Top
         ) {
             Text(
                 text = page.title,
