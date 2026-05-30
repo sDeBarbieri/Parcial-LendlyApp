@@ -47,4 +47,20 @@
     <string name="verify_phone_subtitle">We will send you a One-Time-Password (OTP) to confirm your number.</string>
     <string name="verify_phone_number_label">Your Phone Number</string>
     <string name="verify_phone_number_placeholder">991251255</string>
+
+    <!-- Profile Detail Form -->
+    <string name="profile_detail_title">Enter your personal details</string>
+    <string name="profile_detail_first_name_label">Full legal first and middle name(s)</string>
+    <string name="profile_detail_last_name_label">Full legal last name</string>
+    <string name="profile_detail_dob_label">Date of birth</string>
+    <string name="profile_detail_dob_day_label">Day</string>
+    <string name="profile_detail_dob_month_label">Month</string>
+    <string name="profile_detail_dob_year_label">Year</string>
+    <string name="profile_detail_address_label">Address</string>
+    <string name="profile_detail_city_label">City</string>
+    <string name="profile_detail_postal_code_label">Postal Code</string>
+    <string name="profile_detail_phone_number_label">Phone Number</string>
+    <string name="profile_detail_next_button">Next</string>
+    <string name="profile_detail_back_desc">Back</string>
+    <string name="profile_detail_info_desc">Info</string>
 </resources>

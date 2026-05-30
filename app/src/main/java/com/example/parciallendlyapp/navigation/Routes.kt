@@ -6,6 +6,7 @@ object Routes {
     const val LOGIN = "login"
     const val VERIFY_PHONE = "verify_phone"
     const val SMS_VERIFICATION = "sms_verification"
+    const val PROFILE_DETAIL = "profile_detail"
     const val MAIN = "main"
     const val HOME = "home"
     const val LOANS = "loans"

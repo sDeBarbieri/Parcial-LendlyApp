@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.parciallendlyapp.feature.auth.screens.login.LoginScreen
 import com.example.parciallendlyapp.feature.auth.screens.login.SmsVerificationScreen
 import com.example.parciallendlyapp.feature.auth.screens.login.VerifyPhoneNumberScreen
+import com.example.parciallendlyapp.feature.auth.screens.register.ProfileDetailForm
 import com.example.parciallendlyapp.feature.onboarding.screens.OnboardingScreen
 import com.example.parciallendlyapp.feature.splash.screens.SplashScreen
 
@@ -42,6 +43,14 @@ fun AppNavGraph(){
             SmsVerificationScreen(
                 onBackClick = { navController.popBackStack() },
                 onNextClick = { otp ->
+                    navController.navigate(Routes.PROFILE_DETAIL)
+                }
+            )
+        }
+        composable(Routes.PROFILE_DETAIL) {
+            ProfileDetailForm(
+                onBackClick = { navController.popBackStack() },
+                onNextClick = {
                     navController.navigate(Routes.MAIN) {
                         popUpTo(Routes.ONBOARDING) { inclusive = true }
                     }
