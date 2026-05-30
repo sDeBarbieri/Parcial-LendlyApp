@@ -33,5 +33,7 @@ val SolidDark = Color(0xFF121511)
 
 val LightGray = Color(0xFF6A6C6A)
 
+val ContainerGray = Color(0xFFFCF8F8)
+
 val OnboardingTitle = Color(0xFFB1D18A)
 val OnboardingDescription = Color(0xFFE5F5EA)
