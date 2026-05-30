@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.parciallendlyapp.feature.auth.screens.login.LoginScreen
+import com.example.parciallendlyapp.feature.auth.screens.login.VerifyPhoneNumberScreen
 import com.example.parciallendlyapp.feature.onboarding.screens.OnboardingScreen
 import com.example.parciallendlyapp.feature.splash.screens.SplashScreen
 
@@ -19,11 +20,19 @@ fun AppNavGraph(){
             OnboardingScreen(onFinish = {navController.navigate(Routes.LOGIN)})
         }
         composable(Routes.LOGIN){
-            LoginScreen(onLoginSuccess = {navController.navigate(Routes.MAIN){
-                popUpTo(Routes.SPLASH){
-                    inclusive = true
+            LoginScreen(onLoginSuccess = {
+                navController.navigate(Routes.VERIFY_PHONE)
+            })
+        }
+        composable(Routes.VERIFY_PHONE) {
+            VerifyPhoneNumberScreen(
+                onBackClick = { navController.popBackStack() },
+                onSendCodeClick = { _, _ ->
+                    navController.navigate(Routes.MAIN) {
+                        popUpTo(Routes.LOGIN) { inclusive = true }
+                    }
                 }
-            } })
+            )
         }
         composable(Routes.MAIN){
             MainNavGraph()
