@@ -8,6 +8,7 @@ import com.example.parciallendlyapp.feature.auth.screens.login.LoginScreen
 import com.example.parciallendlyapp.feature.auth.screens.login.SmsVerificationScreen
 import com.example.parciallendlyapp.feature.auth.screens.login.VerifyPhoneNumberScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.CreatePassword
+import com.example.parciallendlyapp.feature.auth.screens.register.DoneScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.ProfileDetailForm
 import com.example.parciallendlyapp.feature.onboarding.screens.OnboardingScreen
 import com.example.parciallendlyapp.feature.splash.screens.SplashScreen
@@ -60,6 +61,18 @@ fun AppNavGraph(){
             CreatePassword(
                 onBackClick = { navController.popBackStack() },
                 onNextClick = { password ->
+                    navController.navigate(Routes.DONE)
+                }
+            )
+        }
+        composable(Routes.DONE) {
+            DoneScreen(
+                onDoneClick = {
+                    navController.navigate(Routes.MAIN) {
+                        popUpTo(Routes.ONBOARDING) { inclusive = true }
+                    }
+                },
+                onCloseClick = {
                     navController.navigate(Routes.MAIN) {
                         popUpTo(Routes.ONBOARDING) { inclusive = true }
                     }
