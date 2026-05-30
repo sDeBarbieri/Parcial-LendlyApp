@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.example.parciallendlyapp.feature.manage.screens.*
+import com.example.parciallendlyapp.feature.manage.screens.SuccessScreen
 
 fun NavGraphBuilder.manageNavGraph(
     navController: NavHostController
@@ -20,7 +21,7 @@ fun NavGraphBuilder.manageNavGraph(
         }
 
         composable(Routes.EDIT_PROFILE) {
-            EditProfileScreen()
+            EditProfileScreen(navController)
         }
 
         composable(Routes.CREDIT_SCORE) {
@@ -37,6 +38,10 @@ fun NavGraphBuilder.manageNavGraph(
 
         composable(Routes.TERMS) {
             TermsScreen()
+        }
+
+        composable(Routes.SUCCESS) {
+            SuccessScreen(navController)
         }
     }
 }

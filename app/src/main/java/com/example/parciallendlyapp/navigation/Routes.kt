@@ -21,4 +21,6 @@ object Routes {
     const val HELP = "help"
 
     const val TERMS = "terms"
+
+    const val SUCCESS = "success"
 }
