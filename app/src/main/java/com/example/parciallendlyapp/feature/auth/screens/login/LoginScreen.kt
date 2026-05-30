@@ -44,14 +44,15 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(24.dp)
+                        .padding(horizontal = 24.dp, vertical = 16.dp)
                         .navigationBarsPadding()
                 ) {
                     LendlyButton(
                         text = stringResource(id = R.string.login_button),
                         onClick = onLoginSuccess,
                         containerColor = InteractiveAccent,
-                        contentColor = ContentPrimary
+                        contentColor = ContentPrimary,
+                        height = 48.dp
                     )
                 }
             }

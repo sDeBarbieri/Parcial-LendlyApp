@@ -100,7 +100,7 @@ fun VerifyPhoneNumberScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp)
+                        .padding(horizontal = 24.dp, vertical = 16.dp)
                         .navigationBarsPadding()
                 ) {
                     LendlyButton(
@@ -108,7 +108,7 @@ fun VerifyPhoneNumberScreen(
                         onClick = { onSendCodeClick(countryCode, phoneNumber) },
                         containerColor = InteractiveAccent,
                         contentColor = ContentPrimary,
-                        height = 56.dp
+                        height = 48.dp
                     )
                 }
             }
