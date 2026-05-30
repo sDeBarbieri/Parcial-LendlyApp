@@ -16,12 +16,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.navigation.Routes
+import com.example.parciallendlyapp.ui.theme.Inter
+import com.example.parciallendlyapp.ui.theme.Montserrat
 
 @Composable
 fun CreditScoreScreen(
@@ -49,9 +52,10 @@ fun CreditScoreScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "Credit Score",
+            text = stringResource(R.string.credit_score),
             fontSize = 30.sp,
-            fontWeight = FontWeight.Bold
+            fontFamily = Montserrat,
+            fontWeight = FontWeight.SemiBold
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -61,7 +65,7 @@ fun CreditScoreScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "General",
+            text = stringResource(R.string.manage_general),
             color = Color.Gray,
             fontSize = 12.sp
         )
@@ -69,7 +73,7 @@ fun CreditScoreScreen(
         Spacer(modifier = Modifier.height(12.dp))
 
         CreditItem(
-            "Account details",
+            stringResource(R.string.manage_account_details),
             R.drawable.manage_icon_accounts,
             onClick = {
                 navController.navigate(Routes.EDIT_PROFILE)
@@ -77,19 +81,19 @@ fun CreditScoreScreen(
         )
 
         CreditItem(
-            "Receiving by email or phone",
+            stringResource(R.string.manage_receiving),
             R.drawable.manage_icon_unread,
             onClick = {}
         )
 
         CreditItem(
-            "Scheduled pay",
+            stringResource(R.string.manage_scheduled_pay),
             R.drawable.manage_icon_event,
             onClick = {}
         )
 
         CreditItem(
-            "Settings",
+            stringResource(R.string.manage_settings),
             R.drawable.manage_icon_settings,
             onClick = {
                 navController.navigate(Routes.SETTINGS)
@@ -124,7 +128,7 @@ private fun CreditScoreCard() {
 
             Column(
                 modifier = Modifier
-                    .offset(y = 120.dp), // <-- mover sólo el texto
+                    .offset(y = 120.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
@@ -132,7 +136,8 @@ private fun CreditScoreCard() {
                     text = "720",
                     fontSize = 42.sp,
                     color = Color.Black,
-                    fontWeight = FontWeight.Bold
+                    fontFamily = Montserrat,
+                    fontWeight = FontWeight.SemiBold
                 )
             }
         }
@@ -149,13 +154,17 @@ private fun CreditScoreCard() {
             Text(
                 text = "300",
                 color = Color.Gray,
-                fontSize = 18.sp
+                fontSize = 18.sp,
+                fontFamily = Inter,
+                fontWeight = FontWeight.Normal
             )
 
             Text(
                 text = "850",
                 color = Color.Gray,
-                fontSize = 18.sp
+                fontSize = 18.sp,
+                fontFamily = Inter,
+                fontWeight = FontWeight.Normal
             )
         }
 
@@ -166,14 +175,17 @@ private fun CreditScoreCard() {
         ) {
 
             Text(
-                text = "Your Score is ",
-                color = Color.Gray
+                text = stringResource(R.string.credit_score_your_score_is),
+                color = Color.Gray,
+                fontFamily = Inter,
+                fontWeight = FontWeight.Normal
             )
 
             Text(
-                text = "Good",
+                text = stringResource(R.string.credit_score_good),
                 color = Color.Black,
-                fontWeight = FontWeight.Bold
+                fontFamily = Montserrat,
+                fontWeight = FontWeight.SemiBold
             )
         }
 
@@ -184,10 +196,11 @@ private fun CreditScoreCard() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "What is Credit Score?",
-            fontWeight = FontWeight.SemiBold,
+            text = stringResource(R.string.credit_score_what_is),
             color = Color.Black,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            fontFamily = Inter,
+            fontWeight = FontWeight.SemiBold
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -237,7 +250,9 @@ private fun CreditItem(
 
         Text(
             text = title,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            fontFamily = Inter,
+            fontWeight = FontWeight.Normal
         )
 
         Icon(
