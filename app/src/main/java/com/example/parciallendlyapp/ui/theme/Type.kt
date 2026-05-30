@@ -10,11 +10,14 @@ import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
 
 val Montserrat = FontFamily(
-    Font(R.font.montserrat_extra_bold, FontWeight.ExtraBold)
+    Font(R.font.montserrat_extra_bold, FontWeight.ExtraBold),
+    Font(R.font.montserrat_semi_bold, FontWeight.SemiBold)
 )
 
 val Inter = FontFamily(
-    Font(R.font.inter_regular, FontWeight.Normal)
+    Font(R.font.inter_regular, FontWeight.Normal),
+    Font(R.font.inter_medium, FontWeight.Medium),
+    Font(R.font.inter_semi_bold, FontWeight.SemiBold)
 )
 
 val Typography = Typography(

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -21,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
+import com.example.parciallendlyapp.components.LendlyButton
 import com.example.parciallendlyapp.feature.onboarding.domain.model.OnboardingPageModel
 import com.example.parciallendlyapp.ui.theme.*
 import kotlinx.coroutines.launch
@@ -49,14 +49,15 @@ fun OnboardingScreen(onFinish: () -> Unit) {
     val scope = rememberCoroutineScope()
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .background(ContentPrimary)
+            .padding(vertical = 32.dp) // Padding de 32dp en top y bottom solicitado
     ) {
         // Logo Section
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 32.dp), // Solo padding arriba para el logo
+                .fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -66,14 +67,13 @@ fun OnboardingScreen(onFinish: () -> Unit) {
             )
         }
 
-        // EL GAP DE 32PX (DP) CON EL LOGO
         Spacer(modifier = Modifier.height(32.dp))
 
         // Pager Section
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.weight(1f),
-            verticalAlignment = Alignment.Top // Alinea el contenido del pager al tope
+            verticalAlignment = Alignment.Top
         ) { position ->
             OnboardingContent(page = pages[position])
         }
@@ -82,7 +82,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 32.dp, start = 32.dp, end = 32.dp),
+                .padding(horizontal = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Pager Indicators (Dots)
@@ -107,68 +107,33 @@ fun OnboardingScreen(onFinish: () -> Unit) {
             Spacer(modifier = Modifier.height(24.dp))
 
             if (pagerState.currentPage == pages.size - 1) {
-                // Last Page: Log In and Sign up for free
-                OutlinedButton(
+                LendlyButton(
+                    text = "Log In",
                     onClick = { /* Handle Log In */ },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp), // Ajustado a 48px
-                    shape = RoundedCornerShape(100.dp), // Ajustado a 100px
-                    border = BorderStroke(1.dp, Color.White),
-                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
-                ) {
-                    Text(
-                        text = "Log In",
-                        fontFamily = Montserrat,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
-                }
+                    containerColor = Color.Transparent,
+                    contentColor = Color.White,
+                    border = BorderStroke(1.dp, Color.White)
+                )
 
-                Spacer(modifier = Modifier.height(8.dp)) // Gap ajustado a 8px
+                Spacer(modifier = Modifier.height(8.dp))
 
-                Button(
+                LendlyButton(
+                    text = "Sign up for free",
                     onClick = { onFinish() },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = InteractiveAccent,
-                        contentColor = ContentPrimary
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp), // Ajustado a 48px
-                    shape = RoundedCornerShape(100.dp) // Ajustado a 100px
-                ) {
-                    Text(
-                        text = "Sign up for free",
-                        fontFamily = Montserrat,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
-                }
+                    containerColor = InteractiveAccent,
+                    contentColor = ContentPrimary
+                )
             } else {
-                // Other Pages: Get Started
-                Button(
+                LendlyButton(
+                    text = "Get Started",
                     onClick = {
                         scope.launch {
                             pagerState.animateScrollToPage(pagerState.currentPage + 1)
                         }
                     },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = InteractiveAccent,
-                        contentColor = ContentPrimary // Cambiado a ContentPrimary para contraste
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp), // Ajustado a 48px
-                    shape = RoundedCornerShape(100.dp) // Ajustado a 100px
-                ) {
-                    Text(
-                        text = "Get Started",
-                        fontFamily = Montserrat,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
-                }
+                    containerColor = InteractiveAccent,
+                    contentColor = ContentPrimary
+                )
             }
         }
     }
@@ -180,35 +145,34 @@ fun OnboardingContent(page: OnboardingPageModel) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Contenedor de la imagen - ajustado para que ocupe más espacio y llene el ancho
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1.5f),
-            // ELIMINADO EL PADDING TOP AQUÍ para respetar el Spacer de arriba
-            contentAlignment = Alignment.CenterEnd
+            contentAlignment = Alignment.BottomCenter
         ) {
             Image(
                 painter = painterResource(id = page.imageRes),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxHeight()
-                    .padding(start = 24.dp)
-                    .fillMaxWidth(),
-                alignment = Alignment.CenterEnd,
-                contentScale = ContentScale.FillHeight
+                    .fillMaxWidth()
+                    .padding(start = 24.dp), // Agregado 24dp de padding izquierdo
+                contentScale = ContentScale.FillWidth
             )
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Sección de textos (se mantiene igual)
+        // Sección de textos
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f)
-                .padding(horizontal = 32.dp),
+                .padding(horizontal = 32.dp)
+                .weight(1f),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Top
         ) {
             Text(
                 text = page.title,
