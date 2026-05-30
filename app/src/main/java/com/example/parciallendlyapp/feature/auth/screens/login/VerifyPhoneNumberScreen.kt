@@ -31,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -67,7 +68,7 @@ fun VerifyPhoneNumberScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_arrow_left),
-                            contentDescription = "Back",
+                            contentDescription = stringResource(id = R.string.verify_phone_back_desc),
                             tint = ContentPrimary
                         )
                     }
@@ -76,7 +77,7 @@ fun VerifyPhoneNumberScreen(
                     IconButton(onClick = onInfoClick) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_info),
-                            contentDescription = "Info",
+                            contentDescription = stringResource(id = R.string.verify_phone_info_desc),
                             tint = ContentPrimary
                         )
                     }
@@ -103,7 +104,7 @@ fun VerifyPhoneNumberScreen(
                         .navigationBarsPadding()
                 ) {
                     LendlyButton(
-                        text = "Send Code",
+                        text = stringResource(id = R.string.verify_phone_send_code_button),
                         onClick = { onSendCodeClick(countryCode, phoneNumber) },
                         containerColor = InteractiveAccent,
                         contentColor = ContentPrimary,
@@ -122,7 +123,7 @@ fun VerifyPhoneNumberScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "Verify your phone number with a code",
+                text = stringResource(id = R.string.verify_phone_title),
                 style = TextStyle(
                     fontFamily = Montserrat,
                     fontWeight = FontWeight.SemiBold,
@@ -137,7 +138,7 @@ fun VerifyPhoneNumberScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "We will send you a One-Time-Password (OTP) to confirm you number.",
+                text = stringResource(id = R.string.verify_phone_subtitle),
                 style = TextStyle(
                     fontFamily = Inter,
                     fontWeight = FontWeight.Normal,
@@ -152,7 +153,7 @@ fun VerifyPhoneNumberScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Your Phone Number",
+                text = stringResource(id = R.string.verify_phone_number_label),
                 style = TextStyle(
                     fontFamily = Inter,
                     fontWeight = FontWeight.Normal,
@@ -192,7 +193,7 @@ fun VerifyPhoneNumberScreen(
                     modifier = Modifier.weight(1f),
                     placeholder = {
                         Text(
-                            text = "991251255",
+                            text = stringResource(id = R.string.verify_phone_number_placeholder),
                             style = TextStyle(
                                 fontFamily = Inter,
                                 fontSize = 16.sp,

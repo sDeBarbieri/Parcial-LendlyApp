@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -32,17 +33,17 @@ fun OnboardingScreen(
 ) {
     val pages = listOf(
         OnboardingPageModel(
-            title = "QUICK LOANS",
-            description = "Trusted for easy,\nfast loan approvals.",
+            title = stringResource(id = R.string.onboarding_title_1),
+            description = stringResource(id = R.string.onboarding_desc_1),
             imageRes = R.drawable.onboarding_1
         ),
         OnboardingPageModel(
-            title = "LOAN PRODUCT\nIN-APP",
-            description = "Many products to loan.",
+            title = stringResource(id = R.string.onboarding_title_2),
+            description = stringResource(id = R.string.onboarding_desc_2),
             imageRes = R.drawable.onboarding_2
         ),
         OnboardingPageModel(
-            title = "TRACK & PAY\nEASILY",
+            title = stringResource(id = R.string.onboarding_title_3),
             description = "", // No se ve descripción en la imagen 3
             imageRes = R.drawable.onboarding_3
         )
@@ -65,7 +66,7 @@ fun OnboardingScreen(
         ) {
             Image(
                 painter = painterResource(id = R.drawable.onboarding_logo),
-                contentDescription = "Lendly Logo",
+                contentDescription = stringResource(id = R.string.onboarding_logo_desc),
                 modifier = Modifier.size(width = 116.5.dp, height = 40.dp)
             )
         }
@@ -111,7 +112,7 @@ fun OnboardingScreen(
 
             if (pagerState.currentPage == pages.size - 1) {
                 LendlyButton(
-                    text = "Log In",
+                    text = stringResource(id = R.string.onboarding_login),
                     onClick = onLoginClick,
                     containerColor = Color.Transparent,
                     contentColor = Color.White,
@@ -121,14 +122,14 @@ fun OnboardingScreen(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 LendlyButton(
-                    text = "Sign up for free",
+                    text = stringResource(id = R.string.onboarding_signup),
                     onClick = onSignUpClick,
                     containerColor = InteractiveAccent,
                     contentColor = ContentPrimary
                 )
             } else {
                 LendlyButton(
-                    text = "Get Started",
+                    text = stringResource(id = R.string.onboarding_get_started),
                     onClick = {
                         scope.launch {
                             pagerState.animateScrollToPage(pagerState.currentPage + 1)

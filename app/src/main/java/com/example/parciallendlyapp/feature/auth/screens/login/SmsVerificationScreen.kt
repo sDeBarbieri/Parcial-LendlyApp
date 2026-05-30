@@ -29,6 +29,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -68,7 +69,7 @@ fun SmsVerificationScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_arrow_left),
-                            contentDescription = "Back",
+                            contentDescription = stringResource(id = R.string.sms_verification_back_desc),
                             tint = ContentPrimary
                         )
                     }
@@ -77,7 +78,7 @@ fun SmsVerificationScreen(
                     IconButton(onClick = onInfoClick) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_info),
-                            contentDescription = "Info",
+                            contentDescription = stringResource(id = R.string.sms_verification_info_desc),
                             tint = ContentPrimary
                         )
                     }
@@ -104,7 +105,7 @@ fun SmsVerificationScreen(
                         .navigationBarsPadding()
                 ) {
                     LendlyButton(
-                        text = "Next",
+                        text = stringResource(id = R.string.sms_verification_next_button),
                         onClick = { onNextClick(otpValues.joinToString("")) },
                         containerColor = InteractiveAccent,
                         contentColor = ContentPrimary,
@@ -123,7 +124,7 @@ fun SmsVerificationScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "Enter the code",
+                text = stringResource(id = R.string.sms_verification_title),
                 style = TextStyle(
                     fontFamily = Montserrat,
                     fontWeight = FontWeight.SemiBold,
@@ -138,7 +139,7 @@ fun SmsVerificationScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Enter the security code we sent to $phoneNumber",
+                text = stringResource(id = R.string.sms_verification_subtitle, phoneNumber),
                 style = TextStyle(
                     fontFamily = Inter,
                     fontWeight = FontWeight.Normal,
@@ -153,7 +154,7 @@ fun SmsVerificationScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Your Phone Number",
+                text = stringResource(id = R.string.sms_verification_phone_label),
                 style = TextStyle(
                     fontFamily = Inter,
                     fontWeight = FontWeight.Normal,
@@ -184,7 +185,7 @@ fun SmsVerificationScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Didn't received a code?",
+                text = stringResource(id = R.string.sms_verification_resend_link),
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable { onResendClick() },
