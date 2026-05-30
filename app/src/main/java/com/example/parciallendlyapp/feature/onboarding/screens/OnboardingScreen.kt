@@ -44,7 +44,7 @@ fun OnboardingScreen(
         ),
         OnboardingPageModel(
             title = stringResource(id = R.string.onboarding_title_3),
-            description = "", // No se ve descripción en la imagen 3
+            description = "", 
             imageRes = R.drawable.onboarding_3
         )
     )
@@ -56,7 +56,7 @@ fun OnboardingScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(ContentPrimary)
-            .padding(vertical = 32.dp) // Padding de 32dp en top y bottom solicitado
+            .padding(vertical = 32.dp)
     ) {
         // Logo Section
         Box(
@@ -67,7 +67,7 @@ fun OnboardingScreen(
             Image(
                 painter = painterResource(id = R.drawable.onboarding_logo),
                 contentDescription = stringResource(id = R.string.onboarding_logo_desc),
-                modifier = Modifier.size(width = 116.5.dp, height = 40.dp)
+                modifier = Modifier.size(width = 117.dp, height = 40.dp)
             )
         }
 
@@ -86,7 +86,7 @@ fun OnboardingScreen(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp),
+                .padding(horizontal = 24.dp), // horizontal padding for ~361dp width
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Pager Indicators (Dots)
@@ -116,16 +116,18 @@ fun OnboardingScreen(
                     onClick = onLoginClick,
                     containerColor = Color.Transparent,
                     contentColor = Color.White,
-                    border = BorderStroke(1.dp, Color.White)
+                    border = BorderStroke(1.dp, Color.White),
+                    height = 48.dp
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.dp)) // Gap: 8px
 
                 LendlyButton(
                     text = stringResource(id = R.string.onboarding_signup),
                     onClick = onSignUpClick,
                     containerColor = InteractiveAccent,
-                    contentColor = ContentPrimary
+                    contentColor = ContentPrimary,
+                    height = 48.dp
                 )
             } else {
                 LendlyButton(
@@ -136,7 +138,8 @@ fun OnboardingScreen(
                         }
                     },
                     containerColor = InteractiveAccent,
-                    contentColor = ContentPrimary
+                    contentColor = ContentPrimary,
+                    height = 48.dp
                 )
             }
         }
@@ -149,7 +152,6 @@ fun OnboardingContent(page: OnboardingPageModel) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Contenedor de la imagen - ajustado para que ocupe más espacio y llene el ancho
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -162,18 +164,17 @@ fun OnboardingContent(page: OnboardingPageModel) {
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .padding(start = 24.dp), // Agregado 24dp de padding izquierdo
+                    .padding(start = 24.dp),
                 contentScale = ContentScale.FillWidth
             )
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Sección de textos
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp)
+                .padding(horizontal = 24.dp) // Adjusted for consistency
                 .weight(1f),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
