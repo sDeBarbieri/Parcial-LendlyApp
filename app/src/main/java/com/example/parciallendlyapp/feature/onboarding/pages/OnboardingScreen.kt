@@ -180,35 +180,38 @@ fun OnboardingContent(page: OnboardingPage) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Contenedor de la imagen
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1.5f),
-            // ELIMINADO EL PADDING TOP AQUÍ para respetar el Spacer de arriba
-            contentAlignment = Alignment.CenterEnd
+                .weight(1.3f), // Reducimos un poco el peso para dar aire abajo
+            contentAlignment = Alignment.BottomEnd // Alineamos al fondo y a la derecha
         ) {
             Image(
                 painter = painterResource(id = page.imageRes),
                 contentDescription = null,
                 modifier = Modifier
-                    .fillMaxHeight()
-                    .padding(start = 24.dp)
-                    .fillMaxWidth(),
+                    .padding(start = 24.dp) // Margen izquierdo de Figma
+                    .fillMaxWidth()
+                    // Mantiene la forma 674x333 sin importar el dispositivo
+                    .aspectRatio(674f / 333f),
                 alignment = Alignment.CenterEnd,
-                contentScale = ContentScale.FillHeight
+                // FIT asegura que la imagen se vea COMPLETA sin recortes
+                contentScale = ContentScale.Fit
             )
         }
 
+        // Gap de 32dp exactos entre la imagen y el título
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Sección de textos (se mantiene igual)
+        // Sección de textos
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
                 .padding(horizontal = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Top // Los textos empiezan arriba del espacio sobrante
         ) {
             Text(
                 text = page.title,
@@ -235,3 +238,4 @@ fun OnboardingContent(page: OnboardingPage) {
         }
     }
 }
+
