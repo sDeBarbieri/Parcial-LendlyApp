@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -26,21 +27,24 @@ import com.example.parciallendlyapp.ui.theme.*
 import kotlinx.coroutines.launch
 
 @Composable
-fun OnboardingScreen(onFinish: () -> Unit) {
+fun OnboardingScreen(
+    onLoginClick: () -> Unit,
+    onSignUpClick: () -> Unit
+) {
     val pages = listOf(
         OnboardingPageModel(
-            title = "QUICK LOANS",
-            description = "Trusted for easy,\nfast loan approvals.",
+            title = stringResource(id = R.string.onboarding_title_1),
+            description = stringResource(id = R.string.onboarding_desc_1),
             imageRes = R.drawable.onboarding_1
         ),
         OnboardingPageModel(
-            title = "LOAN PRODUCT\nIN-APP",
-            description = "Many products to loan.",
+            title = stringResource(id = R.string.onboarding_title_2),
+            description = stringResource(id = R.string.onboarding_desc_2),
             imageRes = R.drawable.onboarding_2
         ),
         OnboardingPageModel(
-            title = "TRACK & PAY\nEASILY",
-            description = "", // No se ve descripción en la imagen 3
+            title = stringResource(id = R.string.onboarding_title_3),
+            description = "", 
             imageRes = R.drawable.onboarding_3
         )
     )
@@ -52,7 +56,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
         modifier = Modifier
             .fillMaxSize()
             .background(ContentPrimary)
-            .padding(vertical = 32.dp) // Padding de 32dp en top y bottom solicitado
+            .padding(vertical = 32.dp)
     ) {
         // Logo Section
         Box(
@@ -62,8 +66,8 @@ fun OnboardingScreen(onFinish: () -> Unit) {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.onboarding_logo),
-                contentDescription = "Lendly Logo",
-                modifier = Modifier.size(width = 116.5.dp, height = 40.dp)
+                contentDescription = stringResource(id = R.string.onboarding_logo_desc),
+                modifier = Modifier.size(width = 117.dp, height = 40.dp)
             )
         }
 
@@ -82,7 +86,7 @@ fun OnboardingScreen(onFinish: () -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp),
+                .padding(horizontal = 24.dp), // horizontal padding for ~361dp width
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Pager Indicators (Dots)
@@ -108,31 +112,34 @@ fun OnboardingScreen(onFinish: () -> Unit) {
 
             if (pagerState.currentPage == pages.size - 1) {
                 LendlyButton(
-                    text = "Log In",
-                    onClick = { /* Handle Log In */ },
+                    text = stringResource(id = R.string.onboarding_login),
+                    onClick = onLoginClick,
                     containerColor = Color.Transparent,
                     contentColor = Color.White,
-                    border = BorderStroke(1.dp, Color.White)
+                    border = BorderStroke(1.dp, Color.White),
+                    height = 48.dp
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.dp)) // Gap: 8px
 
                 LendlyButton(
-                    text = "Sign up for free",
-                    onClick = { onFinish() },
+                    text = stringResource(id = R.string.onboarding_signup),
+                    onClick = onSignUpClick,
                     containerColor = InteractiveAccent,
-                    contentColor = ContentPrimary
+                    contentColor = ContentPrimary,
+                    height = 48.dp
                 )
             } else {
                 LendlyButton(
-                    text = "Get Started",
+                    text = stringResource(id = R.string.onboarding_get_started),
                     onClick = {
                         scope.launch {
                             pagerState.animateScrollToPage(pagerState.currentPage + 1)
                         }
                     },
                     containerColor = InteractiveAccent,
-                    contentColor = ContentPrimary
+                    contentColor = ContentPrimary,
+                    height = 48.dp
                 )
             }
         }
@@ -145,7 +152,6 @@ fun OnboardingContent(page: OnboardingPageModel) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Contenedor de la imagen - ajustado para que ocupe más espacio y llene el ancho
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -158,18 +164,17 @@ fun OnboardingContent(page: OnboardingPageModel) {
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .padding(start = 24.dp), // Agregado 24dp de padding izquierdo
+                    .padding(start = 24.dp),
                 contentScale = ContentScale.FillWidth
             )
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Sección de textos
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp)
+                .padding(horizontal = 24.dp) // Adjusted for consistency
                 .weight(1f),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
