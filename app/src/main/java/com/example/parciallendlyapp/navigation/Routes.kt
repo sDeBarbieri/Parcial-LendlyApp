@@ -10,4 +10,14 @@ object Routes {
     const val SHOP = "shop"
     const val HISTORY = "history"
     const val MANAGE = "manage"
+
+    const val EDIT_PROFILE = "edit_profile"
+
+    const val CREDIT_SCORE = "credit_score"
+
+    const val SETTINGS = "settings"
+
+    const val HELP = "help"
+
+    const val TERMS = "terms"
 }

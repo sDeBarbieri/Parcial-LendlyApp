@@ -10,9 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
 import com.example.parciallendlyapp.feature.home.screens.HomeScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
-import com.example.parciallendlyapp.feature.manage.screens.ManageScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
-
 @Composable
 fun MainNavGraph() {
     val navController = rememberNavController()
@@ -37,9 +35,7 @@ fun MainNavGraph() {
             composable(Routes.HISTORY) {
                 HistoryScreen()
             }
-            composable(Routes.MANAGE) {
-                ManageScreen()
-            }
+            manageNavGraph(navController)
         }
     }
 }
