@@ -169,7 +169,8 @@ fun FilterScreen(
                     }
                 ) {
                     Text(
-                        text = "Apply"
+                        text = "Apply",
+                        color = Color.Black
                     )
                 }
             }

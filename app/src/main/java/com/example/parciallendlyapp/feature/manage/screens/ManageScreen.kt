@@ -259,7 +259,7 @@ private fun ManageItem(
         Icon(
             painter = painterResource(id = R.drawable.share_arrow_right),
             contentDescription = null,
-            tint = Color.White
+            tint = Color.Unspecified
         )
     }
 }
