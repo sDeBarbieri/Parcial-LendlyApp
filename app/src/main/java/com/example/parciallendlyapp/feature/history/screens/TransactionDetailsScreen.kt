@@ -1,11 +1,11 @@
 package com.example.parciallendlyapp.feature.history.screens
 
+import com.example.parciallendlyapp.components.Description
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -158,7 +158,7 @@ fun TransactionDetailsScreen(
                 DetailRow(
                     label = "Transaction Number",
                     value = "#200412312551",
-                    valueColor = Color(0xFF3C6839),
+                    valueColor = InteractiveControl,
                     isLink = true
                 )
                 
@@ -188,7 +188,7 @@ fun TransactionDetailsScreen(
                         fontFamily = Inter,
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp,
-                        color = Color(0xFF3C6839),
+                        color = InteractiveControl,
                         textDecoration = TextDecoration.Underline
                     )
                 )
@@ -209,24 +209,14 @@ fun DetailRow(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            text = label,
-            style = TextStyle(
-                fontFamily = Inter,
-                fontWeight = FontWeight.Normal,
-                fontSize = 14.sp,
-                color = ContentTertiary
-            )
-        )
-        Text(
+        Description(text = label, color = ContentTertiary)
+
+        Description(
             text = value,
-            style = TextStyle(
-                fontFamily = Inter,
-                fontWeight = if (isLink) FontWeight.Bold else FontWeight.Medium,
-                fontSize = 14.sp,
-                color = valueColor,
-                textDecoration = if (isLink) TextDecoration.Underline else TextDecoration.None
-            )
+            color = valueColor,
+            fontWeight = if (isLink) FontWeight.Bold else FontWeight.Medium,
+            textDecoration = if (isLink) TextDecoration.Underline else TextDecoration.None
         )
     }
 }
+
