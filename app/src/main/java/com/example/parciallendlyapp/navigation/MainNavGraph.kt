@@ -34,9 +34,10 @@ fun MainNavGraph() {
             composable(Routes.CASH_IN) {
                 CashInScreen(onBackClick = { navController.popBackStack() })
             }
-            composable(Routes.LOANS) {
-                LoanScreen()
-            }
+
+            // Grafo modularizado de Préstamos
+            loanNavGraph(navController)
+
             composable(Routes.SHOP) {
                 ShopScreen(navController)
             }
@@ -54,6 +55,8 @@ fun MainNavGraph() {
                     }
                 )
             }
+
+            // Grafo modularizado de Gestión
             manageNavGraph(navController)
 
             composable(Routes.NOTIFICATIONS) {

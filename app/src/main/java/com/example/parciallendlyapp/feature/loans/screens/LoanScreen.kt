@@ -11,7 +11,9 @@ import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.*
 
 @Composable
-fun LoanScreen() {
+fun LoanScreen(
+    onGetLoanClick: () -> Unit = {}
+) {
     Scaffold(
         topBar = {
             TopBar(
@@ -82,7 +84,7 @@ fun LoanScreen() {
 
             LendlyButton(
                 text = "Get This Loan",
-                onClick = { /* Acción */ }
+                onClick = onGetLoanClick
             )
 
             Spacer(modifier = Modifier.height(24.dp))
