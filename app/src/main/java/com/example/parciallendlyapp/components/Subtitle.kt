@@ -7,8 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.example.parciallendlyapp.ui.theme.Montserrat
-
+import com.example.parciallendlyapp.ui.theme.Inter
 @Composable
 fun Subtitle(
     title: String,
@@ -18,7 +17,7 @@ fun Subtitle(
         text = title,
         modifier = modifier,
         style = TextStyle(
-            fontFamily = Montserrat,
+            fontFamily = Inter,
             fontWeight = FontWeight.SemiBold,
             fontSize = 22.sp,
             lineHeight = 28.sp

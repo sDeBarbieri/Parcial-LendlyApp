@@ -1,8 +1,11 @@
 package com.example.parciallendlyapp.feature.home.screens
 
-import androidx.compose.animation.core.copy
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import com.example.parciallendlyapp.ui.theme.Inter
+import com.example.parciallendlyapp.ui.theme.Montserrat
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,30 +13,33 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.parciallendlyapp.components.Title
-import com.example.parciallendlyapp.components.TopBar
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.components.CashInButton
-import com.example.parciallendlyapp.components.SeeAllButton
-import com.example.parciallendlyapp.components.Subtitle
+import com.example.parciallendlyapp.components.*
+import com.example.parciallendlyapp.feature.home.domain.model.LoanModel
+import com.example.parciallendlyapp.feature.home.domain.model.ProductModel
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 
 @Composable
 fun HomeScreen() {
-    // Scaffold nos permite estructurar la pantalla con la TopBar
+    // Datos de ejemplo
+    val loansFromApi = listOf(
+        LoanModel("Nike Inc.", "₱400.00", "Fees of February", R.drawable.share_avatar),
+        LoanModel("Apple Inc.", "₱1500.00", "Fees of March", R.drawable.share_avatar),
+        LoanModel("Adidas", "₱600.00", "Fees of April", R.drawable.share_avatar),
+    )
+    val productsFromApi = listOf(
+        ProductModel("iPhone 12 Pro", "₱1,200 x 24 mo", R.drawable.share_avatar),
+        ProductModel("Watch Series 7", "₱800 x 12 mo", R.drawable.share_avatar),
+        ProductModel("MacBook Air", "₱2,500 x 36 mo", R.drawable.share_avatar)
+    )
+
     Scaffold(
         topBar = {
             TopBar(
@@ -41,95 +47,113 @@ fun HomeScreen() {
                 onProfileClick = { /* Acción */ }
             )
         }
-
     ) { innerPadding ->
-        // El contenido de la pantalla debe ir dentro de Box o Column
-        // usando el innerPadding para que la TopBar no lo tape.
-        Column(
+        // Ahora HomeContent es una función independiente
+        HomeContent(
+            modifier = Modifier.padding(innerPadding),
+            loans = loansFromApi,
+            products = productsFromApi
+        )
+    }
+}
+
+@Composable
+fun HomeContent(
+    modifier: Modifier = Modifier,
+    loans: List<LoanModel>,
+    products: List<ProductModel>
+) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(horizontal = 20.dp)
+    ) {
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Title(text = stringResource(id = R.string.home_screen_title))
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Balance Card
+        Surface(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(horizontal = 20.dp) // Margen estándar para la app
+                .fillMaxWidth()
+                .height(136.dp),
+            color = ContainerGray,
+            shape = RoundedCornerShape(16.dp)
         ) {
-            // Separación de la TopBar
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Título
-            Title(text = stringResource(id = R.string.home_screen_title))
-
-            Spacer(modifier = Modifier.height(16.dp)) // Espacio entre título y marco
-
-            Surface(
-                modifier = Modifier
-                    .width(361.dp)  // Ancho exacto solicitado
-                    .height(136.dp), // Alto exacto solicitado
-                color = ContainerGray,
-                shape = RoundedCornerShape(16.dp)
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Column(
-                    modifier = Modifier
-                        .padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // PARTE SUPERIOR: Texto pequeño y Botón
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = stringResource(id = R.string.home_balance),
-                            style = androidx.compose.ui.text.TextStyle(
-                                fontFamily = com.example.parciallendlyapp.ui.theme.Inter,
-                                fontWeight = androidx.compose.ui.text.font.FontWeight.Medium,
-                                fontSize = 12.sp,
-                                lineHeight = 16.sp,
-                                letterSpacing = 0.5.sp,
-                                textAlign = androidx.compose.ui.text.style.TextAlign.Center
-                            ),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-
-                        CashInButton(
-                            text = stringResource(id = R.string.home_cashin_button),
-                            iconResId = R.drawable.home_icon_add,
-                            onClick = { /* Lógica de cash in */ }
-                        )
-                    }
-
-                    // PARTE INFERIOR: Texto grande
                     Text(
-                        text = stringResource(id = R.string.home_balance_number),
-                        style = androidx.compose.ui.text.TextStyle(
-                            fontFamily = com.example.parciallendlyapp.ui.theme.Montserrat,
-                            fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold,
-                            fontSize = 32.sp,
-                            lineHeight = 40.sp,
-                            letterSpacing = 0.sp
+                        text = stringResource(id = R.string.home_balance),
+                        style = TextStyle(
+                            fontFamily = Inter,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 12.sp,
+                            lineHeight = 16.sp,
+                            letterSpacing = 0.5.sp
                         ),
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    CashInButton(
+                        text = stringResource(id = R.string.home_cashin_button),
+                        iconResId = R.drawable.home_icon_add,
+                        onClick = { /* Lógica */ }
                     )
                 }
+
+                Text(
+                    text = stringResource(id = R.string.home_balance_number),
+                    style = TextStyle(
+                        fontFamily = Montserrat,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 32.sp,
+                        lineHeight = 40.sp
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
             }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Subtitle(title = stringResource(id = R.string.home_sutitle_1))
-                SeeAllButton(onClick = {
-                    /* Acción de navegación */
-                })
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Acá va a estar la lista
-
         }
-    }
 
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // Sección Préstamos
+        HeaderRow(
+            title = stringResource(id = R.string.home_sutitle_1),
+            onSeeAllClick = { /* Ver todos */ }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            loans.take(2).forEach { loan ->
+                LoanCard(
+                    loanName = loan.name,
+                    amount = loan.amount,
+                    date = loan.date,
+                    imageResId = loan.imageRes
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // Sección Productos
+        HeaderRow(
+            title = stringResource(id = R.string.home_sutitle_2),
+            onSeeAllClick = { /* Ver todos */ }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        ProductList(products = products)
+    }
 }
