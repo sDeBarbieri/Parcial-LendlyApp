@@ -29,4 +29,6 @@ object Routes {
 
     const val SUCCESS = "success"
     const val TRANSACTION_DETAILS = "transaction_details"
+
+    const val NOTIFICATIONS = "notifications"
 }
