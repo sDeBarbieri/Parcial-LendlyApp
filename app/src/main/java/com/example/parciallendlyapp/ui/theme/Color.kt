@@ -37,3 +37,5 @@ val ContainerGray = Color(0xFFFCF8F8)
 
 val OnboardingTitle = Color(0xFFB1D18A)
 val OnboardingDescription = Color(0xFFE5F5EA)
+
+val GreenMain = Color(0xFF4C662B)
