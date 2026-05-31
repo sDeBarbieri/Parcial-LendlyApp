@@ -29,15 +29,15 @@ fun NavGraphBuilder.manageNavGraph(
         }
 
         composable(Routes.SETTINGS) {
-            SettingsScreen()
+            SettingsScreen(navController)
         }
 
         composable(Routes.HELP) {
-            HelpScreen()
+            HelpScreen(navController)
         }
 
         composable(Routes.TERMS) {
-            TermsScreen()
+            TermsScreen(navController)
         }
 
         composable(Routes.SUCCESS) {

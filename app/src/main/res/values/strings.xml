@@ -92,4 +92,26 @@
     <string name="credit_score_good">Good</string>
     <string name="credit_score_what_is">What is Credit Score?</string>
     <string name="credit_score_your_score_is">Your Score is</string>
+
+    <!-- Settings Screen-->
+    <string name="settings">Settings</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_security">Security</string>
+    <string name="settings_preferences">Preferences</string>
+    <string name="settings_about">About</string>
+
+    <!-- Terms and conditions Screen -->
+    <string name="terms">Terms and Conditions</string>
+    <string name="terms_Acceptance">1. Acceptance of Terms</string>
+    <string name="terms_Eligibility">2. User Eligibility</string>
+    <string name="terms_loan_services">3. Loan Services</string>
+    <string name="terms_privacy">4. Privacy and Data</string>
+    <string name="terms_user_responsibilities">5. User Responsibilities</string>
+    <string name="terms_limitation_liability">6. Limitation of Liability</string>
+    <string name="terms_changes_terms">7. Changes to Terms</string>
+
+    <!-- Help Screen -->
+    <string name="help_center">Help Center</string>
+    <string name="help_center_contact">Contact Support</string>
+    <string name="help_center_Questions">Frequently Asked Questions</string>
 </resources>
