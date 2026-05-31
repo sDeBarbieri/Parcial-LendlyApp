@@ -8,9 +8,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
+import com.example.parciallendlyapp.feature.history.screens.TransactionDetailsScreen
 import com.example.parciallendlyapp.feature.home.screens.HomeScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
+
 @Composable
 fun MainNavGraph() {
     val navController = rememberNavController()
@@ -33,7 +35,18 @@ fun MainNavGraph() {
                 ShopScreen()
             }
             composable(Routes.HISTORY) {
-                HistoryScreen()
+                HistoryScreen(
+                    onTransactionClick = {
+                        navController.navigate(Routes.TRANSACTION_DETAILS)
+                    }
+                )
+            }
+            composable(Routes.TRANSACTION_DETAILS) {
+                TransactionDetailsScreen(
+                    onBackClick = {
+                        navController.popBackStack()
+                    }
+                )
             }
             manageNavGraph(navController)
         }

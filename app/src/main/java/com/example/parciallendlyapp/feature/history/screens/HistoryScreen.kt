@@ -24,7 +24,9 @@ import com.example.parciallendlyapp.ui.theme.ContentTertiary
 import com.example.parciallendlyapp.ui.theme.Inter
 
 @Composable
-fun HistoryScreen() {
+fun HistoryScreen(
+    onTransactionClick: () -> Unit = {}
+) {
     Scaffold(
         topBar = {
             TopBar(
@@ -109,35 +111,40 @@ fun HistoryScreen() {
                     time = "9:07 AM",
                     description = "Paid this month",
                     company = "Apple Inc.",
-                    amount = "1,2555 PHP"
+                    amount = "1,2555 PHP",
+                    onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_arrow_upward,
                     time = "9:07 AM",
                     description = "Paid this month",
                     company = "Apple Inc.",
-                    amount = "1,2555 PHP"
+                    amount = "1,2555 PHP",
+                    onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_arrow_upward,
                     time = "9:07 AM",
                     description = "Paid this month",
                     company = "Apple Inc.",
-                    amount = "1,2555 PHP"
+                    amount = "1,2555 PHP",
+                    onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_add,
                     time = "9:07 AM",
                     description = "Added",
                     company = null,
-                    amount = "1,200 PHP"
+                    amount = "1,200 PHP",
+                    onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_add,
                     time = "9:07 AM",
                     description = "Paid this month",
                     company = null,
-                    amount = "1,200 PHP"
+                    amount = "1,200 PHP",
+                    onClick = onTransactionClick
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
@@ -150,21 +157,24 @@ fun HistoryScreen() {
                     time = "02/08/2024",
                     description = "iPhone 15 Pro Max",
                     company = "Apple Inc.",
-                    amount = "Paid"
+                    amount = "Paid",
+                    onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_check,
                     time = "02/08/2024",
                     description = "iPhone 15 Pro Max",
                     company = "Apple Inc.",
-                    amount = "Paid"
+                    amount = "Paid",
+                    onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_check,
                     time = "02/08/2024",
                     description = "iPhone 15 Pro Max",
                     company = "Apple Inc.",
-                    amount = "Paid"
+                    amount = "Paid",
+                    onClick = onTransactionClick
                 )
                 
                 Spacer(modifier = Modifier.height(32.dp))
