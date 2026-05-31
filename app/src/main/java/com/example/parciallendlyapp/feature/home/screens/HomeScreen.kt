@@ -20,14 +20,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.*
 import com.example.parciallendlyapp.feature.home.domain.model.LoanModel
 import com.example.parciallendlyapp.feature.home.domain.model.ProductModel
+import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
     // Datos de ejemplo
     val loansFromApi = listOf(
         LoanModel("Nike Inc.", "₱400.00", "Fees of February", R.drawable.share_avatar),
@@ -52,7 +54,8 @@ fun HomeScreen() {
         HomeContent(
             modifier = Modifier.padding(innerPadding),
             loans = loansFromApi,
-            products = productsFromApi
+            products = productsFromApi,
+            navController = navController
         )
     }
 }
@@ -61,7 +64,8 @@ fun HomeScreen() {
 fun HomeContent(
     modifier: Modifier = Modifier,
     loans: List<LoanModel>,
-    products: List<ProductModel>
+    products: List<ProductModel>,
+    navController: NavHostController
 ) {
     Column(
         modifier = modifier
@@ -106,7 +110,7 @@ fun HomeContent(
                     CashInButton(
                         text = stringResource(id = R.string.home_cashin_button),
                         iconResId = R.drawable.home_icon_add,
-                        onClick = { /* Lógica */ }
+                        onClick = { navController.navigate(Routes.CASH_IN) }
                     )
                 }
 
@@ -152,7 +156,7 @@ fun HomeContent(
             onSeeAllClick = { /* Ver todos */ }
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         ProductList(products = products)
     }
