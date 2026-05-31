@@ -34,7 +34,7 @@ fun TermsScreen(
         Icon(
             painter = painterResource(R.drawable.share_arrow_left),
             contentDescription = "Back",
-            tint = Color.White,
+            tint = Color.Unspecified,
             modifier = Modifier
                 .size(24.dp)
                 .clickable {
