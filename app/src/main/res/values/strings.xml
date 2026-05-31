@@ -20,7 +20,10 @@
     <string name="online_cashin_wallets">E-WALLETS</string>
     <string name="otc_cashin_title">Over-The-Counter Partners</string>
     <string name="otc_cashin_subtext">"Max. Transaction amount "</string>
-
+    <string name="online_cashin_input_screen_title">Cash-In Amount</string>
+    <string name="online_cashin_input_screen_1">"Balance: "</string>
+    <string name="online_cashin_input_screen_2">"BPI’s max limit is ₱10,000.00 per day"</string>
+    <string name="online_cashin_input_screen_placeholer">₱ 0.00</string>
 
 
     <!-- Onboarding Screen -->
