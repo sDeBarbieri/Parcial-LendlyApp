@@ -40,7 +40,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
+import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.Description
+import com.example.parciallendlyapp.components.InfoButton
 import com.example.parciallendlyapp.components.LendlyButton
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.ui.theme.BorderNeutral
@@ -67,22 +69,10 @@ fun VerifyPhoneNumberScreen(
             CenterAlignedTopAppBar(
                 title = { },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.share_arrow_left),
-                            contentDescription = stringResource(id = R.string.verify_phone_back_desc),
-                            tint = ContentPrimary
-                        )
-                    }
+                    BackButton(onClick = onBackClick)
                 },
                 actions = {
-                    IconButton(onClick = onInfoClick) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.share_info),
-                            contentDescription = stringResource(id = R.string.verify_phone_info_desc),
-                            tint = ContentPrimary
-                        )
-                    }
+                    InfoButton(onClick = onInfoClick)
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = ContainerGray

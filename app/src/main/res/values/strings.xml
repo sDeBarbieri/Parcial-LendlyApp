@@ -9,6 +9,15 @@
     <string name="home_sutitle_1">Unpaid Loans</string>
     <string name="home_sutitle_2">Recommended For You</string>
     <string name="home_see_all">See All</string>
+    <string name="cashin_topbar">Cash-In</string>
+    <string name="cashin_title">Cash-In Options</string>
+    <string name="cashin_option_1_title">Online Banking</string>
+    <string name="cashin_option_1_subtitle">Pay via other banks or e-wallet</string>
+    <string name="cashin_option_2_title">Over-the-counter</string>
+    <string name="cashin_option_2_subtitle">Pay in cash</string>
+
+
+
 
     <!-- Onboarding Screen -->
     <string name="onboarding_title_1">QUICK LOANS</string>

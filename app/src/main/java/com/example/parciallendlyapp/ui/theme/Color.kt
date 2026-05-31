@@ -29,7 +29,7 @@ val BaseContrast = Color(0xFFFFFFFF)
 val BaseLight = Color(0xFFFFFFFF)
 val BaseDark = Color(0xFF121511)
 
-val SolidDark = Color(0xFF121511)
+val SolidDark = Color(0xFF000000)
 
 val LightGray = Color(0xFF6A6C6A)
 
