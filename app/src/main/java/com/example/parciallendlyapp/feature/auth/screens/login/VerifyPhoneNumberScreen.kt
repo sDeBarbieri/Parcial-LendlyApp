@@ -40,7 +40,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
+import com.example.parciallendlyapp.components.Description
 import com.example.parciallendlyapp.components.LendlyButton
+import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.ui.theme.BorderNeutral
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 import com.example.parciallendlyapp.ui.theme.ContentPrimary
@@ -122,33 +124,11 @@ fun VerifyPhoneNumberScreen(
         ) {
             Spacer(modifier = Modifier.height(24.dp))
 
-            Text(
-                text = stringResource(id = R.string.verify_phone_title),
-                style = TextStyle(
-                    fontFamily = Montserrat,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 28.sp,
-                    lineHeight = 36.sp,
-                    letterSpacing = 0.sp,
-                    platformStyle = PlatformTextStyle(includeFontPadding = false)
-                ),
-                color = ContentPrimary
-            )
+            Title(text = stringResource(id = R.string.verify_phone_title))
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Text(
-                text = stringResource(id = R.string.verify_phone_subtitle),
-                style = TextStyle(
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp,
-                    letterSpacing = 0.5.sp,
-                    platformStyle = PlatformTextStyle(includeFontPadding = false)
-                ),
-                color = ContentSecondary
-            )
+            Description(text = stringResource(id = R.string.verify_phone_subtitle))
 
             Spacer(modifier = Modifier.height(32.dp))
 

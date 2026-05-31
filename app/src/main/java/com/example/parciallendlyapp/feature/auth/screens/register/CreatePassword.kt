@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.LendlyButton
+import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -100,18 +101,7 @@ fun CreatePassword(
         ) {
             Spacer(modifier = Modifier.height(24.dp))
 
-            Text(
-                text = stringResource(id = R.string.create_password_title),
-                style = TextStyle(
-                    fontFamily = Montserrat,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 28.sp,
-                    lineHeight = 36.sp,
-                    letterSpacing = 0.sp,
-                    platformStyle = PlatformTextStyle(includeFontPadding = false)
-                ),
-                color = ContentPrimary
-            )
+            Title(text = stringResource(id = R.string.create_password_title))
 
             Spacer(modifier = Modifier.height(32.dp))
 
