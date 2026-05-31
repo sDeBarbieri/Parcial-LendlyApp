@@ -24,6 +24,7 @@ fun CashInScreen(
         containerColor = ContainerGray,
         topBar = {
             CenterAlignedTopAppBar(
+                windowInsets = WindowInsets(0, 0, 0, 0),
                 title = {
                     Text(
                         text = stringResource(id = R.string.cashin_topbar), // Puedes moverlo a strings.xml después
@@ -63,7 +64,7 @@ fun CashInContent(
 
         Title(text = stringResource(id = R.string.cashin_title))
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(32.dp))
         // Contenedor rectangular para los ítems
         Surface(
             modifier = Modifier
