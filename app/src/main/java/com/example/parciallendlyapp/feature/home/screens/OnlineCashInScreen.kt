@@ -10,14 +10,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
-import com.example.parciallendlyapp.components.CashInItem
+import com.example.parciallendlyapp.components.OnlineCashInItem
 import com.example.parciallendlyapp.components.SearchInput
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinBanksList
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinWalletsList
 import com.example.parciallendlyapp.ui.theme.BackgroundScreen
 import com.example.parciallendlyapp.ui.theme.ContainerGray
-import com.example.parciallendlyapp.ui.theme.LightGray
 import com.example.parciallendlyapp.ui.theme.SolidDark
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -91,7 +90,7 @@ fun OnlineCashInContent(
                 )
 
                 banks.forEachIndexed { index, bank ->
-                    CashInItem(
+                    OnlineCashInItem(
                         title = bank.name,
                         leadingIcon = bank.logoRes,
                         onClick = { /* Lógica al seleccionar banco */ }
@@ -112,7 +111,7 @@ fun OnlineCashInContent(
                 )
 
                 wallets.forEachIndexed { index, wallet ->
-                    CashInItem(
+                    OnlineCashInItem(
                         title = wallet.name,
                         leadingIcon = wallet.logoRes,
                         onClick = { /* Lógica al seleccionar wallet */ }

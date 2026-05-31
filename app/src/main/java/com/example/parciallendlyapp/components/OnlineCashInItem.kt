@@ -2,7 +2,6 @@ package com.example.parciallendlyapp.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,13 +13,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.ui.theme.BackgroundNeutral
-import com.example.parciallendlyapp.ui.theme.ContentLink
 import com.example.parciallendlyapp.ui.theme.Inter
 import com.example.parciallendlyapp.ui.theme.SolidDark
 
 @Composable
-fun CashInItem(
+fun OnlineCashInItem(
     title: String,
     leadingIcon: Int,
     onClick: () -> Unit,

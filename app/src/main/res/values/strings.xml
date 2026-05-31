@@ -18,6 +18,8 @@
     <string name="online_cashin_title">Online Cash-In Options</string>
     <string name="online_cashin_banks">BANKS</string>
     <string name="online_cashin_wallets">E-WALLETS</string>
+    <string name="otc_cashin_title">Over-The-Counter Partners</string>
+    <string name="otc_cashin_subtext">"Max. Transaction amount "</string>
 
 
 

@@ -89,7 +89,7 @@ fun CashInContent(
                     title = stringResource(id = R.string.cashin_option_2_title),
                     subtitle = stringResource(id = R.string.cashin_option_2_subtitle),
                     leadingIcon = R.drawable.home_location_on,
-                    onClick = { /* Navegar a efectivo */ }
+                    onClick = { navController.navigate(Routes.OTC_CASH_IN) }
                 )
             }
         }
