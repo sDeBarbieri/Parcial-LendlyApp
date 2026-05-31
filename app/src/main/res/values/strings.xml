@@ -123,7 +123,7 @@
     <string name="transaction_details_info_desc">Info</string>
     <string name="transaction_details_options_desc">Options</string>
     <string name="transaction_details_mock_amount">1,255.00 PHP</string>
-    <string name="transaction_details_to_apple">To Apple Inc.</string>
+    <string name="transaction_details_to_apple">To %1$s</string>
     <string name="transaction_details_title">Transaction Details</string>
     <string name="transaction_details_fee_label">Fee</string>
     <string name="transaction_details_mock_fee">₱100.00</string>
@@ -133,6 +133,22 @@
     <string name="transaction_details_mock_number">#200412312551</string>
     <string name="transaction_details_not_found">Didn’t find what you were looking for?</string>
     <string name="transaction_details_help_center">Go to Help Center</string>
+    <string name="transaction_details_added_to_account">Added to your account</string>
+    <string name="transaction_details_from_gcash">From GCash</string>
+    <string name="transaction_details_cash_in">Cash-In</string>
+    <string name="transaction_details_transfer_fee">Transfer Fee</string>
+    <string name="transaction_details_from_apple">From %1$s</string>
+    <string name="transaction_details_loan_amount">Loan Amount</string>
+    <string name="transaction_details_monthly_fee">Monthly Fee</string>
+    <string name="transaction_details_interest">Interest</string>
+    <string name="transaction_details_installment_plan">Installment plan</string>
+    <string name="transaction_details_need_help">Need help?</string>
+    <string name="transaction_details_mock_cashin_amount">2,500.00 PHP</string>
+    <string name="transaction_details_mock_loan_amount">2,000.00 PHP</string>
+    <string name="transaction_details_mock_transfer_fee">-₱15.00</string>
+    <string name="transaction_details_mock_monthly_fee">₱982.12</string>
+    <string name="transaction_details_mock_interest">2.99%</string>
+    <string name="transaction_details_mock_installment">6 Months</string>
 
     <!-- Settings Screen-->
     <string name="settings">Settings</string>
