@@ -1,7 +1,5 @@
 package com.example.parciallendlyapp.feature.history.screens
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -10,7 +8,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -19,12 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
+import com.example.parciallendlyapp.components.FilterChipComponent
 import com.example.parciallendlyapp.components.ItemRow
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.components.TopBar
-import com.example.parciallendlyapp.ui.theme.ContentSecondary
 import com.example.parciallendlyapp.ui.theme.ContentTertiary
-import com.example.parciallendlyapp.ui.theme.InteractiveAccent
 import com.example.parciallendlyapp.ui.theme.Inter
 
 @Composable
@@ -174,34 +170,6 @@ fun HistoryScreen() {
                 Spacer(modifier = Modifier.height(32.dp))
             }
         }
-    }
-}
-
-@Composable
-fun FilterChipComponent(text: String, isSelected: Boolean) {
-    Box(
-        modifier = Modifier
-            .background(
-                color = if (isSelected) InteractiveAccent else Color.Transparent,
-                shape = RoundedCornerShape(8.dp)
-            )
-            .border(
-                width = 1.dp,
-                color = if (isSelected) InteractiveAccent else Color(0x1F0E0F0C),
-                shape = RoundedCornerShape(8.dp)
-            )
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = text,
-            style = TextStyle(
-                fontFamily = Inter,
-                fontWeight = FontWeight.Medium,
-                fontSize = 14.sp,
-                color = if (isSelected) Color.Black else ContentSecondary
-            )
-        )
     }
 }
 
