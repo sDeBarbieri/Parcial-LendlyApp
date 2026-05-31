@@ -162,7 +162,7 @@ fun TransactionComponent(
                 
                 Spacer(modifier = Modifier.height(16.dp))
                 
-                FilterChipComponent(text = transactionType, isSelected = false)
+                FilterChipComponent(text = transactionType, isSelected = false, onClick = {})
             }
             
             // Details Section
