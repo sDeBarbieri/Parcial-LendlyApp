@@ -117,4 +117,20 @@
     <string name="history_item_date_recent">02/08/2024</string>
     <string name="history_item_iphone_15">iPhone 15 Pro Max</string>
     <string name="history_item_paid">Paid</string>
+
+    <!-- Transaction Details Screen -->
+    <string name="transaction_details_back_desc">Back</string>
+    <string name="transaction_details_info_desc">Info</string>
+    <string name="transaction_details_options_desc">Options</string>
+    <string name="transaction_details_mock_amount">1,255.00 PHP</string>
+    <string name="transaction_details_to_apple">To Apple Inc.</string>
+    <string name="transaction_details_title">Transaction Details</string>
+    <string name="transaction_details_fee_label">Fee</string>
+    <string name="transaction_details_mock_fee">₱100.00</string>
+    <string name="transaction_details_date_time_label">Date &amp; Time</string>
+    <string name="transaction_details_mock_datetime">Jul 15, 2024 9:12 AM</string>
+    <string name="transaction_details_number_label">Transaction Number</string>
+    <string name="transaction_details_mock_number">#200412312551</string>
+    <string name="transaction_details_not_found">Didn’t find what you were looking for?</string>
+    <string name="transaction_details_help_center">Go to Help Center</string>
 </resources>

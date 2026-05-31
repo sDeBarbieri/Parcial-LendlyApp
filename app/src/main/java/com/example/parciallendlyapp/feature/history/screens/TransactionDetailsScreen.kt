@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -44,7 +45,7 @@ fun TransactionDetailsScreen(
                         ) {
                             Icon(
                                 painter = painterResource(id = R.drawable.share_arrow_left),
-                                contentDescription = "Back",
+                                contentDescription = stringResource(R.string.transaction_details_back_desc),
                                 modifier = Modifier.size(20.dp),
                                 tint = ContentPrimary
                             )
@@ -55,7 +56,7 @@ fun TransactionDetailsScreen(
                     IconButton(onClick = { /* TODO */ }) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_info),
-                            contentDescription = "Info",
+                            contentDescription = stringResource(R.string.transaction_details_info_desc),
                             modifier = Modifier.size(20.dp),
                             tint = ContentPrimary
                         )
@@ -63,7 +64,7 @@ fun TransactionDetailsScreen(
                     IconButton(onClick = { /* TODO */ }) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_options),
-                            contentDescription = "Options",
+                            contentDescription = stringResource(R.string.transaction_details_options_desc),
                             modifier = Modifier.size(20.dp),
                             tint = ContentPrimary
                         )
@@ -110,7 +111,7 @@ fun TransactionDetailsScreen(
                 Spacer(modifier = Modifier.height(8.dp))
                 
                 Text(
-                    text = "Paid this month",
+                    text = stringResource(R.string.history_item_paid_this_month),
                     style = TextStyle(
                         fontFamily = Inter,
                         fontWeight = FontWeight.Medium,
@@ -121,12 +122,12 @@ fun TransactionDetailsScreen(
                 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                Title(text = "1,255.00 PHP")
+                Title(text = stringResource(R.string.transaction_details_mock_amount))
                 
                 Spacer(modifier = Modifier.height(8.dp))
                 
                 Text(
-                    text = "To Apple Inc.",
+                    text = stringResource(R.string.transaction_details_to_apple, stringResource(R.string.history_item_apple)),
                     style = TextStyle(
                         fontFamily = Inter,
                         fontWeight = FontWeight.Medium,
@@ -137,7 +138,7 @@ fun TransactionDetailsScreen(
                 
                 Spacer(modifier = Modifier.height(16.dp))
                 
-                FilterChipComponent(text = "Paid Bills", isSelected = false)
+                FilterChipComponent(text = stringResource(R.string.history_filter_paid_bills), isSelected = false)
             }
             
             // Details Section
@@ -147,17 +148,25 @@ fun TransactionDetailsScreen(
                     .padding(24.dp)
             ) {
 
-                Subtitle(title = "Transaction Details")
+                Subtitle(title = stringResource(R.string.transaction_details_title))
                 
                 Spacer(modifier = Modifier.height(16.dp))
                 
-                DetailRow(label = "Fee", value = "₱100.00", valueColor = ContentTertiary)
-                Spacer(modifier = Modifier.height(16.dp))
-                DetailRow(label = "Date & Time", value = "Jul 15, 2024 9:12 AM", valueColor = ContentTertiary)
+                DetailRow(
+                    label = stringResource(R.string.transaction_details_fee_label),
+                    value = stringResource(R.string.transaction_details_mock_fee),
+                    valueColor = ContentTertiary
+                )
                 Spacer(modifier = Modifier.height(16.dp))
                 DetailRow(
-                    label = "Transaction Number",
-                    value = "#200412312551",
+                    label = stringResource(R.string.transaction_details_date_time_label),
+                    value = stringResource(R.string.transaction_details_mock_datetime),
+                    valueColor = ContentTertiary
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                DetailRow(
+                    label = stringResource(R.string.transaction_details_number_label),
+                    value = stringResource(R.string.transaction_details_mock_number),
                     valueColor = InteractiveControl,
                     isLink = true
                 )
@@ -167,7 +176,7 @@ fun TransactionDetailsScreen(
                 Spacer(modifier = Modifier.height(32.dp))
                 
                 Text(
-                    text = "Didn't find what you were looking for?",
+                    text = stringResource(R.string.transaction_details_not_found),
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     style = TextStyle(
@@ -179,7 +188,7 @@ fun TransactionDetailsScreen(
                 )
                 
                 Text(
-                    text = "Go to Help Center",
+                    text = stringResource(R.string.transaction_details_help_center),
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable { /* TODO */ },
@@ -219,4 +228,3 @@ fun DetailRow(
         )
     }
 }
-
