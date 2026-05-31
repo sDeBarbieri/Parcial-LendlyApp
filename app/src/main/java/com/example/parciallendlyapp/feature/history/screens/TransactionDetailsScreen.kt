@@ -138,7 +138,7 @@ fun TransactionDetailsScreen(
                 
                 Spacer(modifier = Modifier.height(16.dp))
                 
-                FilterChipComponent(text = stringResource(R.string.history_filter_paid_bills), isSelected = false)
+                FilterChipComponent(text = stringResource(R.string.history_filter_paid_bills), isSelected = false, onClick = {})
             }
             
             // Details Section

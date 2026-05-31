@@ -97,7 +97,8 @@ fun HistoryScreen(
                     items(filters) { filter ->
                         FilterChipComponent(
                             text = filter,
-                            isSelected = filter == stringResource(R.string.history_filter_all)
+                            isSelected = filter == stringResource(R.string.history_filter_all),
+                            onClick = {}
                         )
                     }
                 }

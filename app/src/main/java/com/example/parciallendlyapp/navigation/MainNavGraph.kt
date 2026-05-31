@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.parciallendlyapp.feature.shop.screens.FilterScreen
 import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
 import com.example.parciallendlyapp.feature.home.screens.CashInScreen
 import com.example.parciallendlyapp.feature.history.screens.TransactionDetailsScreen
@@ -37,7 +38,7 @@ fun MainNavGraph() {
                 LoanScreen()
             }
             composable(Routes.SHOP) {
-                ShopScreen()
+                ShopScreen(navController)
             }
             composable(Routes.HISTORY) {
                 HistoryScreen(
@@ -57,6 +58,10 @@ fun MainNavGraph() {
 
             composable(Routes.NOTIFICATIONS) {
                 NotificationScreen(navController)
+            }
+
+            composable(Routes.FILTER) {
+                FilterScreen(navController)
             }
         }
     }

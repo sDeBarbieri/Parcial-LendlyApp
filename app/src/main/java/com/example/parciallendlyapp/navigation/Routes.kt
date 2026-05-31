@@ -31,4 +31,6 @@ object Routes {
     const val TRANSACTION_DETAILS = "transaction_details"
 
     const val NOTIFICATIONS = "notifications"
+
+    const val FILTER = "filter"
 }

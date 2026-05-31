@@ -19,9 +19,14 @@ import com.example.parciallendlyapp.ui.theme.ContentSecondary
 import com.example.parciallendlyapp.ui.theme.ContentTertiary
 import com.example.parciallendlyapp.ui.theme.InteractiveAccent
 import com.example.parciallendlyapp.ui.theme.Inter
+import androidx.compose.foundation.clickable
 
 @Composable
-fun FilterChipComponent(text: String, isSelected: Boolean) {
+fun FilterChipComponent(
+    text: String,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .background(
@@ -33,6 +38,9 @@ fun FilterChipComponent(text: String, isSelected: Boolean) {
                 color = if (isSelected) InteractiveAccent else ContentTertiary,
                 shape = RoundedCornerShape(8.dp)
             )
+            .clickable {
+                onClick()
+            }
             .padding(horizontal = 16.dp, vertical = 8.dp),
         contentAlignment = Alignment.Center
     ) {
