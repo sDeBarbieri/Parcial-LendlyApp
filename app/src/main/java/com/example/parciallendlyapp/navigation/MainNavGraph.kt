@@ -11,6 +11,7 @@ import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
 import com.example.parciallendlyapp.feature.home.screens.CashInScreen
 import com.example.parciallendlyapp.feature.history.screens.TransactionDetailsScreen
 import com.example.parciallendlyapp.feature.home.screens.HomeScreen
+import com.example.parciallendlyapp.feature.loans.screens.LoanFormScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
 
@@ -33,7 +34,17 @@ fun MainNavGraph() {
                 CashInScreen(onBackClick = { navController.popBackStack() })
             }
             composable(Routes.LOANS) {
-                LoanScreen()
+                LoanScreen(
+                    onGetLoanClick = {
+                        navController.navigate(Routes.LOAN_FORM)
+                    }
+                )
+            }
+            composable(Routes.LOAN_FORM) {
+                LoanFormScreen(
+                    onBackClick = { navController.popBackStack() },
+                    onGetLoanClick = { /* Handle success or final step */ }
+                )
             }
             composable(Routes.SHOP) {
                 ShopScreen()
