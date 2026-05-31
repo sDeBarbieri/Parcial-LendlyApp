@@ -11,9 +11,6 @@ import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
 import com.example.parciallendlyapp.feature.home.screens.CashInScreen
 import com.example.parciallendlyapp.feature.history.screens.TransactionDetailsScreen
 import com.example.parciallendlyapp.feature.home.screens.HomeScreen
-import com.example.parciallendlyapp.feature.loans.screens.LoanFormScreen
-import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
-import com.example.parciallendlyapp.feature.loans.screens.LoanTransactionScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
 
 @Composable
@@ -34,31 +31,10 @@ fun MainNavGraph() {
             composable(Routes.CASH_IN) {
                 CashInScreen(onBackClick = { navController.popBackStack() })
             }
-            composable(Routes.LOANS) {
-                LoanScreen(
-                    onGetLoanClick = {
-                        navController.navigate(Routes.LOAN_FORM)
-                    }
-                )
-            }
-            composable(Routes.LOAN_FORM) {
-                LoanFormScreen(
-                    onBackClick = { navController.popBackStack() },
-                    onGetLoanClick = {
-                        navController.navigate(Routes.LOAN_TRANSACTION)
-                    }
-                )
-            }
-            composable(Routes.LOAN_TRANSACTION) {
-                LoanTransactionScreen(
-                    onBackClick = { navController.popBackStack() },
-                    onDoneClick = {
-                        navController.navigate(Routes.HOME) {
-                            popUpTo(Routes.HOME) { inclusive = true }
-                        }
-                    }
-                )
-            }
+            
+            // Grafo modularizado de Préstamos
+            loanNavGraph(navController)
+
             composable(Routes.SHOP) {
                 ShopScreen()
             }
@@ -76,6 +52,8 @@ fun MainNavGraph() {
                     }
                 )
             }
+            
+            // Grafo modularizado de Gestión
             manageNavGraph(navController)
         }
     }
