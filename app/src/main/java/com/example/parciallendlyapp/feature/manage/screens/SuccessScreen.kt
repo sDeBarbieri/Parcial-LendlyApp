@@ -15,11 +15,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.navigation.Routes
+import com.example.parciallendlyapp.ui.theme.Montserrat
 
 @Composable
 fun SuccessScreen(
@@ -85,7 +87,9 @@ fun SuccessScreen(
 
         Text(
             text = "ALL DONE!",
-            fontSize = 30.sp
+            fontSize = 30.sp,
+            fontFamily = Montserrat,
+            fontWeight = FontWeight.SemiBold
         )
 
         Spacer(modifier = Modifier.height(12.dp))

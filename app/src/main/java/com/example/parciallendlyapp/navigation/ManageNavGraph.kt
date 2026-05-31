@@ -25,7 +25,7 @@ fun NavGraphBuilder.manageNavGraph(
         }
 
         composable(Routes.CREDIT_SCORE) {
-            CreditScoreScreen()
+            CreditScoreScreen(navController)
         }
 
         composable(Routes.SETTINGS) {
