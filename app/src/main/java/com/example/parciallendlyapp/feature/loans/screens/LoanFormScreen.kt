@@ -76,16 +76,17 @@ fun LoanFormScreen(
                     style = TextStyle(
                         fontFamily = Inter,
                         fontWeight = FontWeight.Normal,
-                        fontSize = 12.sp,
-                        lineHeight = 16.sp
+                        fontSize = 14.sp,
+                        lineHeight = 20.sp,
+                        color = ContentTertiary
                     )
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
 
                 // Step 1
-                StepLabel(step = "Step 1")
-                Spacer(modifier = Modifier.height(10.dp))
+                StepLabel(text = "Step 1")
+                Spacer(modifier = Modifier.height(12.dp))
                 Text(
                     text = "Enter loan amount",
                     style = TextStyle(
@@ -101,9 +102,8 @@ fun LoanFormScreen(
                     modifier = Modifier.fillMaxWidth(),
                     style = TextStyle(
                         fontFamily = Inter,
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 24.sp,
-                        lineHeight = 32.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 32.sp,
                         textAlign = TextAlign.Center,
                         color = SolidDark
                     )
@@ -114,7 +114,7 @@ fun LoanFormScreen(
                 Spacer(modifier = Modifier.height(32.dp))
 
                 // Step 2
-                StepLabel(step = "Step 2")
+                StepLabel(text = "Step 2")
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
                     text = "Select an installment plan",
@@ -131,7 +131,7 @@ fun LoanFormScreen(
                 Spacer(modifier = Modifier.height(32.dp))
 
                 // Step 3
-                StepLabel(step = "Step 3")
+                StepLabel(text = "Step 3")
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
                     text = "Select your loan purpose",
@@ -164,26 +164,6 @@ fun LoanFormScreen(
             
             Spacer(modifier = Modifier.height(16.dp))
         }
-    }
-}
-
-@Composable
-fun StepLabel(step: String) {
-    Surface(
-        color = BackgroundNeutral,
-        shape = RoundedCornerShape(4.dp)
-    ) {
-        Text(
-            text = step,
-            modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp),
-            style = TextStyle(
-                fontFamily = Inter,
-                fontWeight = FontWeight.Normal,
-                fontSize = 12.sp,
-                lineHeight = 16.sp,
-                color = SolidDark
-            )
-        )
     }
 }
 
