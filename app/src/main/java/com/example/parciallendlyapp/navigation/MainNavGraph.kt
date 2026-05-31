@@ -12,6 +12,7 @@ import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
 import com.example.parciallendlyapp.feature.home.screens.CashInScreen
 import com.example.parciallendlyapp.feature.history.screens.TransactionDetailsScreen
 import com.example.parciallendlyapp.feature.home.screens.HomeScreen
+import com.example.parciallendlyapp.feature.home.screens.OnlineCashInScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
 import com.example.parciallendlyapp.feature.notifications.NotificationScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
@@ -32,7 +33,13 @@ fun MainNavGraph() {
                 HomeScreen(navController = navController)
             }
             composable(Routes.CASH_IN) {
-                CashInScreen(onBackClick = { navController.popBackStack() })
+                CashInScreen(
+                    navController = navController,
+                    onBackClick = { navController.popBackStack() }
+                )
+            }
+            composable(Routes.ONLINE_CASH_IN) {
+                OnlineCashInScreen(onBackClick = { navController.popBackStack() })
             }
 
             // Grafo modularizado de Préstamos

@@ -15,6 +15,11 @@
     <string name="cashin_option_1_subtitle">Pay via other banks or e-wallet</string>
     <string name="cashin_option_2_title">Over-the-counter</string>
     <string name="cashin_option_2_subtitle">Pay in cash</string>
+    <string name="online_cashin_title">Online Cash-In Options</string>
+    <string name="online_cashin_banks">BANKS</string>
+    <string name="online_cashin_wallets">E-WALLETS</string>
+
+
 
     <!-- Onboarding Screen -->
     <string name="onboarding_title_1">QUICK LOANS</string>
