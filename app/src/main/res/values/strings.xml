@@ -1,9 +1,95 @@
 <resources>
     <string name="app_name">Parcial LendlyApp</string>
+
+    <!-- Home Screen -->
     <string name="home_screen_title">Account</string>
     <string name="home_balance">AVAILABLE BALANCE</string>
     <string name="home_balance_number">₱ 2,500.00</string>
     <string name="home_cashin_button">Cash In</string>
     <string name="home_sutitle_1">Unpaid Loans</string>
+    <string name="home_sutitle_2">Recommended For You</string>
     <string name="home_see_all">See All</string>
+
+    <!-- Onboarding Screen -->
+    <string name="onboarding_title_1">QUICK LOANS</string>
+    <string name="onboarding_desc_1">Trusted for easy,\nfast loan approvals.</string>
+    <string name="onboarding_title_2">LOAN PRODUCT\nIN-APP</string>
+    <string name="onboarding_desc_2">Many products to loan.</string>
+    <string name="onboarding_title_3">TRACK &amp; PAY\nEASILY</string>
+    <string name="onboarding_logo_desc">Lendly Logo</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="onboarding_login">Log In</string>
+    <string name="onboarding_signup">Sign up for free</string>
+
+    <!-- Login Screen -->
+    <string name="login_button">Log In</string>
+    <string name="login_logo_description">Lendly Logo</string>
+    <string name="login_user_initials">JD</string>
+    <string name="login_user_name">John Doe</string>
+    <string name="login_user_phone">+63-923456790</string>
+    <string name="login_change_link">Change</string>
+    <string name="login_password_label">Password</string>
+    <string name="login_hide_password">Hide password</string>
+    <string name="login_show_password">Show password</string>
+    <string name="login_forgot_password">Forgot your password?</string>
+
+    <!-- SMS Verification Screen -->
+    <string name="sms_verification_back_desc">Back</string>
+    <string name="sms_verification_info_desc">Info</string>
+    <string name="sms_verification_next_button">Next</string>
+    <string name="sms_verification_title">Enter the code</string>
+    <string name="sms_verification_subtitle">Enter the security code we sent to %1$s</string>
+    <string name="sms_verification_phone_label">Your Phone Number</string>
+    <string name="sms_verification_resend_link">Didn’t received a code?</string>
+
+    <!-- Verify Phone Number Screen -->
+    <string name="verify_phone_back_desc">Back</string>
+    <string name="verify_phone_info_desc">Info</string>
+    <string name="verify_phone_send_code_button">Send Code</string>
+    <string name="verify_phone_title">Verify your phone number with a code</string>
+    <string name="verify_phone_subtitle">We will send you a One-Time-Password (OTP) to confirm your number.</string>
+    <string name="verify_phone_number_label">Your Phone Number</string>
+    <string name="verify_phone_number_placeholder">991251255</string>
+
+    <!-- Profile Detail Form -->
+    <string name="profile_detail_title">Enter your personal details</string>
+    <string name="profile_detail_first_name_label">Full legal first and middle name(s)</string>
+    <string name="profile_detail_last_name_label">Full legal last name</string>
+    <string name="profile_detail_dob_label">Date of birth</string>
+    <string name="profile_detail_dob_day_label">Day</string>
+    <string name="profile_detail_dob_month_label">Month</string>
+    <string name="profile_detail_dob_year_label">Year</string>
+    <string name="profile_detail_address_label">Address</string>
+    <string name="profile_detail_city_label">City</string>
+    <string name="profile_detail_postal_code_label">Postal Code</string>
+    <string name="profile_detail_phone_number_label">Phone Number</string>
+    <string name="profile_detail_next_button">Next</string>
+    <string name="profile_detail_back_desc">Back</string>
+    <string name="profile_detail_info_desc">Info</string>
+
+    <!-- Create Password Screen -->
+    <string name="create_password_title">Create your password</string>
+    <string name="create_password_label">Choose a password</string>
+    <string name="create_password_helper">At least 9 characters, containing a letter and a number</string>
+    <string name="create_password_next_button">Next</string>
+    <string name="create_password_back_desc">Back</string>
+    <string name="create_password_info_desc">Info</string>
+
+    <!-- Manage Screen -->
+    <string name="manage">Manage</string>
+    <string name="manage_general">General</string>
+    <string name="manage_account_details">Account details</string>
+    <string name="manage_receiving">Receiving by email or phone</string>
+    <string name="manage_scheduled_pay">Scheduled pay</string>
+    <string name="manage_credit_score">Credit score</string>
+    <string name="manage_settings">Settings</string>
+    <string name="manage_terms_and_conditions">Terms and Conditions</string>
+    <string name="manage_help">Help</string>
+    <string name="manage_logout">Log Out </string>
+
+    <!-- Credit Score Screen -->
+    <string name="credit_score">Credit Score</string>
+    <string name="credit_score_good">Good</string>
+    <string name="credit_score_what_is">What is Credit Score?</string>
+    <string name="credit_score_your_score_is">Your Score is</string>
 </resources>

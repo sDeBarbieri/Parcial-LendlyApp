@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -29,16 +30,41 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
     var password by remember { mutableStateOf("123123123") }
     var passwordVisible by remember { mutableStateOf(false) }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = BackgroundScreen
-    ) {
+    Scaffold(
+        bottomBar = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.White)
+            ) {
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = BorderNeutral
+                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 24.dp, vertical = 16.dp)
+                        .navigationBarsPadding()
+                ) {
+                    LendlyButton(
+                        text = stringResource(id = R.string.login_button),
+                        onClick = onLoginSuccess,
+                        containerColor = InteractiveAccent,
+                        contentColor = ContentPrimary,
+                        height = 48.dp
+                    )
+                }
+            }
+        }
+    ) { padding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 24.dp, vertical = 32.dp)
+                .padding(padding)
+                .padding(horizontal = 24.dp)
         ) {
-            Spacer(modifier = Modifier.height(80.dp))
+            Spacer(modifier = Modifier.height(48.dp))
 
             // Logo Section
             Box(
@@ -47,7 +73,7 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.onboarding_logo),
-                    contentDescription = "Lendly Logo",
+                    contentDescription = stringResource(id = R.string.login_logo_description),
                     modifier = Modifier.size(width = 117.dp, height = 40.dp)
                 )
             }
@@ -68,7 +94,7 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "JD",
+                        text = stringResource(id = R.string.login_user_initials),
                         fontFamily = Inter,
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp,
@@ -80,14 +106,14 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
 
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = "John Doe",
+                        text = stringResource(id = R.string.login_user_name),
                         fontFamily = Inter,
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 16.sp,
                         color = ContentPrimary
                     )
                     Text(
-                        text = "+63-923456790",
+                        text = stringResource(id = R.string.login_user_phone),
                         fontFamily = Inter,
                         fontWeight = FontWeight.Normal,
                         fontSize = 14.sp,
@@ -96,7 +122,7 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
                 }
 
                 Text(
-                    text = "Change",
+                    text = stringResource(id = R.string.login_change_link),
                     fontFamily = Inter,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp,
@@ -109,7 +135,7 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
 
             // Password Field Section
             Text(
-                text = "Password",
+                text = stringResource(id = R.string.login_password_label),
                 fontFamily = Inter,
                 fontWeight = FontWeight.Medium,
                 fontSize = 14.sp,
@@ -131,7 +157,11 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
                     IconButton(onClick = { passwordVisible = !passwordVisible }) {
                         Icon(
                             imageVector = image,
-                            contentDescription = if (passwordVisible) "Hide password" else "Show password",
+                            contentDescription = if (passwordVisible) {
+                                stringResource(id = R.string.login_hide_password)
+                            } else {
+                                stringResource(id = R.string.login_show_password)
+                            },
                             tint = ContentSecondary
                         )
                     }
@@ -149,22 +179,12 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Forgot your password?",
+                text = stringResource(id = R.string.login_forgot_password),
                 fontFamily = Inter,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 14.sp,
                 color = ContentLink,
                 textDecoration = TextDecoration.Underline
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            // Login Button
-            LendlyButton(
-                text = "Log In",
-                onClick = onLoginSuccess,
-                containerColor = InteractiveAccent,
-                contentColor = ContentPrimary
             )
         }
     }

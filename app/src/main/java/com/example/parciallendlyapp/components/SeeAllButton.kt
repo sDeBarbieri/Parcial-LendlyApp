@@ -26,7 +26,7 @@ fun SeeAllButton(
     Row(
         modifier = modifier.clickable { onClick() },
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
             text = text,
@@ -40,7 +40,7 @@ fun SeeAllButton(
         Icon(
             painter = painterResource(id = R.drawable.share_arrow_right),
             contentDescription = null,
-            modifier = Modifier.size(16.dp),
+            modifier = Modifier.size(10.dp),
             tint = MaterialTheme.colorScheme.onBackground
         )
     }

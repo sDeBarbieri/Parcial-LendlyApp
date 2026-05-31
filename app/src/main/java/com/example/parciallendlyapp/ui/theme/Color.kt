@@ -10,7 +10,7 @@ val ContentLink = Color(0xFF163300)
 val InteractivePrimary = Color(0xFF163300)
 val InteractiveAccent = Color(0xFF7BF179)
 val InteractiveSecondary = Color(0xFF868685)
-val InteractiveControl = Color(0xFF163300)
+val InteractiveControl = Color(0xFF3C6839)
 val InteractiveContrast = Color(0xFF7BF179)
 
 val BackgroundScreen = Color(0xFFFFFFFF)

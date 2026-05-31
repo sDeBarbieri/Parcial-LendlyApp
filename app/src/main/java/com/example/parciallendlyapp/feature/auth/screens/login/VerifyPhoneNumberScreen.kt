@@ -1,5 +1,6 @@
 package com.example.parciallendlyapp.feature.auth.screens.login
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,10 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -31,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -39,7 +40,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
+import com.example.parciallendlyapp.components.Description
+import com.example.parciallendlyapp.components.LendlyButton
+import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.ui.theme.BorderNeutral
+import com.example.parciallendlyapp.ui.theme.ContainerGray
 import com.example.parciallendlyapp.ui.theme.ContentPrimary
 import com.example.parciallendlyapp.ui.theme.ContentSecondary
 import com.example.parciallendlyapp.ui.theme.Inter
@@ -57,7 +62,7 @@ fun VerifyPhoneNumberScreen(
     var phoneNumber by remember { mutableStateOf("") }
 
     Scaffold(
-        containerColor = Color.White,
+        containerColor = ContainerGray,
         topBar = {
             CenterAlignedTopAppBar(
                 title = { },
@@ -65,7 +70,7 @@ fun VerifyPhoneNumberScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_arrow_left),
-                            contentDescription = "Back",
+                            contentDescription = stringResource(id = R.string.verify_phone_back_desc),
                             tint = ContentPrimary
                         )
                     }
@@ -74,13 +79,13 @@ fun VerifyPhoneNumberScreen(
                     IconButton(onClick = onInfoClick) {
                         Icon(
                             painter = painterResource(id = R.drawable.share_info),
-                            contentDescription = "Info",
+                            contentDescription = stringResource(id = R.string.verify_phone_info_desc),
                             tint = ContentPrimary
                         )
                     }
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color.White
+                    containerColor = ContainerGray
                 )
             )
         },
@@ -88,27 +93,24 @@ fun VerifyPhoneNumberScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
-                    .navigationBarsPadding()
+                    .background(Color.White)
             ) {
-                Button(
-                    onClick = { onSendCodeClick(countryCode, phoneNumber) },
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = BorderNeutral
+                )
+                Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(56.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = InteractiveAccent,
-                        contentColor = ContentPrimary
-                    ),
-                    shape = RoundedCornerShape(100.dp)
+                        .padding(horizontal = 24.dp, vertical = 16.dp)
+                        .navigationBarsPadding()
                 ) {
-                    Text(
-                        text = "Send Code",
-                        style = TextStyle(
-                            fontFamily = Inter,
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 16.sp
-                        )
+                    LendlyButton(
+                        text = stringResource(id = R.string.verify_phone_send_code_button),
+                        onClick = { onSendCodeClick(countryCode, phoneNumber) },
+                        containerColor = InteractiveAccent,
+                        contentColor = ContentPrimary,
+                        height = 48.dp
                     )
                 }
             }
@@ -122,38 +124,16 @@ fun VerifyPhoneNumberScreen(
         ) {
             Spacer(modifier = Modifier.height(24.dp))
 
-            Text(
-                text = "Verify your phone number with a code",
-                style = TextStyle(
-                    fontFamily = Montserrat,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 28.sp,
-                    lineHeight = 36.sp,
-                    letterSpacing = 0.sp,
-                    platformStyle = PlatformTextStyle(includeFontPadding = false)
-                ),
-                color = ContentPrimary
-            )
+            Title(text = stringResource(id = R.string.verify_phone_title))
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Text(
-                text = "We will send you a One-Time-Password (OTP) to confirm you number.",
-                style = TextStyle(
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp,
-                    letterSpacing = 0.5.sp,
-                    platformStyle = PlatformTextStyle(includeFontPadding = false)
-                ),
-                color = ContentSecondary
-            )
+            Description(text = stringResource(id = R.string.verify_phone_subtitle))
 
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Your Phone Number",
+                text = stringResource(id = R.string.verify_phone_number_label),
                 style = TextStyle(
                     fontFamily = Inter,
                     fontWeight = FontWeight.Normal,
@@ -193,7 +173,7 @@ fun VerifyPhoneNumberScreen(
                     modifier = Modifier.weight(1f),
                     placeholder = {
                         Text(
-                            text = "991251255",
+                            text = stringResource(id = R.string.verify_phone_number_placeholder),
                             style = TextStyle(
                                 fontFamily = Inter,
                                 fontSize = 16.sp,

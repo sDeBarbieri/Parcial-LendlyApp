@@ -17,12 +17,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
 import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.navigation.Routes
+import com.example.parciallendlyapp.ui.theme.Inter
+import com.example.parciallendlyapp.ui.theme.Montserrat
+
 @Composable
 fun ManageScreen(navController: NavHostController) {
     Column(
@@ -39,9 +44,10 @@ fun ManageScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "Manage",
+            text = stringResource(R.string.manage),
             fontSize = 30.sp,
-            fontWeight = FontWeight.Bold
+            fontFamily = Montserrat,
+            fontWeight = FontWeight.SemiBold
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -62,7 +68,7 @@ fun ManageScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "General",
+            text = stringResource(R.string.manage_general),
             color = Color.Gray,
             fontSize = 12.sp
         )
@@ -73,7 +79,7 @@ fun ManageScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(12.dp))
 
         ManageItem(
-            title = "Account details",
+            title = stringResource(R.string.manage_account_details),
             iconRes = R.drawable.manage_icon_accounts,
             onClick = {
                 navController.navigate(Routes.EDIT_PROFILE)
@@ -81,17 +87,17 @@ fun ManageScreen(navController: NavHostController) {
         )
 
         ManageItem(
-            title = "Receiving by email or phone",
+            title = stringResource(R.string.manage_receiving),
             iconRes = R.drawable.manage_icon_unread
         )
 
         ManageItem(
-            title = "Scheduled pay",
+            title = stringResource(R.string.manage_scheduled_pay),
             iconRes = R.drawable.manage_icon_event
         )
 
         ManageItem(
-            title = "Credit score",
+            title = stringResource(R.string.manage_credit_score),
             iconRes = R.drawable.manage_icon_readiness_score,
             onClick = {
                 navController.navigate(Routes.CREDIT_SCORE)
@@ -99,7 +105,7 @@ fun ManageScreen(navController: NavHostController) {
         )
 
         ManageItem(
-            title = "Settings",
+            title = stringResource(R.string.manage_settings),
             iconRes = R.drawable.manage_icon_settings,
             onClick = {
                 navController.navigate(Routes.SETTINGS)
@@ -107,7 +113,7 @@ fun ManageScreen(navController: NavHostController) {
         )
 
         ManageItem(
-            title = "Terms and Conditions",
+            title = stringResource(R.string.manage_terms_and_conditions),
             iconRes = R.drawable.manage_icon_description,
             onClick = {
                 navController.navigate(Routes.TERMS)
@@ -115,7 +121,7 @@ fun ManageScreen(navController: NavHostController) {
         )
 
         ManageItem(
-            title = "Help",
+            title = stringResource(R.string.manage_help),
             iconRes = R.drawable.manage_icon_question_mark,
             onClick = {
                 navController.navigate(Routes.HELP)
@@ -129,7 +135,7 @@ fun ManageScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(12.dp))
 
         ManageItem(
-            title = "Log Out",
+            title = stringResource(R.string.manage_logout),
             iconRes = R.drawable.manage_icon_move_item,
             onClick = {}
         )
@@ -198,7 +204,7 @@ private fun Account(navController: NavHostController){
         ) {
 
             Text(
-                text = "Account details",
+                text = stringResource(R.string.manage_account_details),
                 fontWeight = FontWeight.Medium
             )
 
@@ -262,11 +268,13 @@ private fun ManageItem(
 
         Text(
             text = title,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            fontFamily = Inter,
+            fontWeight = FontWeight.Normal
         )
 
         Icon(
-            painter = painterResource(id = R.drawable.share_arrow_rigth),
+            painter = painterResource(id = R.drawable.share_arrow_right),
             contentDescription = null,
             tint = Color.White
         )

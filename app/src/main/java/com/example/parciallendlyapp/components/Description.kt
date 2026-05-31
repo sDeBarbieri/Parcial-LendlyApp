@@ -8,20 +8,22 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.ui.theme.Inter
+
 @Composable
-fun Subtitle(
-    title: String,
+fun Description(
+    text: String,
     modifier: Modifier = Modifier
 ) {
     Text(
-        text = title,
+        text = text,
         modifier = modifier,
         style = TextStyle(
             fontFamily = Inter,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 22.sp,
-            lineHeight = 28.sp
-        ),
-        color = MaterialTheme.colorScheme.onBackground
+            fontWeight = FontWeight.Normal, // 400
+            fontSize = 16.sp,
+            lineHeight = 24.sp,
+            letterSpacing = 0.5.sp,
+            color = MaterialTheme.colorScheme.onBackground
+        )
     )
 }

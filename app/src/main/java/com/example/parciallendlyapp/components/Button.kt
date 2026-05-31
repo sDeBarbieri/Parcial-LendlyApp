@@ -1,6 +1,7 @@
 package com.example.parciallendlyapp.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -41,7 +42,8 @@ fun LendlyButton(
             contentColor = contentColor
         ),
         shape = shape,
-        border = border
+        border = border,
+        contentPadding = PaddingValues(horizontal = 24.dp)
     ) {
         Text(
             text = text,
