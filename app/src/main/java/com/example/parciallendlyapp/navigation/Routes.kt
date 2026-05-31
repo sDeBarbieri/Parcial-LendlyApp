@@ -11,6 +11,7 @@ object Routes {
     const val DONE = "done"
     const val MAIN = "main"
     const val HOME = "home"
+    const val CASH_IN = "cash_in"
     const val LOANS = "loans"
     const val SHOP = "shop"
     const val HISTORY = "history"
@@ -27,4 +28,5 @@ object Routes {
     const val TERMS = "terms"
 
     const val SUCCESS = "success"
+    const val TRANSACTION_DETAILS = "transaction_details"
 }

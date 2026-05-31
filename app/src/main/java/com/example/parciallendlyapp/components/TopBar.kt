@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.ui.theme.ContentPrimary
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 @OptIn(ExperimentalMaterial3Api::class)
@@ -19,12 +20,13 @@ fun TopBar(
     onProfileClick: () -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
+        windowInsets = WindowInsets(0, 0, 0, 0),
         // 1. IZQUIERDA: Foto de perfil / Avatar
         navigationIcon = {
             IconButton(onClick = onProfileClick) {
                 Box(
                     modifier = Modifier
-                        .offset(x = 4.dp, y = (-4).dp)
+                    //    .offset(x = 4.dp, y = (-4).dp)
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.share_avatar),
@@ -44,7 +46,7 @@ fun TopBar(
                 contentDescription = "Lendly Logo",
                 modifier = Modifier
                     .size(45.dp)
-                    .offset(y = (-5).dp)
+                //    .offset(y = (-5).dp)
             )
         },
 
@@ -53,7 +55,7 @@ fun TopBar(
             IconButton(onClick = onNotificationClick) {
                 Box(
                     modifier = Modifier
-                        .offset(x = 1.dp, y = (-4).dp)
+                    //    .offset(x = 1.dp, y = (-4).dp)
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.share_notifications),
