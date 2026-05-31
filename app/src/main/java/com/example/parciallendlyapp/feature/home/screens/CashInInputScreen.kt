@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
+import com.example.parciallendlyapp.components.LendlyButton
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 import com.example.parciallendlyapp.ui.theme.Inter
@@ -181,6 +182,13 @@ fun CashInInputContent(
                 lineHeight = 20.sp
             ),
             color = LightGray
+        )
+        Spacer(modifier = Modifier.weight(1f))
+
+        LendlyButton(
+            text = stringResource(R.string.sms_verification_next_button),
+            onClick = { /* Lógica para procesar el pago */ },
+            modifier = Modifier.padding(bottom = 0.dp)
         )
     }
 }
