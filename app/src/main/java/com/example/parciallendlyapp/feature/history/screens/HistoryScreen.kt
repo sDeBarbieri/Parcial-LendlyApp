@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -44,7 +45,7 @@ fun HistoryScreen(
         ) {
             Column(modifier = Modifier.padding(horizontal = 16.dp)) {
                 Spacer(modifier = Modifier.height(16.dp))
-                Title(text = "History")
+                Title(text = stringResource(R.string.history_title))
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Search Input
@@ -56,7 +57,7 @@ fun HistoryScreen(
                         .height(56.dp),
                     placeholder = {
                         Text(
-                            "Search...",
+                            stringResource(R.string.history_search_placeholder),
                             style = TextStyle(
                                 fontFamily = Inter,
                                 fontSize = 16.sp,
@@ -82,7 +83,13 @@ fun HistoryScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Filters
-                val filters = listOf("All", "Type", "Balance", "Paid Bills", "Added")
+                val filters = listOf(
+                    stringResource(R.string.history_filter_all),
+                    stringResource(R.string.history_filter_type),
+                    stringResource(R.string.history_filter_balance),
+                    stringResource(R.string.history_filter_paid_bills),
+                    stringResource(R.string.history_filter_added)
+                )
                 LazyRow(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     modifier = Modifier.fillMaxWidth()
@@ -90,7 +97,7 @@ fun HistoryScreen(
                     items(filters) { filter ->
                         FilterChipComponent(
                             text = filter,
-                            isSelected = filter == "All"
+                            isSelected = filter == stringResource(R.string.history_filter_all)
                         )
                     }
                 }
@@ -104,76 +111,76 @@ fun HistoryScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 // Today Section
-                SectionHeader(title = "Today")
+                SectionHeader(title = stringResource(R.string.history_section_today))
                 Spacer(modifier = Modifier.height(8.dp))
                 ItemRow(
                     iconResId = R.drawable.share_arrow_upward,
-                    time = "9:07 AM",
-                    description = "Paid this month",
-                    company = "Apple Inc.",
-                    amount = "1,2555 PHP",
+                    time = stringResource(R.string.history_item_time_today),
+                    description = stringResource(R.string.history_item_paid_this_month),
+                    company = stringResource(R.string.history_item_apple),
+                    amount = stringResource(R.string.history_item_amount_12555),
                     onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_arrow_upward,
-                    time = "9:07 AM",
-                    description = "Paid this month",
-                    company = "Apple Inc.",
-                    amount = "1,2555 PHP",
+                    time = stringResource(R.string.history_item_time_today),
+                    description = stringResource(R.string.history_item_paid_this_month),
+                    company = stringResource(R.string.history_item_apple),
+                    amount = stringResource(R.string.history_item_amount_12555),
                     onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_arrow_upward,
-                    time = "9:07 AM",
-                    description = "Paid this month",
-                    company = "Apple Inc.",
-                    amount = "1,2555 PHP",
+                    time = stringResource(R.string.history_item_time_today),
+                    description = stringResource(R.string.history_item_paid_this_month),
+                    company = stringResource(R.string.history_item_apple),
+                    amount = stringResource(R.string.history_item_amount_12555),
                     onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_add,
-                    time = "9:07 AM",
-                    description = "Added",
+                    time = stringResource(R.string.history_item_time_today),
+                    description = stringResource(R.string.history_filter_added),
                     company = null,
-                    amount = "1,200 PHP",
+                    amount = stringResource(R.string.history_item_amount_1200),
                     onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_add,
-                    time = "9:07 AM",
-                    description = "Paid this month",
+                    time = stringResource(R.string.history_item_time_today),
+                    description = stringResource(R.string.history_item_paid_this_month),
                     company = null,
-                    amount = "1,200 PHP",
+                    amount = stringResource(R.string.history_item_amount_1200),
                     onClick = onTransactionClick
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
 
                 // Recent Loans Section
-                SectionHeader(title = "Recent Loans")
+                SectionHeader(title = stringResource(R.string.history_section_recent_loans))
                 Spacer(modifier = Modifier.height(16.dp))
                 ItemRow(
                     iconResId = R.drawable.share_check,
-                    time = "02/08/2024",
-                    description = "iPhone 15 Pro Max",
-                    company = "Apple Inc.",
-                    amount = "Paid",
+                    time = stringResource(R.string.history_item_date_recent),
+                    description = stringResource(R.string.history_item_iphone_15),
+                    company = stringResource(R.string.history_item_apple),
+                    amount = stringResource(R.string.history_item_paid),
                     onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_check,
-                    time = "02/08/2024",
-                    description = "iPhone 15 Pro Max",
-                    company = "Apple Inc.",
-                    amount = "Paid",
+                    time = stringResource(R.string.history_item_date_recent),
+                    description = stringResource(R.string.history_item_iphone_15),
+                    company = stringResource(R.string.history_item_apple),
+                    amount = stringResource(R.string.history_item_paid),
                     onClick = onTransactionClick
                 )
                 ItemRow(
                     iconResId = R.drawable.share_check,
-                    time = "02/08/2024",
-                    description = "iPhone 15 Pro Max",
-                    company = "Apple Inc.",
-                    amount = "Paid",
+                    time = stringResource(R.string.history_item_date_recent),
+                    description = stringResource(R.string.history_item_iphone_15),
+                    company = stringResource(R.string.history_item_apple),
+                    amount = stringResource(R.string.history_item_paid),
                     onClick = onTransactionClick
                 )
                 

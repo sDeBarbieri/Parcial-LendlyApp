@@ -16,9 +16,6 @@
     <string name="cashin_option_2_title">Over-the-counter</string>
     <string name="cashin_option_2_subtitle">Pay in cash</string>
 
-
-
-
     <!-- Onboarding Screen -->
     <string name="onboarding_title_1">QUICK LOANS</string>
     <string name="onboarding_desc_1">Trusted for easy,\nfast loan approvals.</string>
@@ -101,6 +98,41 @@
     <string name="credit_score_good">Good</string>
     <string name="credit_score_what_is">What is Credit Score?</string>
     <string name="credit_score_your_score_is">Your Score is</string>
+
+    <!-- History Screen -->
+    <string name="history_title">History</string>
+    <string name="history_search_placeholder">Search...</string>
+    <string name="history_filter_all">All</string>
+    <string name="history_filter_type">Type</string>
+    <string name="history_filter_balance">Balance</string>
+    <string name="history_filter_paid_bills">Paid Bills</string>
+    <string name="history_filter_added">Added</string>
+    <string name="history_section_today">Today</string>
+    <string name="history_section_recent_loans">Recent Loans</string>
+    <string name="history_item_paid_this_month">Paid this month</string>
+    <string name="history_item_apple">Apple Inc.</string>
+    <string name="history_item_amount_12555">1,2555 PHP</string>
+    <string name="history_item_amount_1200">1,200 PHP</string>
+    <string name="history_item_time_today">9:07 AM</string>
+    <string name="history_item_date_recent">02/08/2024</string>
+    <string name="history_item_iphone_15">iPhone 15 Pro Max</string>
+    <string name="history_item_paid">Paid</string>
+
+    <!-- Transaction Details Screen -->
+    <string name="transaction_details_back_desc">Back</string>
+    <string name="transaction_details_info_desc">Info</string>
+    <string name="transaction_details_options_desc">Options</string>
+    <string name="transaction_details_mock_amount">1,255.00 PHP</string>
+    <string name="transaction_details_to_apple">To Apple Inc.</string>
+    <string name="transaction_details_title">Transaction Details</string>
+    <string name="transaction_details_fee_label">Fee</string>
+    <string name="transaction_details_mock_fee">₱100.00</string>
+    <string name="transaction_details_date_time_label">Date &amp; Time</string>
+    <string name="transaction_details_mock_datetime">Jul 15, 2024 9:12 AM</string>
+    <string name="transaction_details_number_label">Transaction Number</string>
+    <string name="transaction_details_mock_number">#200412312551</string>
+    <string name="transaction_details_not_found">Didn’t find what you were looking for?</string>
+    <string name="transaction_details_help_center">Go to Help Center</string>
 
     <!-- Settings Screen-->
     <string name="settings">Settings</string>
