@@ -6,17 +6,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.CashInOptionItem
 import com.example.parciallendlyapp.components.InfoButton
 import com.example.parciallendlyapp.components.Title
+import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.BackgroundScreen
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CashInScreen(
+    navController: NavHostController,
     onBackClick: () -> Unit
 ) {
     Scaffold(
@@ -47,14 +50,16 @@ fun CashInScreen(
         CashInContent(
             modifier = Modifier
                 .padding(innerPadding)
-                .fillMaxSize()
+                .fillMaxSize(),
+            navController = navController
         )
     }
 }
 
 @Composable
 fun CashInContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavHostController
 ) {
     Column(
         modifier = modifier
@@ -78,13 +83,13 @@ fun CashInContent(
                     title = stringResource(id = R.string.cashin_option_1_title),
                     subtitle = stringResource(id = R.string.cashin_option_1_subtitle),
                     leadingIcon = R.drawable.home_account_balance_wallet,
-                    onClick = { /* Navegar a Banco */ }
+                    onClick = { navController.navigate(Routes.ONLINE_CASH_IN) }
                 )
                 CashInOptionItem(
                     title = stringResource(id = R.string.cashin_option_2_title),
                     subtitle = stringResource(id = R.string.cashin_option_2_subtitle),
                     leadingIcon = R.drawable.home_location_on,
-                    onClick = { /* Navegar a efectivo */ }
+                    onClick = { navController.navigate(Routes.OTC_CASH_IN) }
                 )
             }
         }

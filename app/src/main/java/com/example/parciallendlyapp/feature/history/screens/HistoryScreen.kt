@@ -8,6 +8,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -19,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.FilterChipComponent
 import com.example.parciallendlyapp.components.ItemRow
+import com.example.parciallendlyapp.components.SearchInput
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.components.TopBar
 import com.example.parciallendlyapp.ui.theme.ContentTertiary
@@ -28,6 +33,10 @@ import com.example.parciallendlyapp.ui.theme.Inter
 fun HistoryScreen(
     onTransactionClick: () -> Unit = {}
 ) {
+
+    // Estado para manejar el texto de búsqueda
+    var searchQuery by remember { mutableStateOf("") }
+
     Scaffold(
         topBar = {
             TopBar(
@@ -49,35 +58,10 @@ fun HistoryScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Search Input
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(56.dp),
-                    placeholder = {
-                        Text(
-                            stringResource(R.string.history_search_placeholder),
-                            style = TextStyle(
-                                fontFamily = Inter,
-                                fontSize = 16.sp,
-                                color = ContentTertiary
-                            )
-                        )
-                    },
-                    leadingIcon = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.share_search),
-                            contentDescription = null,
-                            tint = ContentTertiary
-                        )
-                    },
-                    shape = RoundedCornerShape(12.dp),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        unfocusedBorderColor = Color(0x1F0E0F0C),
-                        focusedBorderColor = Color(0x1F0E0F0C)
-                    ),
-                    singleLine = true
+                SearchInput(
+                    value = searchQuery,
+                    onValueChange = { searchQuery = it },
+                    placeholder = stringResource(R.string.history_search_placeholder)
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -97,7 +81,8 @@ fun HistoryScreen(
                     items(filters) { filter ->
                         FilterChipComponent(
                             text = filter,
-                            isSelected = filter == stringResource(R.string.history_filter_all)
+                            isSelected = filter == stringResource(R.string.history_filter_all),
+                            onClick = {}
                         )
                     }
                 }

@@ -3,23 +3,48 @@ package com.example.parciallendlyapp.navigation
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.parciallendlyapp.feature.shop.screens.FilterScreen
 import com.example.parciallendlyapp.feature.history.screens.HistoryScreen
 import com.example.parciallendlyapp.feature.home.screens.CashInScreen
 import com.example.parciallendlyapp.feature.history.screens.TransactionDetailsScreen
+import com.example.parciallendlyapp.feature.home.screens.CashInInputScreen
 import com.example.parciallendlyapp.feature.home.screens.HomeScreen
+import com.example.parciallendlyapp.feature.home.screens.OTCCashInScreen
+import com.example.parciallendlyapp.feature.home.screens.OnlineCashInScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
+import com.example.parciallendlyapp.feature.notifications.NotificationScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
 
 @Composable
 fun MainNavGraph() {
     val navController = rememberNavController()
 
+    // Obtenemos la entrada actual de la pila de navegación
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    // Definimos las rutas donde SÍ queremos ver el BottomBar
+    val showBottomBarRoutes = listOf(
+        Routes.HOME,
+        Routes.LOANS,
+        Routes.SHOP,
+        Routes.HISTORY,
+        Routes.MANAGE
+    )
+
     Scaffold(
-        bottomBar = { BottomNavBar(navController) }
+        // Solo mostramos el BottomNavBar si la ruta actual está en nuestra lista
+        bottomBar = {
+            if (currentRoute in showBottomBarRoutes) {
+                BottomNavBar(navController)
+            }
+        }
     ) { innerPadding ->
         NavHost(
             navController = navController,
@@ -30,13 +55,28 @@ fun MainNavGraph() {
                 HomeScreen(navController = navController)
             }
             composable(Routes.CASH_IN) {
-                CashInScreen(onBackClick = { navController.popBackStack() })
+                CashInScreen(
+                    navController = navController,
+                    onBackClick = { navController.popBackStack() }
+                )
             }
-            composable(Routes.LOANS) {
-                LoanScreen()
+            composable(Routes.ONLINE_CASH_IN) {
+                OnlineCashInScreen(
+                    navController = navController,
+                    onBackClick = { navController.popBackStack() })
             }
+            composable(Routes.OTC_CASH_IN) {
+                OTCCashInScreen(onBackClick = { navController.popBackStack() })
+            }
+            composable(Routes.CASH_IN_INPUT) {
+                CashInInputScreen(onBackClick = { navController.popBackStack() })
+            }
+
+            // Grafo modularizado de Préstamos
+            loanNavGraph(navController)
+
             composable(Routes.SHOP) {
-                ShopScreen()
+                ShopScreen(navController)
             }
             composable(Routes.HISTORY) {
                 HistoryScreen(
@@ -52,7 +92,17 @@ fun MainNavGraph() {
                     }
                 )
             }
+
+            // Grafo modularizado de Gestión
             manageNavGraph(navController)
+
+            composable(Routes.NOTIFICATIONS) {
+                NotificationScreen(navController)
+            }
+
+            composable(Routes.FILTER) {
+                FilterScreen(navController)
+            }
         }
     }
 }

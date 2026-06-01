@@ -15,6 +15,16 @@
     <string name="cashin_option_1_subtitle">Pay via other banks or e-wallet</string>
     <string name="cashin_option_2_title">Over-the-counter</string>
     <string name="cashin_option_2_subtitle">Pay in cash</string>
+    <string name="online_cashin_title">Online Cash-In Options</string>
+    <string name="online_cashin_banks">BANKS</string>
+    <string name="online_cashin_wallets">E-WALLETS</string>
+    <string name="otc_cashin_title">Over-The-Counter Partners</string>
+    <string name="otc_cashin_subtext">"Max. Transaction amount "</string>
+    <string name="online_cashin_input_screen_title">Cash-In Amount</string>
+    <string name="online_cashin_input_screen_1">"Balance: "</string>
+    <string name="online_cashin_input_screen_2">"BPI’s max limit is ₱10,000.00 per day"</string>
+    <string name="online_cashin_input_screen_placeholer">₱ 0.00</string>
+
 
     <!-- Onboarding Screen -->
     <string name="onboarding_title_1">QUICK LOANS</string>
@@ -123,7 +133,7 @@
     <string name="transaction_details_info_desc">Info</string>
     <string name="transaction_details_options_desc">Options</string>
     <string name="transaction_details_mock_amount">1,255.00 PHP</string>
-    <string name="transaction_details_to_apple">To Apple Inc.</string>
+    <string name="transaction_details_to_apple">To %1$s</string>
     <string name="transaction_details_title">Transaction Details</string>
     <string name="transaction_details_fee_label">Fee</string>
     <string name="transaction_details_mock_fee">₱100.00</string>
@@ -133,6 +143,22 @@
     <string name="transaction_details_mock_number">#200412312551</string>
     <string name="transaction_details_not_found">Didn’t find what you were looking for?</string>
     <string name="transaction_details_help_center">Go to Help Center</string>
+    <string name="transaction_details_added_to_account">Added to your account</string>
+    <string name="transaction_details_from_gcash">From GCash</string>
+    <string name="transaction_details_cash_in">Cash-In</string>
+    <string name="transaction_details_transfer_fee">Transfer Fee</string>
+    <string name="transaction_details_from_apple">From %1$s</string>
+    <string name="transaction_details_loan_amount">Loan Amount</string>
+    <string name="transaction_details_monthly_fee">Monthly Fee</string>
+    <string name="transaction_details_interest">Interest</string>
+    <string name="transaction_details_installment_plan">Installment plan</string>
+    <string name="transaction_details_need_help">Need help?</string>
+    <string name="transaction_details_mock_cashin_amount">2,500.00 PHP</string>
+    <string name="transaction_details_mock_loan_amount">2,000.00 PHP</string>
+    <string name="transaction_details_mock_transfer_fee">-₱15.00</string>
+    <string name="transaction_details_mock_monthly_fee">₱982.12</string>
+    <string name="transaction_details_mock_interest">2.99%</string>
+    <string name="transaction_details_mock_installment">6 Months</string>
 
     <!-- Settings Screen-->
     <string name="settings">Settings</string>
@@ -155,4 +181,11 @@
     <string name="help_center">Help Center</string>
     <string name="help_center_contact">Contact Support</string>
     <string name="help_center_Questions">Frequently Asked Questions</string>
+
+    <!-- Search Input -->
+    <string name="shop_banner_title">The New Shoes</string>
+    <string name="shop_by_category">Shop By Category</string>
+    <string name="shop_category_phone">Phone</string>
+    <string name="shop_category_headphones">Headphones</string>
+    <string name="shop_category_laptop">Apparel</string>
 </resources>
