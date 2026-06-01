@@ -8,6 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.OnlineCashInItem
@@ -15,6 +16,7 @@ import com.example.parciallendlyapp.components.SearchInput
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinBanksList
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinWalletsList
+import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.BackgroundScreen
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 import com.example.parciallendlyapp.ui.theme.SolidDark
@@ -22,6 +24,7 @@ import com.example.parciallendlyapp.ui.theme.SolidDark
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OnlineCashInScreen(
+    navController: NavHostController,
     onBackClick: () -> Unit
 ) {
     Scaffold(
@@ -42,14 +45,16 @@ fun OnlineCashInScreen(
         OnlineCashInContent(
             modifier = Modifier
                 .padding(innerPadding)
-                .fillMaxSize()
+                .fillMaxSize(),
+            navController = navController
         )
     }
 }
 
 @Composable
 fun OnlineCashInContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavHostController
 ) {
     val banks = onlineCashinBanksList
     val wallets = onlineCashinWalletsList
@@ -93,7 +98,7 @@ fun OnlineCashInContent(
                     OnlineCashInItem(
                         title = bank.name,
                         leadingIcon = bank.logoRes,
-                        onClick = { /* Lógica al seleccionar banco */ }
+                        onClick = { navController.navigate(Routes.CASH_IN_INPUT) }
                     )
                 }
 
@@ -114,7 +119,7 @@ fun OnlineCashInContent(
                     OnlineCashInItem(
                         title = wallet.name,
                         leadingIcon = wallet.logoRes,
-                        onClick = { /* Lógica al seleccionar wallet */ }
+                        onClick = { navController.navigate(Routes.CASH_IN_INPUT) }
                     )
                 }
             }
