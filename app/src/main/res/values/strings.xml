@@ -24,6 +24,13 @@
     <string name="online_cashin_input_screen_1">"Balance: "</string>
     <string name="online_cashin_input_screen_2">"BPI’s max limit is ₱10,000.00 per day"</string>
     <string name="online_cashin_input_screen_placeholer">₱ 0.00</string>
+    <string name="cashin_success_1">Added to your account</string>
+    <string name="cashin_success_2">2,500.00 PHP</string>
+    <string name="cashin_success_3">From GCash</string>
+    <string name="cashin_success_fee_1">Transfer Fee</string>
+    <string name="cashin_success_fee_2">-₱15.00</string>
+    <string name="cashin_success_help">Need help?</string>
+    <string name="cashin_success_button">Done</string>
 
 
     <!-- Onboarding Screen -->
@@ -188,4 +195,7 @@
     <string name="shop_category_phone">Phone</string>
     <string name="shop_category_headphones">Headphones</string>
     <string name="shop_category_laptop">Apparel</string>
+    <string name="shop_popular_brands">Popular Brands</string>
+    <string name="shop_recommended">Recommended For You</string>
+    <string name="shop_best_sellers">Best Sellers</string>
 </resources>

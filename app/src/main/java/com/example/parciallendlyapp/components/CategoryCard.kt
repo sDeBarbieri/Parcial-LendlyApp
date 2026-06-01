@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
@@ -33,8 +34,8 @@ fun CategoryCard(
 
         Surface(
             modifier = modifier
-                .width(80.dp)
-                .height(80.dp),
+                .width(100.dp)
+                .height(100.dp),
             color = ContainerGray,
             shape = RoundedCornerShape(12.dp)
         ) {
@@ -42,7 +43,8 @@ fun CategoryCard(
             Image(
                 painter = painterResource(imageResId),
                 contentDescription = null,
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.padding(10.dp)
             )
         }
 

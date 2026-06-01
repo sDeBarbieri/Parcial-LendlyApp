@@ -15,6 +15,7 @@ object Routes {
     const val ONLINE_CASH_IN = "online_cash_in"
     const val OTC_CASH_IN = "otc_cash_in"
     const val CASH_IN_INPUT = "cash_in_input"
+    const val CASH_IN_SUCCESS = "cash_in_success"
     const val LOANS = "loans"
     const val LOAN_FORM = "loan_form"
     const val LOAN_TRANSACTION = "loan_transaction"

@@ -32,10 +32,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.LendlyButton
 import com.example.parciallendlyapp.components.Title
+import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 import com.example.parciallendlyapp.ui.theme.Inter
 import com.example.parciallendlyapp.ui.theme.LightGray
@@ -45,6 +47,7 @@ import com.example.parciallendlyapp.ui.theme.SolidDark
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CashInInputScreen(
+    navController: NavHostController,
     onBackClick: () -> Unit
 ) {
     Scaffold(
@@ -65,14 +68,16 @@ fun CashInInputScreen(
         CashInInputContent(
             modifier = Modifier
                 .padding(innerPadding)
-                .fillMaxSize()
+                .fillMaxSize(),
+            onContinueClick = { navController.navigate(Routes.CASH_IN_SUCCESS) }
         )
     }
 }
 
 @Composable
 fun CashInInputContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onContinueClick: () -> Unit
 ) {
     var amount by remember { mutableStateOf("") }
 
@@ -187,7 +192,7 @@ fun CashInInputContent(
 
         LendlyButton(
             text = stringResource(R.string.sms_verification_next_button),
-            onClick = { /* Lógica para procesar el pago */ },
+            onClick = onContinueClick,
             modifier = Modifier.padding(bottom = 0.dp)
         )
     }

@@ -152,7 +152,7 @@ fun ManageScreen(navController: NavHostController) {
                 onClick = {}
             )
 
-            Spacer(modifier = Modifier.height(80.dp))
+            Spacer(modifier = Modifier.height(10.dp))
         }
     }
 }

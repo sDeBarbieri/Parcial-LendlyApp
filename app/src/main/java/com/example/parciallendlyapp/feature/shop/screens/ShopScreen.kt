@@ -31,10 +31,15 @@ import com.example.parciallendlyapp.ui.theme.Montserrat
 import androidx.compose.runtime.getValue
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.res.stringResource
+import com.example.parciallendlyapp.components.BrandList
 import com.example.parciallendlyapp.components.CategoryList
 import com.example.parciallendlyapp.components.HeaderRow
 import com.example.parciallendlyapp.components.ProductList
+import com.example.parciallendlyapp.feature.home.domain.model.ProductModel
+import com.example.parciallendlyapp.feature.shop.screens.models.BrandModel
 import com.example.parciallendlyapp.feature.shop.screens.models.CategoryModel
 
 @Composable
@@ -64,6 +69,7 @@ fun ShopScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
                 .padding(horizontal = 20.dp)
+                .verticalScroll(rememberScrollState())
         ) {
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -105,7 +111,7 @@ fun ShopScreen(
 
             ShopBannerSlider()
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             HeaderRow(
                 title = stringResource(R.string.shop_by_category),
@@ -134,6 +140,94 @@ fun ShopScreen(
                     )
                 )
             )
+
+            Spacer(modifier = Modifier.height(25.dp))
+
+            HeaderRow(
+                title = stringResource(R.string.shop_popular_brands),
+                onSeeAllClick = {}
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            BrandList(
+                brands = listOf(
+                    BrandModel(
+                        name = "Apple",
+                        imageRes = R.drawable.shop_brand_apple_banner,
+                        logoRes = R.drawable.shop_brand_jordan_logo
+                    ),
+                    BrandModel(
+                        name = "Jordan",
+                        imageRes = R.drawable.shop_brand_jordan_banner,
+                        logoRes = R.drawable.shop_brand_jordan_logo
+                    ),
+                    BrandModel(
+                        name = "Adidas",
+                        imageRes = R.drawable.shop_brand_adidas_banner,
+                        logoRes = R.drawable.shop_brand_jordan_logo
+                    )
+                )
+            )
+
+            Spacer(modifier = Modifier.height(25.dp))
+
+            HeaderRow(
+                title = stringResource(R.string.shop_recommended),
+                onSeeAllClick = {}
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            ProductList(
+                products = listOf(
+                    ProductModel(
+                        name = "iPhone 12 Pro Max",
+                        price = "₱1,200 × 24 mo",
+                        imageRes = R.drawable.shop_phone
+                    ),
+                    ProductModel(
+                        name = "Sony Headphones",
+                        price = "₱1,200 × 24 mo",
+                        imageRes = R.drawable.shop_headphones
+                    ),
+                    ProductModel(
+                        name = "Nike Air Zoom",
+                        price = "₱1,200 × 24 mo",
+                        imageRes = R.drawable.shop_shoes
+                    )
+                )
+            )
+
+            Spacer(modifier = Modifier.height(25.dp))
+
+            HeaderRow(
+                title = stringResource(R.string.shop_best_sellers),
+                onSeeAllClick = {}
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            ProductList(
+                products = listOf(
+                    ProductModel(
+                        name = "Surface Laptop",
+                        price = "₱1,200 × 24 mo",
+                        imageRes = R.drawable.shop_laptop2
+                    ),
+                    ProductModel(
+                        name = "Iphone 12 Pro Max",
+                        price = "₱1,200 × 24 mo",
+                        imageRes = R.drawable.shop_shirt
+                    ),
+                    ProductModel(
+                        name = "PS4 Play Station",
+                        price = "₱1,200 × 24 mo",
+                        imageRes = R.drawable.shop_ps4
+                    )
+                )
+            )
+
         }
     }
 }
