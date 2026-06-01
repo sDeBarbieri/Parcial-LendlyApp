@@ -178,4 +178,11 @@
     <string name="help_center">Help Center</string>
     <string name="help_center_contact">Contact Support</string>
     <string name="help_center_Questions">Frequently Asked Questions</string>
+
+    <!-- Search Input -->
+    <string name="shop_banner_title">The New Shoes</string>
+    <string name="shop_by_category">Shop By Category</string>
+    <string name="shop_category_phone">Phone</string>
+    <string name="shop_category_headphones">Headphones</string>
+    <string name="shop_category_laptop">Apparel</string>
 </resources>

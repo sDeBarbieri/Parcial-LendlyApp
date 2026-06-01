@@ -31,6 +31,12 @@ import com.example.parciallendlyapp.ui.theme.Montserrat
 import androidx.compose.runtime.getValue
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.ui.res.stringResource
+import com.example.parciallendlyapp.components.CategoryList
+import com.example.parciallendlyapp.components.HeaderRow
+import com.example.parciallendlyapp.components.ProductList
+import com.example.parciallendlyapp.feature.shop.screens.models.CategoryModel
+
 @Composable
 fun ShopScreen(
     navController: NavHostController
@@ -98,6 +104,36 @@ fun ShopScreen(
             Spacer(modifier = Modifier.height(20.dp))
 
             ShopBannerSlider()
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            HeaderRow(
+                title = stringResource(R.string.shop_by_category),
+                onSeeAllClick = {}
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            CategoryList(
+                categories = listOf(
+                    CategoryModel(
+                        stringResource(R.string.shop_category_phone),
+                        R.drawable.shop_phone
+                    ),
+                    CategoryModel(
+                        stringResource(R.string.shop_category_headphones),
+                        R.drawable.shop_headphones
+                    ),
+                    CategoryModel(
+                        stringResource(R.string.shop_category_laptop),
+                        R.drawable.shop_laptop
+                    ),
+                    CategoryModel(
+                        stringResource(R.string.shop_category_phone),
+                        R.drawable.shop_phone
+                    )
+                )
+            )
         }
     }
 }
@@ -127,7 +163,7 @@ fun ShopBanner(
             ) {
 
                 Text(
-                    text = "The New Shoes",
+                    text = stringResource(R.string.shop_banner_title),
                     color = Color.White,
                     fontSize = 30.sp,
                     fontFamily = Montserrat,
@@ -162,8 +198,8 @@ fun ShopBanner(
                 contentDescription = null,
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .offset(y = 20.dp)
-                    .size(180.dp)
+                    .offset(y = 22.dp)
+                    .size(160.dp)
             )
 
             Row(
