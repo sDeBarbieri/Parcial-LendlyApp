@@ -111,7 +111,7 @@ fun ShopScreen(
 
             ShopBannerSlider()
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             HeaderRow(
                 title = stringResource(R.string.shop_by_category),
@@ -141,7 +141,7 @@ fun ShopScreen(
                 )
             )
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             HeaderRow(
                 title = stringResource(R.string.shop_popular_brands),
@@ -170,7 +170,7 @@ fun ShopScreen(
                 )
             )
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             HeaderRow(
                 title = stringResource(R.string.shop_recommended),
@@ -199,7 +199,7 @@ fun ShopScreen(
                 )
             )
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             HeaderRow(
                 title = stringResource(R.string.shop_best_sellers),
@@ -227,8 +227,6 @@ fun ShopScreen(
                     )
                 )
             )
-
-            Spacer(modifier = Modifier.height(20.dp))
 
         }
     }
