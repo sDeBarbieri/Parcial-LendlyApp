@@ -16,7 +16,7 @@ val InteractiveContrast = Color(0xFF7BF179)
 val BackgroundScreen = Color(0xFFFFFFFF)
 val BackgroundElevated = Color(0xFFFFFFFF)
 val BackgroundNeutral = Color(0xFFE5F5EA)
-val BackgroundOverlay = Color(0xFFE5F5EA)
+val BackgroundOverlay = Color(0xFFE5E2E1)
 
 val BorderNeutral = Color(0x1F0E0F0C)
 val BorderOverlay = Color(0x1F0E0F0C)

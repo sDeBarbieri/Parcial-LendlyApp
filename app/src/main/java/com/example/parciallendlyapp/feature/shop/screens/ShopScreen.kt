@@ -18,6 +18,7 @@ import com.example.parciallendlyapp.components.TopBar
 import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.InteractiveAccent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -79,16 +80,28 @@ fun ShopScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-
-                SearchInput(
-                    value = searchText,
-                    onValueChange = {
-                        searchText = it
-                    },
-                    placeholder = "Search for product",
-                    modifier = Modifier.weight(1f)
-                )
-
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .clickable { navController.navigate(Routes.SEARCH) } // Navega al hacer clic
+                ) {
+                    SearchInput(
+                        value = searchText,
+                        onValueChange = {
+                            searchText = it
+                        },
+                        placeholder = stringResource(R.string.shop_search_placeholder),
+                        modifier = Modifier.fillMaxWidth(1f)
+                    )
+                    // CAPA INVISIBLE PARA CLIC:
+                    Box(
+                        modifier = Modifier
+                            .matchParentSize() // Ocupa exactamente el tamaño del SearchInput
+                            .clickable {
+                                navController.navigate(Routes.SEARCH)
+                            }
+                    )
+                }
                 IconButton(
                     onClick = {
                         navController.navigate(Routes.FILTER)
@@ -153,17 +166,17 @@ fun ShopScreen(
             BrandList(
                 brands = listOf(
                     BrandModel(
-                        name = "Apple",
+                        name = stringResource(R.string.shop_brand_apple),
                         imageRes = R.drawable.shop_brand_apple_banner,
                         logoRes = R.drawable.shop_brand_jordan_logo
                     ),
                     BrandModel(
-                        name = "Jordan",
+                        name = stringResource(R.string.shop_brand_jordan),
                         imageRes = R.drawable.shop_brand_jordan_banner,
                         logoRes = R.drawable.shop_brand_jordan_logo
                     ),
                     BrandModel(
-                        name = "Adidas",
+                        name = stringResource(R.string.shop_brand_adidas),
                         imageRes = R.drawable.shop_brand_adidas_banner,
                         logoRes = R.drawable.shop_brand_jordan_logo
                     )
@@ -182,18 +195,18 @@ fun ShopScreen(
             ProductList(
                 products = listOf(
                     ProductModel(
-                        name = "iPhone 12 Pro Max",
-                        price = "₱1,200 × 24 mo",
+                        name = stringResource(R.string.shop_product_iphone),
+                        price = stringResource(R.string.shop_price_mock),
                         imageRes = R.drawable.shop_phone
                     ),
                     ProductModel(
-                        name = "Sony Headphones",
-                        price = "₱1,200 × 24 mo",
+                        name = stringResource(R.string.shop_product_sony),
+                        price = stringResource(R.string.shop_price_mock),
                         imageRes = R.drawable.shop_headphones
                     ),
                     ProductModel(
-                        name = "Nike Air Zoom",
-                        price = "₱1,200 × 24 mo",
+                        name = stringResource(R.string.shop_product_nike),
+                        price = stringResource(R.string.shop_price_mock),
                         imageRes = R.drawable.shop_shoes
                     )
                 )
@@ -267,7 +280,7 @@ fun ShopBanner(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Shop this season's Top Silhouette",
+                    text = stringResource(R.string.shop_banner_subtitle),
                     color = Color.White.copy(alpha = 0.85f),
                     fontSize = 14.sp
                 )
@@ -281,7 +294,7 @@ fun ShopBanner(
                     )
                 ) {
                     Text(
-                        text = "Shop Now",
+                        text = stringResource(R.string.shop_banner_button),
                         color = Color.Black
                     )
                 }

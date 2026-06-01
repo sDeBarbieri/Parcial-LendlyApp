@@ -14,6 +14,7 @@ import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.OTCCashInItem
 import com.example.parciallendlyapp.components.Title
+import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
 import com.example.parciallendlyapp.feature.home.domain.model.OTCCashinList
 import com.example.parciallendlyapp.ui.theme.BackgroundScreen
 import com.example.parciallendlyapp.ui.theme.ContainerGray
@@ -26,20 +27,11 @@ fun OTCCashInScreen(
     Scaffold(
         containerColor = ContainerGray,
         topBar = {
-            CenterAlignedTopAppBar(
-                windowInsets = WindowInsets(0, 0, 0, 0),
-                title = {
-                    Text(
-                        text = stringResource(id = R.string.cashin_topbar),
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                },
-                navigationIcon = {
-                    BackButton(onClick = onBackClick)
-                },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = ContainerGray
-                )
+            SecondaryTopBar(
+                title = "",
+                onBackClick = onBackClick,
+                showInfoButton = false,
+                onInfoClick = { /* Lógica de info */ }
             )
         }
     ) { innerPadding ->

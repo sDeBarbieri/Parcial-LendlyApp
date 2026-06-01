@@ -20,6 +20,7 @@ object Routes {
     const val LOAN_FORM = "loan_form"
     const val LOAN_TRANSACTION = "loan_transaction"
     const val SHOP = "shop"
+    const val SEARCH = "search"
     const val HISTORY = "history"
     const val MANAGE = "manage"
 

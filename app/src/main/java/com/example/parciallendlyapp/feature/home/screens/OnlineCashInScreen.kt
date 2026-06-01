@@ -14,6 +14,7 @@ import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.OnlineCashInItem
 import com.example.parciallendlyapp.components.SearchInput
 import com.example.parciallendlyapp.components.Title
+import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinBanksList
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinWalletsList
 import com.example.parciallendlyapp.navigation.Routes
@@ -30,15 +31,11 @@ fun OnlineCashInScreen(
     Scaffold(
         containerColor = ContainerGray,
         topBar = {
-            CenterAlignedTopAppBar(
-                windowInsets = WindowInsets(0, 0, 0, 0),
-                title = {},
-                navigationIcon = {
-                    BackButton(onClick = onBackClick)
-                },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = ContainerGray
-                )
+            SecondaryTopBar(
+                title = "",
+                onBackClick = onBackClick,
+                showInfoButton = false,
+                onInfoClick = { /* Lógica de info */ }
             )
         }
     ) { innerPadding ->

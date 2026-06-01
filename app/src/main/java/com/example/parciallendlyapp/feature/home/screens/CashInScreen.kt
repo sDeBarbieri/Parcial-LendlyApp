@@ -12,6 +12,7 @@ import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.CashInOptionItem
 import com.example.parciallendlyapp.components.InfoButton
 import com.example.parciallendlyapp.components.Title
+import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
 import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.BackgroundScreen
 import com.example.parciallendlyapp.ui.theme.ContainerGray
@@ -26,24 +27,11 @@ fun CashInScreen(
         // Usamos el color de fondo gris que definimos para las pantallas secundarias
         containerColor = ContainerGray,
         topBar = {
-            CenterAlignedTopAppBar(
-                windowInsets = WindowInsets(0, 0, 0, 0),
-                title = {
-                    Text(
-                        text = stringResource(id = R.string.cashin_topbar), // Puedes moverlo a strings.xml después
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                },
-                navigationIcon = {
-                    // Aquí usamos tu nuevo componente BackButton
-                    BackButton(onClick = onBackClick)
-                },
-                actions = {
-                    InfoButton(onClick = { /* Acción */ })
-                },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = ContainerGray
-                )
+            SecondaryTopBar(
+                title = stringResource(id = R.string.cashin_topbar),
+                onBackClick = onBackClick,
+                showInfoButton = true,
+                onInfoClick = { /* Lógica de info */ }
             )
         }
     ) { innerPadding ->

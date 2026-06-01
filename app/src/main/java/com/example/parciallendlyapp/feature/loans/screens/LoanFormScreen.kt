@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.components.*
+import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
 import com.example.parciallendlyapp.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,28 +30,14 @@ fun LoanFormScreen(
     onGetLoanClick: () -> Unit = {}
 ) {
     Scaffold(
+        containerColor = BackgroundScreen,
         topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text(
-                        text = "Loan",
-                        style = TextStyle(
-                            fontFamily = Inter,
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 16.sp,
-                            color = ContentPrimary
-                        )
-                    )
-                },
-                navigationIcon = {
-                    BackButton(onClick = onBackClick)
-                },
-                actions = {
-                    InfoButton(onClick = onInfoClick)
-                },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
-                )
+            SecondaryTopBar(
+                title = "Loan",
+                onBackClick = onBackClick,
+                showInfoButton = true,
+                onInfoClick = onInfoClick,
+                containerColor = BackgroundScreen
             )
         }
     ) { innerPadding ->
@@ -256,7 +243,7 @@ fun SummarySection() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(ContainerGray)
+            .background(BackgroundScreen)
     ) {
         // Light green line at the top
         Box(

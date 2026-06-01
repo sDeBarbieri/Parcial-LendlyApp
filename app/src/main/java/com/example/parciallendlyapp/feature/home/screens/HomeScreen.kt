@@ -33,13 +33,13 @@ fun HomeScreen(navController: NavHostController) {
     // Datos de ejemplo
     val loansFromApi = listOf(
         LoanModel("Nike Inc.", "₱400.00", "Fees of February", R.drawable.share_avatar),
-        LoanModel("Apple Inc.", "₱1500.00", "Fees of March", R.drawable.share_avatar),
+        LoanModel("Apple Inc.", "₱1500.00", "Fees of March", R.drawable.shop_logo_apple),
         LoanModel("Adidas", "₱600.00", "Fees of April", R.drawable.share_avatar),
     )
     val productsFromApi = listOf(
-        ProductModel("iPhone 12 Pro", "₱1,200 x 24 mo", R.drawable.share_avatar),
-        ProductModel("Watch Series 7", "₱800 x 12 mo", R.drawable.share_avatar),
-        ProductModel("MacBook Air", "₱2,500 x 36 mo", R.drawable.share_avatar)
+        ProductModel("iPhone 12 Pro", "₱1,200 x 24 mo", R.drawable.shop_phone),
+        ProductModel("Watch Series 7", "₱800 x 12 mo", R.drawable.shop_ps4),
+        ProductModel("MacBook Air", "₱2,500 x 36 mo", R.drawable.shop_shirt)
     )
 
     Scaffold(
