@@ -195,4 +195,7 @@
     <string name="shop_category_phone">Phone</string>
     <string name="shop_category_headphones">Headphones</string>
     <string name="shop_category_laptop">Apparel</string>
+    <string name="shop_popular_brands">Popular Brands</string>
+    <string name="shop_recommended">Recommended For You</string>
+    <string name="shop_best_sellers">Best Sellers</string>
 </resources>
