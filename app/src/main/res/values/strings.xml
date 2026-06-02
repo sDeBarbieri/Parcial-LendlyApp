@@ -212,6 +212,8 @@
     <string name="shop_product_ps4">PS4 Play Station</string>
     <string name="shop_price_mock">₱1,200 × 24 mo</string>
     <string name="shop_filter">Filter</string>
+    <string name="search_recent">Recent</string>
+    <string name="search_clear_all">Clear All</string>
 
     <!-- Loan Active Screen -->
     <string name="loan_active_title">Active loans</string>
