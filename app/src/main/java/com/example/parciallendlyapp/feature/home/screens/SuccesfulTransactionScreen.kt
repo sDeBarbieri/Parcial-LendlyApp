@@ -6,7 +6,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.components.LendlyButton
 import com.example.parciallendlyapp.components.TransactionComponent
 import com.example.parciallendlyapp.components.TransactionDetailItem
 import com.example.parciallendlyapp.ui.theme.InteractiveControl

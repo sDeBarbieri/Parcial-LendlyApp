@@ -1,6 +1,5 @@
 package com.example.parciallendlyapp.feature.shop.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,27 +8,25 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.FilterChipComponent
+import com.example.parciallendlyapp.components.SecondaryTopBar
+import com.example.parciallendlyapp.ui.theme.ContainerGray
 import com.example.parciallendlyapp.ui.theme.InteractiveAccent
-import com.example.parciallendlyapp.ui.theme.Montserrat
 
 @Composable
 fun FilterScreen(
@@ -67,7 +64,15 @@ fun FilterScreen(
         "$1000 - $5000"
     )
 
-    Scaffold { paddingValues ->
+    Scaffold(
+        containerColor = ContainerGray,
+        topBar = {
+            SecondaryTopBar(
+                title = stringResource(id = R.string.shop_filter),
+                onBackClick = { navController.popBackStack() },
+            )
+        }
+    ) { paddingValues ->
 
         Column(
             modifier = Modifier
@@ -75,25 +80,7 @@ fun FilterScreen(
                 .padding(paddingValues)
                 .padding(20.dp)
         ) {
-            Icon(
-                painter = painterResource(R.drawable.share_arrow_left),
-                contentDescription = "Back",
-                tint = Color.Unspecified,
-                modifier = Modifier
-                    .size(24.dp)
-                    .clickable {
-                        navController.popBackStack()
-                    }
-            )
 
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Text(
-                text = "Filter",
-                fontFamily = Montserrat,
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 24.sp
-            )
 
             Spacer(modifier = Modifier.height(32.dp))
 

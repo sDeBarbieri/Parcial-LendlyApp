@@ -4,6 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.example.parciallendlyapp.feature.loans.screens.LoanActiveScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanFormScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanTransactionScreen
@@ -36,6 +37,11 @@ fun NavGraphBuilder.loanNavGraph(navController: NavHostController) {
                         popUpTo(Routes.HOME) { inclusive = true }
                     }
                 }
+            )
+        }
+        composable(Routes.LOAN_ACTIVE) {
+            LoanActiveScreen(
+                onBackClick = { navController.popBackStack() }
             )
         }
     }

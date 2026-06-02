@@ -34,7 +34,7 @@ fun InfoContainer(
         ) {
             Description(
                 text = "You can borrow up to",
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.SemiBold,
                 color = ContentPrimary
             )
 
@@ -42,7 +42,7 @@ fun InfoContainer(
                 text = "₱ 30,000.00",
                 style = TextStyle(
                     fontFamily = Montserrat,
-                    fontWeight = FontWeight.ExtraBold,
+                    fontWeight = FontWeight.SemiBold,
                     fontSize = 40.sp,
                     color = ContentPrimary
                 )

@@ -20,6 +20,7 @@ import com.example.parciallendlyapp.feature.home.screens.OnlineCashInScreen
 import com.example.parciallendlyapp.feature.home.screens.SuccesfulTransactionScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
 import com.example.parciallendlyapp.feature.notifications.NotificationScreen
+import com.example.parciallendlyapp.feature.shop.screens.SearchScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
 
 @Composable
@@ -91,6 +92,12 @@ fun MainNavGraph() {
             composable(Routes.SHOP) {
                 ShopScreen(navController)
             }
+            composable(Routes.SEARCH) {
+                SearchScreen(
+                    navController = navController,
+                    onBackClick = { navController.popBackStack() })
+            }
+
             composable(Routes.HISTORY) {
                 HistoryScreen(
                     onTransactionClick = {

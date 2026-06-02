@@ -189,7 +189,7 @@
     <string name="help_center_contact">Contact Support</string>
     <string name="help_center_Questions">Frequently Asked Questions</string>
 
-    <!-- Search Input -->
+    <!-- Shop Screen -->
     <string name="shop_banner_title">The New Shoes</string>
     <string name="shop_by_category">Shop By Category</string>
     <string name="shop_category_phone">Phone</string>
@@ -198,4 +198,26 @@
     <string name="shop_popular_brands">Popular Brands</string>
     <string name="shop_recommended">Recommended For You</string>
     <string name="shop_best_sellers">Best Sellers</string>
+    <string name="shop_search_placeholder">Search for product</string>
+    <string name="shop_search_title">Search</string>
+    <string name="shop_banner_subtitle">Shop this season\'s Top Silhouette</string>
+    <string name="shop_banner_button">Shop Now</string>
+    <string name="shop_brand_apple">Apple</string>
+    <string name="shop_brand_jordan">Jordan</string>
+    <string name="shop_brand_adidas">Adidas</string>
+    <string name="shop_product_iphone">iPhone 12 Pro Max</string>
+    <string name="shop_product_sony">Sony Headphones</string>
+    <string name="shop_product_nike">Nike Air Zoom</string>
+    <string name="shop_product_surface">Surface Laptop</string>
+    <string name="shop_product_ps4">PS4 Play Station</string>
+    <string name="shop_price_mock">₱1,200 × 24 mo</string>
+    <string name="shop_filter">Filter</string>
+    <string name="search_recent">Recent</string>
+    <string name="search_clear_all">Clear All</string>
+
+    <!-- Loan Active Screen -->
+    <string name="loan_active_title">Active loans</string>
+    <string name="loan_active_present">Present</string>
+    <string name="loan_active_fees_february">Fees of february</string>
+
 </resources>

@@ -2,6 +2,7 @@ package com.example.parciallendlyapp.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -48,7 +49,7 @@ fun LoanCard(
                 contentDescription = null,
                 modifier = Modifier
                     .size(40.dp)
-                    .clip(RoundedCornerShape(8.dp)),
+                    .clip(CircleShape),
                 contentScale = ContentScale.Crop
             )
 
