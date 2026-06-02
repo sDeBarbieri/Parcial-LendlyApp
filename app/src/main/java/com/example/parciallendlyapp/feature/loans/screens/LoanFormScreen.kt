@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -88,8 +86,8 @@ fun LoanFormScreen(
                     text = "₱2,000.00",
                     modifier = Modifier.fillMaxWidth(),
                     style = TextStyle(
-                        fontFamily = Inter,
-                        fontWeight = FontWeight.Bold,
+                        fontFamily = Montserrat,
+                        fontWeight = FontWeight.SemiBold,
                         fontSize = 32.sp,
                         textAlign = TextAlign.Center,
                         color = SolidDark
@@ -130,7 +128,10 @@ fun LoanFormScreen(
                     )
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                PurposeSelector(purpose = "Educational")
+                DropdownSelector(
+                    text = "Educational",
+                    onClick = { /* Abrir diálogo o bottom sheet */ }
+                )
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -203,40 +204,7 @@ fun InstallmentPlanCard() {
     }
 }
 
-@Composable
-fun PurposeSelector(purpose: String) {
-    Surface(
-        modifier = Modifier
-            .fillMaxWidth(),
-        color = Color.Transparent,
-        shape = RoundedCornerShape(8.dp),
-        border = androidx.compose.foundation.BorderStroke(1.dp, BorderNeutral)
-    ) {
-        Row(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = purpose,
-                style = TextStyle(
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 16.sp,
-                    color = SolidDark
-                )
-            )
-            Icon(
-                imageVector = Icons.Default.KeyboardArrowDown,
-                contentDescription = null,
-                tint = ContentSecondary,
-                modifier = Modifier.size(24.dp)
-            )
-        }
-    }
-}
+
 
 @Composable
 fun SummarySection() {
@@ -246,12 +214,7 @@ fun SummarySection() {
             .background(BackgroundScreen)
     ) {
         // Light green line at the top
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(4.dp)
-                .background(BackgroundNeutral)
-        )
+        GreenDivider()
         
         Column(
             modifier = Modifier

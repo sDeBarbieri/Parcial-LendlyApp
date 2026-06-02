@@ -20,6 +20,7 @@ import com.example.parciallendlyapp.feature.home.screens.OnlineCashInScreen
 import com.example.parciallendlyapp.feature.home.screens.SuccesfulTransactionScreen
 import com.example.parciallendlyapp.feature.loans.screens.LoanScreen
 import com.example.parciallendlyapp.feature.notifications.NotificationScreen
+import com.example.parciallendlyapp.feature.shop.screens.ProductScreen
 import com.example.parciallendlyapp.feature.shop.screens.SearchScreen
 import com.example.parciallendlyapp.feature.shop.screens.ShopScreen
 
@@ -96,6 +97,12 @@ fun MainNavGraph() {
                 SearchScreen(
                     navController = navController,
                     onBackClick = { navController.popBackStack() })
+            }
+            // Dentro del NavHost en MainNavGraph.kt
+            composable(Routes.PRODUCT) {
+                ProductScreen(
+                    onBackClick = { navController.popBackStack() }
+                )
             }
 
             composable(Routes.HISTORY) {

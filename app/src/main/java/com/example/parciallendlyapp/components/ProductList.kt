@@ -13,7 +13,8 @@ import com.example.parciallendlyapp.feature.home.domain.model.ProductModel
 @Composable
 fun ProductList(
     products: List<ProductModel>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onProductClick: (ProductModel) -> Unit
 ) {
     LazyRow(
         modifier = Modifier.fillMaxWidth(),
@@ -24,7 +25,8 @@ fun ProductList(
             ProductCard(
                 name = product.name,
                 price = product.price,
-                imageResId = product.imageRes
+                imageResId = product.imageRes,
+                onClick = {onProductClick(product)}
             )
         }
     }
