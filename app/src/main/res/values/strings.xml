@@ -248,6 +248,7 @@
     <string name="product_merchant_downpayment">65% Downpayment</string>
     <string name="product_merchant_the_loop">The Loop</string>
     <string name="product_merchant_imac">I-Mac Center</string>
+    <string name="product_bottom_button_text">Continue</string>
 
     <!-- Product Detail - Features & Specs -->
     <string name="product_features_title">FEATURES</string>
