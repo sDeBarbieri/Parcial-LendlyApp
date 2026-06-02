@@ -8,11 +8,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.CashInOptionItem
-import com.example.parciallendlyapp.components.InfoButton
 import com.example.parciallendlyapp.components.Title
-import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
+import com.example.parciallendlyapp.components.SecondaryTopBar
 import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.BackgroundScreen
 import com.example.parciallendlyapp.ui.theme.ContainerGray

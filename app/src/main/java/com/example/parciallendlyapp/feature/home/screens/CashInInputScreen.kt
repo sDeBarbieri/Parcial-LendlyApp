@@ -36,6 +36,7 @@ import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.LendlyButton
+import com.example.parciallendlyapp.components.SecondaryTopBar
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.navigation.Routes
 import com.example.parciallendlyapp.ui.theme.ContainerGray
@@ -53,15 +54,10 @@ fun CashInInputScreen(
     Scaffold(
         containerColor = ContainerGray,
         topBar = {
-            CenterAlignedTopAppBar(
-                windowInsets = WindowInsets(0, 0, 0, 0),
-                title = {},
-                navigationIcon = {
-                    BackButton(onClick = onBackClick)
-                },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = ContainerGray
-                )
+            SecondaryTopBar(
+                title = "",
+                onBackClick = onBackClick,
+                showInfoButton = false
             )
         }
     ) { innerPadding ->
