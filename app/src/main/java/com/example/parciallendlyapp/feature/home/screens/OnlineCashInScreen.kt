@@ -10,11 +10,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.OnlineCashInItem
 import com.example.parciallendlyapp.components.SearchInput
 import com.example.parciallendlyapp.components.Title
-import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
+import com.example.parciallendlyapp.components.SecondaryTopBar
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinBanksList
 import com.example.parciallendlyapp.feature.home.domain.model.onlineCashinWalletsList
 import com.example.parciallendlyapp.navigation.Routes

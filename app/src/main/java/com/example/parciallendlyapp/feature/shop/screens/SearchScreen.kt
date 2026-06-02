@@ -8,8 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.components.BackButton
-import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
+import com.example.parciallendlyapp.components.SecondaryTopBar
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 
 @Composable

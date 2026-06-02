@@ -19,7 +19,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.components.*
-import com.example.parciallendlyapp.componentsimport.SecondaryTopBar
+import com.example.parciallendlyapp.components.SecondaryTopBar
 import com.example.parciallendlyapp.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)

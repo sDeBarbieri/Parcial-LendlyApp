@@ -1,12 +1,9 @@
-package com.example.parciallendlyapp.componentsimport
+package com.example.parciallendlyapp.components
 
 import androidx.compose.foundation.layout.WindowInsets
-import com.example.parciallendlyapp.components.BackButton
-import com.example.parciallendlyapp.components.InfoButton
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import com.example.parciallendlyapp.ui.theme.ContainerGray
 
 @OptIn(ExperimentalMaterial3Api::class)
