@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.ui.theme.Montserrat
 
@@ -14,11 +15,13 @@ import com.example.parciallendlyapp.ui.theme.Montserrat
 fun Title(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colorScheme.onBackground
+    color: Color = MaterialTheme.colorScheme.onBackground,
+    textAlign: TextAlign? = null
 ) {
     Text(
         text = text,
         modifier = modifier,
+        textAlign = textAlign,
         style = TextStyle(
             fontFamily = Montserrat,
             fontWeight = FontWeight.SemiBold,

@@ -9,7 +9,10 @@ import com.example.parciallendlyapp.feature.auth.screens.login.SmsVerificationSc
 import com.example.parciallendlyapp.feature.auth.screens.login.VerifyPhoneNumberScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.CreatePassword
 import com.example.parciallendlyapp.feature.auth.screens.register.DoneScreen
+import com.example.parciallendlyapp.feature.auth.screens.register.FaceRecognitionScreen
+import com.example.parciallendlyapp.feature.auth.screens.register.IdIdentificationScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.ProfileDetailForm
+import com.example.parciallendlyapp.feature.auth.screens.register.VerifiedScreen
 import com.example.parciallendlyapp.feature.onboarding.screens.OnboardingScreen
 import com.example.parciallendlyapp.feature.splash.screens.SplashScreen
 
@@ -45,6 +48,30 @@ fun AppNavGraph(){
             SmsVerificationScreen(
                 onBackClick = { navController.popBackStack() },
                 onNextClick = { otp ->
+                    navController.navigate(Routes.FACE_RECOGNITION)
+                }
+            )
+        }
+        composable(Routes.FACE_RECOGNITION) {
+            FaceRecognitionScreen(
+                onBackClick = { navController.popBackStack() },
+                onNextClick = {
+                    navController.navigate(Routes.ID_IDENTIFICATION)
+                }
+            )
+        }
+        composable(Routes.ID_IDENTIFICATION) {
+            IdIdentificationScreen(
+                onBackClick = { navController.popBackStack() },
+                onNextClick = {
+                    navController.navigate(Routes.VERIFIED)
+                }
+            )
+        }
+        composable(Routes.VERIFIED) {
+            VerifiedScreen(
+                onBackClick = { navController.popBackStack() },
+                onNextClick = {
                     navController.navigate(Routes.PROFILE_DETAIL)
                 }
             )

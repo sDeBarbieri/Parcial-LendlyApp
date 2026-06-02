@@ -45,7 +45,7 @@ fun ItemRow(
             Icon(
                 painter = painterResource(id = iconResId),
                 contentDescription = null,
-                modifier = Modifier.size(15.dp),
+                modifier = Modifier.size(40.dp),
                 tint = Color.Unspecified
             )
         }

@@ -98,6 +98,23 @@
     <string name="create_password_back_desc">Back</string>
     <string name="create_password_info_desc">Info</string>
 
+    <!-- Face Recognition Screen -->
+    <string name="face_recognition_title">Put your face in the frame</string>
+    <string name="face_recognition_subtitle">Follow these instruction, and let us get you onboarded.</string>
+    <string name="face_recognition_next_button">Next</string>
+
+    <!-- ID Identification Screen -->
+    <string name="id_identification_title">Let’s scan your ID</string>
+    <string name="id_identification_subtitle">Always keep your phone in portrait mode, and here are some more tips.</string>
+    <string name="id_identification_next_button">Next</string>
+
+    <!-- Verified Screen -->
+    <string name="verified_title">Woah, Your face and ID\nare the same!</string>
+    <string name="verified_subtitle">We are just a few questions away from opening your own lendly loan account. Tap the button to continue.</string>
+    <string name="verified_card_title">Security Guard</string>
+    <string name="verified_card_desc">Our online security feature world-class protection against hackers. It makes them cry and rethink their purpose in life.</string>
+    <string name="verified_next_button">Next</string>
+
     <!-- Manage Screen -->
     <string name="manage">Manage</string>
     <string name="manage_general">General</string>
