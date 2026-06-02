@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import com.example.parciallendlyapp.ui.theme.Inter
@@ -16,12 +17,14 @@ fun Description(
     text: String,
     modifier: Modifier = Modifier,
     color: Color = MaterialTheme.colorScheme.onBackground,
-    fontWeight: FontWeight = FontWeight.Normal, // Añadido
-    textDecoration: TextDecoration = TextDecoration.None // Añadido
+    fontWeight: FontWeight = FontWeight.Normal,
+    textDecoration: TextDecoration = TextDecoration.None,
+    textAlign: TextAlign? = null
 ) {
     Text(
         text = text,
         modifier = modifier,
+        textAlign = textAlign,
         style = TextStyle(
             fontFamily = Inter,
             fontWeight = fontWeight,
