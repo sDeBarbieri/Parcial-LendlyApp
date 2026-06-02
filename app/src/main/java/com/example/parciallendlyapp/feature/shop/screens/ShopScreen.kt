@@ -209,7 +209,10 @@ fun ShopScreen(
                         price = stringResource(R.string.shop_price_mock),
                         imageRes = R.drawable.shop_shoes
                     )
-                )
+                ),
+                onProductClick = {
+                    navController.navigate(Routes.PRODUCT)
+                }
             )
 
             Spacer(modifier = Modifier.height(25.dp))
@@ -238,7 +241,10 @@ fun ShopScreen(
                         price = "₱1,200 × 24 mo",
                         imageRes = R.drawable.shop_ps4
                     )
-                )
+                ),
+                onProductClick = {
+                    navController.navigate(Routes.PRODUCT)
+                }
             )
 
         }

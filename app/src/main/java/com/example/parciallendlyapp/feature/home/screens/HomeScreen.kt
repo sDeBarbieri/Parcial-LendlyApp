@@ -158,6 +158,9 @@ fun HomeContent(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        ProductList(products = products)
+        ProductList(
+            products = products,
+            onProductClick = { navController.navigate(Routes.PRODUCT) }
+        )
     }
 }

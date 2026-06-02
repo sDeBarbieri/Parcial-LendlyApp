@@ -231,6 +231,42 @@
     <string name="shop_filter">Filter</string>
     <string name="search_recent">Recent</string>
     <string name="search_clear_all">Clear All</string>
+    <string name="shop_interest">Low Interest</string>
+    <string name="shop_installment">0% Installment</string>
+    <string name="shop_pickup">Easy pick-up</string>
+    <string name="product_low">From as low as</string>
+    <string name="product_price">$1,200</string>
+    <string name="product_full_name">Apple iPhone 15 Pro Max 256GB, Rose Gold</string>
+    <string name="product_month">per month</string>
+    <string name="product_location_text">WHERE DO YOU WANT TO SHOP?</string>
+    <string name="product_location">Davao City, Davao del Sur</string>
+    <string name="product_marketplace_text">MARKETPLACE PARTNER MERCHANTS</string>
+    <string name="product_merchant_power_max">Power Max Center</string>
+    <string name="product_merchant_limited">Limited Availability</string>
+    <string name="product_merchant_price_months">From$1,200 x 12 months</string>
+    <string name="product_merchant_total_price">$1,800 total price</string>
+    <string name="product_merchant_downpayment">65% Downpayment</string>
+    <string name="product_merchant_the_loop">The Loop</string>
+    <string name="product_merchant_imac">I-Mac Center</string>
+
+    <!-- Product Detail - Features & Specs -->
+    <string name="product_features_title">FEATURES</string>
+    <string name="product_apply_loan_title">How To Apply For A Loan</string>
+    <string name="product_apply_loan_step_1">(1) Only 1 ID needed for the loan approval and,</string>
+    <string name="product_apply_loan_step_2">(2) Click on Continue to check if you are qualified</string>
+    <string name="product_disclaimer_title">Disclaimer</string>
+    <string name="product_disclaimer_desc">Estimated calculation only. Down Payment and other loan terms may vary.</string>
+    <string name="product_specs_title">PRODUCT SPECIFICATIONS</string>
+    <string name="product_specs_chip">Chip</string>
+    <string name="product_specs_chip_desc">A16 Bionic chip</string>
+    <string name="product_specs_cpu_desc">6‑core CPU with 2 performance and 4 efficiency cores</string>
+    <string name="product_specs_gpu_desc">5‑core GPU</string>
+    <string name="product_specs_neural_desc">16‑core Neural Engine</string>
+    <string name="product_specs_camera">Camera</string>
+    <string name="product_specs_camera_desc">12MP camera</string>
+    <string name="product_specs_aperture_desc">ƒ/1.9 aperture</string>
+    <string name="product_specs_focus_desc">Autofocus with Focus Pixels</string>
+    <string name="product_specs_flash_desc">Retina Flash</string>
 
     <!-- Loan Active Screen -->
     <string name="loan_active_title">Active loans</string>

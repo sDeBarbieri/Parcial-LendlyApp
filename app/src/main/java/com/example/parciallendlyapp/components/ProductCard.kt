@@ -1,6 +1,7 @@
 package com.example.parciallendlyapp.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -31,7 +32,8 @@ fun ProductCard(
     name: String,
     price: String,
     imageResId: Int,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
 ) {
     // Lógica para separar el color
     val annotatedPrice = buildAnnotatedString {
@@ -54,7 +56,8 @@ fun ProductCard(
     Surface(
         modifier = modifier
             .width(120.dp)
-            .height(160.dp),
+            .height(160.dp)
+            .clickable { onClick() },
         color = ContainerGray,
         shape = RoundedCornerShape(12.dp) // Corner/Medium
     ) {

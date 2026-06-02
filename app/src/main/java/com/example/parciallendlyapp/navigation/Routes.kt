@@ -25,6 +25,8 @@ object Routes {
     const val LOAN_ACTIVE = "loan_active"
     const val SHOP = "shop"
     const val SEARCH = "search"
+    const val FILTER = "filter"
+    const val PRODUCT = "product"
     const val HISTORY = "history"
     const val MANAGE = "manage"
 
@@ -43,5 +45,4 @@ object Routes {
 
     const val NOTIFICATIONS = "notifications"
 
-    const val FILTER = "filter"
 }
