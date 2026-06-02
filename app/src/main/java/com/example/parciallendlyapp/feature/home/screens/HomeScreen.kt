@@ -132,7 +132,7 @@ fun HomeContent(
         // Sección Préstamos
         HeaderRow(
             title = stringResource(id = R.string.home_sutitle_1),
-            onSeeAllClick = { /* Ver todos */ }
+            onSeeAllClick = { navController.navigate(Routes.LOAN_ACTIVE) }
         )
 
         Spacer(modifier = Modifier.height(16.dp))

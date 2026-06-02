@@ -213,4 +213,9 @@
     <string name="shop_price_mock">₱1,200 × 24 mo</string>
     <string name="shop_filter">Filter</string>
 
+    <!-- Loan Active Screen -->
+    <string name="loan_active_title">Active loans</string>
+    <string name="loan_active_present">Present</string>
+    <string name="loan_active_fees_february">Fees of february</string>
+
 </resources>
