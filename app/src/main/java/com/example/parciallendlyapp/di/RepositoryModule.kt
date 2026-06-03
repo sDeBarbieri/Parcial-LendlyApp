@@ -1,7 +1,7 @@
 package com.example.parciallendlyapp.di
 
 import com.example.parciallendlyapp.data.repository.ShopRepositoryImpl
-import com.example.parciallendlyapp.domain.repository.ShopRepository
+import com.example.parciallendlyapp.data.repository.ShopRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
