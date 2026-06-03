@@ -17,6 +17,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.FilterChipComponent
 import com.example.parciallendlyapp.components.ItemRow
@@ -29,6 +30,7 @@ import com.example.parciallendlyapp.ui.theme.Inter
 
 @Composable
 fun HistoryScreen(
+    navController: NavHostController,
     onTransactionClick: () -> Unit = {}
 ) {
     var searchQuery by remember { mutableStateOf("") }
@@ -50,10 +52,7 @@ fun HistoryScreen(
 
     Scaffold(
         topBar = {
-            TopBar(
-                onNotificationClick = { /* TODO */ },
-                onProfileClick = { /* TODO */ }
-            )
+            TopBar(navController = navController)
         },
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->

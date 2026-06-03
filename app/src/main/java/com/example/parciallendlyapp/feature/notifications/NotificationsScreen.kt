@@ -15,7 +15,6 @@ import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.components.TopBar
 import com.example.parciallendlyapp.ui.theme.Montserrat
 import androidx.compose.material3.Scaffold
-import com.example.parciallendlyapp.navigation.Routes
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.ui.Alignment
@@ -33,14 +32,7 @@ fun NotificationScreen(
 
     Scaffold(
         topBar = {
-            TopBar(
-                onProfileClick = {
-                    navController.navigate(Routes.EDIT_PROFILE)
-                },
-                onNotificationClick = {
-                    navController.navigate(Routes.NOTIFICATIONS)
-                }
-            )
+            TopBar(navController = navController)
         }
     ) { paddingValues ->
 

@@ -14,6 +14,7 @@ fun NavGraphBuilder.historyNavGraph(navController: NavHostController) {
     ) {
         composable(Routes.HISTORY) {
             HistoryScreen(
+                navController = navController,
                 onTransactionClick = {
                     navController.navigate(Routes.TRANSACTION_DETAILS)
                 }

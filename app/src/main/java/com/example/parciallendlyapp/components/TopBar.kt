@@ -8,31 +8,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.parciallendlyapp.R
-import com.example.parciallendlyapp.ui.theme.ContentPrimary
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
+import androidx.navigation.NavHostController
+import com.example.parciallendlyapp.navigation.Routes
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar(
-    onNotificationClick: () -> Unit = {},
-    onProfileClick: () -> Unit = {}
+    navController: NavHostController
 ) {
     CenterAlignedTopAppBar(
         windowInsets = WindowInsets(0, 0, 0, 0),
         // 1. IZQUIERDA: Foto de perfil / Avatar
         navigationIcon = {
-            IconButton(onClick = onProfileClick) {
-                Box(
-                    modifier = Modifier
-                    //    .offset(x = 4.dp, y = (-4).dp)
-                ) {
+            IconButton(onClick = {
+                navController.navigate(Routes.MANAGE)
+            }) {
+                Box {
                     Icon(
                         painter = painterResource(id = R.drawable.share_avatar),
                         contentDescription = "Profile",
-                        modifier = Modifier
-                            .size(width = 17.dp, height = 15.5.dp),
+                        modifier = Modifier.size(width = 17.dp, height = 15.5.dp),
                         tint = MaterialTheme.colorScheme.onBackground
                     )
                 }
@@ -52,16 +49,14 @@ fun TopBar(
 
         // 3. DERECHA: Notificaciones
         actions = {
-            IconButton(onClick = onNotificationClick) {
-                Box(
-                    modifier = Modifier
-                    //    .offset(x = 1.dp, y = (-4).dp)
-                ) {
+            IconButton(onClick = {
+                navController.navigate(Routes.NOTIFICATIONS)
+            }) {
+                Box {
                     Icon(
                         painter = painterResource(id = R.drawable.share_notifications),
                         contentDescription = "Notifications",
-                        modifier = Modifier
-                            .size(width = 15.dp, height = 19.2.dp),
+                        modifier = Modifier.size(width = 15.dp, height = 19.2.dp),
                         tint = MaterialTheme.colorScheme.onBackground
                     )
                 }

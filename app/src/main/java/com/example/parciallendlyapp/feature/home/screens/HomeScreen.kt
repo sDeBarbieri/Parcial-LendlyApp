@@ -46,10 +46,7 @@ fun HomeScreen(navController: NavHostController) {
 
     Scaffold(
         topBar = {
-            TopBar(
-                onNotificationClick = { /* Acción */ },
-                onProfileClick = { navController.navigate(Routes.MANAGE) }
-            )
+            TopBar(navController = navController)
         }
     ) { innerPadding ->
         // Ahora HomeContent es una función independiente

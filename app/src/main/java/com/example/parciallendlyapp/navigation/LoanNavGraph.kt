@@ -16,6 +16,7 @@ fun NavGraphBuilder.loanNavGraph(navController: NavHostController) {
     ) {
         composable(Routes.LOANS) {
             LoanScreen(
+                navController = navController,
                 onGetLoanClick = {
                     navController.navigate(Routes.LOAN_FORM)
                 }
