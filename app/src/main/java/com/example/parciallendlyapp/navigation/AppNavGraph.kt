@@ -12,6 +12,7 @@ import com.example.parciallendlyapp.feature.auth.screens.register.DoneScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.FaceRecognitionScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.IdIdentificationScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.ProfileDetailForm
+import com.example.parciallendlyapp.feature.auth.screens.register.SignatureScreen
 import com.example.parciallendlyapp.feature.auth.screens.register.VerifiedScreen
 import com.example.parciallendlyapp.feature.onboarding.screens.OnboardingScreen
 import com.example.parciallendlyapp.feature.splash.screens.SplashScreen
@@ -78,6 +79,14 @@ fun AppNavGraph(){
         }
         composable(Routes.PROFILE_DETAIL) {
             ProfileDetailForm(
+                onBackClick = { navController.popBackStack() },
+                onNextClick = {
+                    navController.navigate(Routes.SIGNATURE)
+                }
+            )
+        }
+        composable(Routes.SIGNATURE) {
+            SignatureScreen(
                 onBackClick = { navController.popBackStack() },
                 onNextClick = {
                     navController.navigate(Routes.CREATE_PASSWORD)
