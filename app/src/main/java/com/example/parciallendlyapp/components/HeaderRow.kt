@@ -15,7 +15,7 @@ fun HeaderRow(
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = Arrangement.SpaceBetween, // justify-content: space-between
         verticalAlignment = Alignment.CenterVertically
     ) {
         Subtitle(title = title)

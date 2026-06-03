@@ -1,10 +1,12 @@
 package com.example.parciallendlyapp.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,13 +17,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.ui.theme.ContentPrimary
 import com.example.parciallendlyapp.ui.theme.Inter
 import com.example.parciallendlyapp.ui.theme.InteractiveAccent
@@ -38,33 +38,39 @@ fun CashInButton(
         modifier = modifier
             .width(120.dp)  // Ancho exacto
             .height(48.dp), // Alto exacto
-        shape = RoundedCornerShape(24.dp), // Bordes más redondeados (píldora)
+        shape = RoundedCornerShape(100.dp), // Bordes más redondeados (píldora)
         colors = ButtonDefaults.buttonColors(
-            containerColor = InteractiveAccent // Verde temporal, cámbialo luego
+            containerColor = InteractiveAccent
         ),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(
-            top = 10.dp,
-            end = 24.dp,
-            bottom = 10.dp,
-            start = 16.dp
-        )
+        contentPadding = PaddingValues(0.dp)
     ) {
         Row(
+            modifier = Modifier.fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp) // Gap de 8px
+            horizontalArrangement = Arrangement.Center
         ) {
+            Box(
+                modifier = Modifier.size(18.dp),
+                contentAlignment = Alignment.Center
+            ){
             Icon(
                 painter = painterResource(id = iconResId),
                 contentDescription = null,
                 modifier = Modifier.size(10.5.dp), // Ajuste de tamaño para el icono
                 tint = ContentPrimary
             )
+        }
+            Spacer(modifier = Modifier.width(7.dp)) // guarda
             Text(
                 text = text,
+                modifier = Modifier.height(17.5.dp),
                 style = TextStyle(
                     fontFamily = Inter,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 14.sp
+                    fontWeight = FontWeight.SemiBold, // 600
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp,
+                    letterSpacing = 0.5.sp,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
                 ),
                 color = ContentPrimary
             )
