@@ -1,8 +1,8 @@
 package com.example.parciallendlyapp.feature.loans.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,6 +17,7 @@ import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.BackButton
 import com.example.parciallendlyapp.components.ItemRow
 import com.example.parciallendlyapp.components.Title
+import com.example.parciallendlyapp.feature.loans.domain.LoanTransaction
 import com.example.parciallendlyapp.ui.theme.ContentTertiary
 import com.example.parciallendlyapp.ui.theme.Inter
 
@@ -25,6 +26,62 @@ import com.example.parciallendlyapp.ui.theme.Inter
 fun LoanActiveScreen(
     onBackClick: () -> Unit = {}
 ) {
+    // Datos de ejemplo para la sección Present
+    val presentLoans = listOf(
+        LoanTransaction(
+            id = 1,
+            iconResId = R.drawable.shop_logo_apple,
+            title = stringResource(R.string.history_item_apple),
+            subtitle = stringResource(R.string.history_item_iphone_15),
+            rightTitle = stringResource(R.string.loan_active_fees_february),
+            rightSubtitle = stringResource(R.string.history_item_amount_12555)
+        ),
+        LoanTransaction(
+            id = 2,
+            iconResId = R.drawable.shop_logo_apple,
+            title = stringResource(R.string.history_item_apple),
+            subtitle = stringResource(R.string.history_item_iphone_15),
+            rightTitle = stringResource(R.string.loan_active_fees_february),
+            rightSubtitle = stringResource(R.string.history_item_amount_12555)
+        ),
+        LoanTransaction(
+            id = 3,
+            iconResId = R.drawable.shop_logo_apple,
+            title = stringResource(R.string.history_item_apple),
+            subtitle = stringResource(R.string.history_item_iphone_15),
+            rightTitle = stringResource(R.string.loan_active_fees_february),
+            rightSubtitle = stringResource(R.string.history_item_amount_12555)
+        )
+    )
+
+    // Datos de ejemplo para la sección Recent Loans
+    val recentLoans = listOf(
+        LoanTransaction(
+            id = 4,
+            iconResId = R.drawable.share_check,
+            title = stringResource(R.string.history_item_date_recent),
+            subtitle = stringResource(R.string.history_item_iphone_15),
+            rightTitle = stringResource(R.string.history_item_apple),
+            rightSubtitle = stringResource(R.string.history_item_paid)
+        ),
+        LoanTransaction(
+            id = 5,
+            iconResId = R.drawable.share_check,
+            title = stringResource(R.string.history_item_date_recent),
+            subtitle = stringResource(R.string.history_item_iphone_15),
+            rightTitle = stringResource(R.string.history_item_apple),
+            rightSubtitle = stringResource(R.string.history_item_paid)
+        ),
+        LoanTransaction(
+            id = 6,
+            iconResId = R.drawable.share_check,
+            title = stringResource(R.string.history_item_date_recent),
+            subtitle = stringResource(R.string.history_item_iphone_15),
+            rightTitle = stringResource(R.string.history_item_apple),
+            rightSubtitle = stringResource(R.string.history_item_paid)
+        )
+    )
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -49,50 +106,66 @@ fun LoanActiveScreen(
         },
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
         ) {
-            Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                Spacer(modifier = Modifier.height(16.dp))
-                Title(text = stringResource(R.string.loan_active_title))
-                Spacer(modifier = Modifier.height(24.dp))
+            item {
+                Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Title(text = stringResource(R.string.loan_active_title))
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
+            }
 
-                // Sección "Present"
-                SectionHeader(title = stringResource(R.string.loan_active_present))
+            // Sección "Present"
+            item {
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
+                    SectionHeader(title = stringResource(R.string.loan_active_present))
+                }
                 Spacer(modifier = Modifier.height(8.dp))
+            }
 
-                // Lista de préstamos activos (según el diseño hay 3 repetidos)
-                repeat(3) {
+            items(presentLoans) { loan ->
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
                     ItemRow(
-                        iconResId = R.drawable.shop_logo_apple,
-                        time = stringResource(R.string.history_item_apple), // "Apple Inc." arriba a la izquierda
-                        description = stringResource(R.string.history_item_iphone_15), // "iPhone 15 Pro Max" abajo a la izquierda
-                        company = stringResource(R.string.loan_active_fees_february), // "Fees of february" arriba a la derecha
-                        amount = stringResource(R.string.history_item_amount_12555), // "1,2555 PHP" abajo a la derecha
+                        iconResId = loan.iconResId,
+                        time = loan.title,
+                        description = loan.subtitle,
+                        company = loan.rightTitle,
+                        amount = loan.rightSubtitle,
                         onClick = { /* Ir a detalle */ }
                     )
                 }
+            }
 
+            item {
                 Spacer(modifier = Modifier.height(32.dp))
+            }
 
-                // Sección "Recent Loans"
-                SectionHeader(title = stringResource(R.string.history_section_recent_loans))
+            // Sección "Recent Loans"
+            item {
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
+                    SectionHeader(title = stringResource(R.string.history_section_recent_loans))
+                }
                 Spacer(modifier = Modifier.height(16.dp))
+            }
 
-                repeat(3) {
+            items(recentLoans) { loan ->
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
                     ItemRow(
-                        iconResId = R.drawable.share_check,
-                        time = stringResource(R.string.history_item_date_recent), // "02/08/2024" arriba a la izquierda
-                        description = stringResource(R.string.history_item_iphone_15), // "iPhone 15 Pro Max" abajo a la izquierda
-                        company = stringResource(R.string.history_item_apple), // "Apple Inc." arriba a la derecha
-                        amount = stringResource(R.string.history_item_paid), // "Paid" abajo a la derecha
+                        iconResId = loan.iconResId,
+                        time = loan.title,
+                        description = loan.subtitle,
+                        company = loan.rightTitle,
+                        amount = loan.rightSubtitle,
                         onClick = { /* Ir a detalle */ }
                     )
                 }
+            }
 
+            item {
                 Spacer(modifier = Modifier.height(32.dp))
             }
         }
