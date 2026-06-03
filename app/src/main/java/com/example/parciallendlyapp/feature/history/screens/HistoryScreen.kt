@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -14,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -65,28 +63,35 @@ fun HistoryScreen(
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
+            }
 
-                // Filters
-                val filters = listOf(
-                    stringResource(R.string.history_filter_all),
-                    stringResource(R.string.history_filter_type),
-                    stringResource(R.string.history_filter_balance),
-                    stringResource(R.string.history_filter_paid_bills),
-                    stringResource(R.string.history_filter_added)
-                )
-                LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    items(filters) { filter ->
-                        FilterChipComponent(
-                            text = filter,
-                            isSelected = filter == stringResource(R.string.history_filter_all),
-                            onClick = {}
-                        )
-                    }
+            // Filters - Moved out of the inner padding column to use fillMaxWidth properly with contentPadding
+            val filters = listOf(
+                stringResource(R.string.history_filter_all),
+                stringResource(R.string.history_filter_type),
+                stringResource(R.string.history_filter_balance),
+                stringResource(R.string.history_filter_paid_bills),
+                stringResource(R.string.history_filter_added),
+                stringResource(R.string.history_filter_date),
+                stringResource(R.string.history_filter_status),
+                stringResource(R.string.history_filter_category),
+                stringResource(R.string.history_filter_merchant)
+            )
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                items(filters) { filter ->
+                    FilterChipComponent(
+                        text = filter,
+                        isSelected = filter == stringResource(R.string.history_filter_all),
+                        onClick = {}
+                    )
                 }
-                
+            }
+
+            Column(modifier = Modifier.padding(horizontal = 16.dp)) {
                 Spacer(modifier = Modifier.height(16.dp))
             }
 
