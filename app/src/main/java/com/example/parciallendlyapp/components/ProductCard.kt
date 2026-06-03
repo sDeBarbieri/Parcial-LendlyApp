@@ -55,8 +55,8 @@ fun ProductCard(
 
     Surface(
         modifier = modifier
-            .width(120.dp)
-            .height(160.dp)
+            .width(132.dp)  // Medida exacta
+            .height(145.dp) // Medida exacta
             .clickable { onClick() },
         color = ContainerGray,
         shape = RoundedCornerShape(12.dp) // Corner/Medium
@@ -64,52 +64,59 @@ fun ProductCard(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(12.dp),
+                .padding(16.dp), // Padding solicitado de 16px
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp) // Gap solicitado
+            verticalArrangement = Arrangement.Top
         ) {
             // Imagen centrada
             Image(
                 painter = painterResource(id = imageResId),
                 contentDescription = null,
                 modifier = Modifier
-                    .width(80.dp) // Reducido de 85.4dp
-                    .height(60.dp) // Reducido de 65dp
-                    .padding(4.dp), // Padding interno para achicar el dibujo
+                    .width(85.4.dp)
+                    .height(65.dp),
                 contentScale = ContentScale.Fit
             )
-
+            Spacer(modifier = Modifier.height(8.dp)) // !!! PUEDE NO IR
             // Nombre del producto
-            Text(
-                text = name,
-                modifier = Modifier.fillMaxWidth(), // Ocupa todo el ancho de la card
-                maxLines = 1, // Evita que empuje el diseño hacia abajo
-                overflow = TextOverflow.Ellipsis,
-                style = TextStyle(
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 12.sp,
-                    lineHeight = 16.sp,
-                    letterSpacing = 0.5.sp,
-                    textAlign = TextAlign.Center // Centrado horizontal
-                ),
-                color = MaterialTheme.colorScheme.onSurface
-            )
-
-            // Segundo campo de texto (Precio o descripción)
-            Text(
-                text = annotatedPrice,
-                modifier = Modifier.fillMaxWidth(), // Usamos todo el ancho disponible
-                maxLines = 1,
-                style = TextStyle(
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 11.sp,
-                    lineHeight = 16.sp,
-                    letterSpacing = 0.5.sp,
-                    textAlign = TextAlign.Center
+            Column(
+                modifier = Modifier
+                    .width(100.dp)
+                    .height(40.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp), // Gap interno solicitado
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Texto 1 (Nombre): 100x16
+                Text(
+                    text = name,
+                    modifier = Modifier.width(100.dp).height(16.dp),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    style = TextStyle(
+                        fontFamily = Inter,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 12.sp,
+                        lineHeight = 16.sp,
+                        textAlign = TextAlign.Center
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
                 )
-            )
+
+                // Texto 2 (Precio): 90x16
+                Text(
+                    text = annotatedPrice,
+                    modifier = Modifier.width(90.dp).height(16.dp),
+                    maxLines = 1,
+                    style = TextStyle(
+                        fontFamily = Inter,
+                        fontWeight = FontWeight.Medium, // 500
+                        fontSize = 11.sp,
+                        lineHeight = 16.sp,
+                        letterSpacing = 0.5.sp,
+                        textAlign = TextAlign.Center
+                    )
+                )
+            }
         }
     }
 }
