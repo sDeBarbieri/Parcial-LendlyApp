@@ -32,7 +32,7 @@ import com.example.parciallendlyapp.ui.theme.ContainerGray
 fun HomeScreen(navController: NavHostController) {
     // Datos de ejemplo
     val loansFromApi = listOf(
-        LoanModel("Nike Inc.", "₱400.00", "Fees of February", R.drawable.share_avatar),
+        LoanModel("Nike Inc.", "₱400.00", "Fees of February", R.drawable.home_logo_nike),
         LoanModel("Apple Inc.", "₱1500.00", "Fees of March", R.drawable.shop_logo_apple),
         LoanModel("Adidas", "₱600.00", "Fees of April", R.drawable.share_avatar),
     )
@@ -46,7 +46,7 @@ fun HomeScreen(navController: NavHostController) {
         topBar = {
             TopBar(
                 onNotificationClick = { /* Acción */ },
-                onProfileClick = { /* Acción */ }
+                onProfileClick = { navController.navigate(Routes.MANAGE) }
             )
         }
     ) { innerPadding ->
