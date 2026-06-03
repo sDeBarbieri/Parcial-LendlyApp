@@ -22,7 +22,7 @@ fun ProductList(
             .fillMaxWidth()
             .height(145.dp), // Altura exacta de la fila
         horizontalArrangement = Arrangement.spacedBy(8.dp), // Gap: 8px
-        contentPadding = PaddingValues(horizontal = 16.dp) // Padding L/R: 16px
+        contentPadding = PaddingValues(horizontal = 0.dp) // Padding L/R: 16px
     ) {
         items(products) { product ->
             ProductCard(
