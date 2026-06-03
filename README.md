@@ -1,5 +1,10 @@
 # LendlyApp
 
+## Integrantes:
+- Matías Varas
+- Santiago De Barbieri
+- Gonzalo Agustin Gonzalez
+
 ## 1 - Nombre y Descripción
 **LendlyApp** es una aplicación móvil financiera diseñada para facilitar la gestión de préstamos, compras y servicios bancarios digitales. La aplicación ofrece una experiencia de usuario moderna y segura, permitiendo a los usuarios administrar su flujo de caja, solicitar financiamiento y realizar un seguimiento detallado de sus transacciones financieras desde una interfaz intuitiva.
 
@@ -19,9 +24,7 @@ El proyecto está desarrollado siguiendo las últimas recomendaciones de Google 
 *   **UI:** [Jetpack Compose](https://developer.android.com/jetpack/compose) (Arquitectura declarativa)
 *   **Navegación:** Compose Navigation
 *   **Inyección de Dependencias:** Hilt (Dagger)
-*   **Persistencia de Datos:** Room Database
 *   **Networking:** Retrofit & Gson
-*   **Backend/Auth:** Firebase (Authentication)
 *   **Arquitectura:** MVVM (Model-View-ViewModel) con un enfoque en Clean Architecture por módulos de características.
 
 ## 4 - Estructura del Proyecto
@@ -30,7 +33,11 @@ La estructura del código sigue un patrón organizado por funcionalidades (featu
 ```text
 app/src/main/java/com/example/parciallendlyapp/
 ├── components/      # Componentes de UI reutilizables (Botones, Chips, etc.)
+├── data/            # Implementación de acceso a datos (API, repositorios y modelos de datos)
+│   ├── network/
+│   └── repository/
 ├── di/              # Módulos de Inyección de Dependencias (Hilt)
+├── domain/          # Utilidades comunes para la lógica de negocio
 ├── feature/         # Módulos principales divididos por funcionalidad:
 │   ├── auth/        # Login, Registro, Verificación SMS
 │   ├── home/        # Dashboard principal y Cash In
