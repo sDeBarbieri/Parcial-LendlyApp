@@ -108,6 +108,12 @@
     <string name="id_identification_subtitle">Always keep your phone in portrait mode, and here are some more tips.</string>
     <string name="id_identification_next_button">Next</string>
 
+    <!-- Signature Screen -->
+    <string name="signature_title">Let’s seal the deal!</string>
+    <string name="signature_subtitle">You can use your finger or a compatible stylus to write you signature</string>
+    <string name="signature_confirmation">By tapping “Next”, you confirm that the information you provided is true and correct.</string>
+    <string name="signature_next_button">Next</string>
+
     <!-- Verified Screen -->
     <string name="verified_title">Woah, Your face and ID\nare the same!</string>
     <string name="verified_subtitle">We are just a few questions away from opening your own lendly loan account. Tap the button to continue.</string>

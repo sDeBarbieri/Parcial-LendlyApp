@@ -10,6 +10,7 @@ object Routes {
     const val ID_IDENTIFICATION = "id_identification"
     const val VERIFIED = "verified"
     const val PROFILE_DETAIL = "profile_detail"
+    const val SIGNATURE = "signature"
     const val CREATE_PASSWORD = "create_password"
     const val DONE = "done"
     const val MAIN = "main"
