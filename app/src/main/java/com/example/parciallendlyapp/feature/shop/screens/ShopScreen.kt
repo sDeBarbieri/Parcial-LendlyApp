@@ -140,10 +140,15 @@ fun ShopScreen(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     CategoryList(
-                        categories = shopData.categories.map { dto ->
+                        categories = shopData.categories.mapIndexed { index, dto ->
                             CategoryModel(
                                 name = dto.name,
-                                imageRes = R.drawable.shop_phone
+                                // Asignamos una imagen distinta según la posición para variar (no llegamos a implementar coil)
+                                imageRes = when (index % 3) {
+                                    0 -> R.drawable.shop_phone
+                                    1 -> R.drawable.shop_headphones
+                                    else -> R.drawable.shop_laptop
+                                }
                             )
                         }
                     )
@@ -158,11 +163,12 @@ fun ShopScreen(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     BrandList(
-                        brands = shopData.brands.map { dto ->
+                        brands = shopData.brands.mapIndexed { index, dto ->
                             BrandModel(
                                 name = dto.name,
-                                imageRes = R.drawable.shop_brand_apple_banner,
-                                logoRes = R.drawable.shop_brand_jordan_logo
+                                // Asignamos una imagen distinta según la posición para variar (no llegamos a implementar coil)
+                                imageRes = if (index % 2 == 0) R.drawable.shop_brand_apple_banner else R.drawable.shop_brand_jordan_banner,
+                                logoRes = R.drawable.product_icon_apple
                             )
                         }
                     )
@@ -177,16 +183,19 @@ fun ShopScreen(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     ProductList(
-                        products = shopData.products.map { dto ->
+                        products = shopData.products.mapIndexed { index, dto ->
                             ProductModel(
                                 name = dto.name,
                                 price = "₱${dto.monthlyInstallment.toInt()} x ${dto.installmentMonths} mo",
-                                imageRes = R.drawable.shop_phone
+                                // Asignamos una imagen distinta según la posición para variar (no llegamos a implementar coil)
+                                imageRes = when (index % 3) { // Ajustado a rotación de 3
+                                    0 -> R.drawable.shop_phone
+                                    1 -> R.drawable.shop_laptop
+                                    else -> R.drawable.shop_sneakers
+                                }
                             )
                         },
-                        onProductClick = {
-                            navController.navigate(Routes.PRODUCT)
-                        }
+                        onProductClick = { navController.navigate(Routes.PRODUCT) }
                     )
 
                     Spacer(modifier = Modifier.height(25.dp))
@@ -199,16 +208,15 @@ fun ShopScreen(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     ProductList(
-                        products = shopData.featured.map { dto ->
+                        products = shopData.featured.mapIndexed { index, dto ->
                             ProductModel(
                                 name = dto.name,
                                 price = "₱${dto.monthlyInstallment.toInt()} x ${dto.installmentMonths} mo",
-                                imageRes = R.drawable.shop_headphones
+                                // Asignamos una imagen distinta según la posición para variar (no llegamos a implementar coil)
+                                imageRes = if (index % 2 == 0) R.drawable.shop_phone else R.drawable.shop_laptop
                             )
                         },
-                        onProductClick = {
-                            navController.navigate(Routes.PRODUCT)
-                        }
+                        onProductClick = { navController.navigate(Routes.PRODUCT) }
                     )
                     Spacer(modifier = Modifier.height(25.dp))
                 }
