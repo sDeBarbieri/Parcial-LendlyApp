@@ -23,6 +23,7 @@ import com.example.parciallendlyapp.components.ItemRow
 import com.example.parciallendlyapp.components.SearchInput
 import com.example.parciallendlyapp.components.Title
 import com.example.parciallendlyapp.components.TopBar
+import com.example.parciallendlyapp.feature.history.domain.HistoryTransaction
 import com.example.parciallendlyapp.ui.theme.ContentTertiary
 import com.example.parciallendlyapp.ui.theme.Inter
 
@@ -30,9 +31,22 @@ import com.example.parciallendlyapp.ui.theme.Inter
 fun HistoryScreen(
     onTransactionClick: () -> Unit = {}
 ) {
-
-    // Estado para manejar el texto de búsqueda
     var searchQuery by remember { mutableStateOf("") }
+
+    // Listas de datos de ejemplo
+    val todayTransactions = listOf(
+        HistoryTransaction(1, R.drawable.share_arrow_upward, stringResource(R.string.history_item_time_today), stringResource(R.string.history_item_paid_this_month), stringResource(R.string.history_item_apple), stringResource(R.string.history_item_amount_12555)),
+        HistoryTransaction(2, R.drawable.share_arrow_upward, stringResource(R.string.history_item_time_today), stringResource(R.string.history_item_paid_this_month), stringResource(R.string.history_item_apple), stringResource(R.string.history_item_amount_12555)),
+        HistoryTransaction(3, R.drawable.share_arrow_upward, stringResource(R.string.history_item_time_today), stringResource(R.string.history_item_paid_this_month), stringResource(R.string.history_item_apple), stringResource(R.string.history_item_amount_12555)),
+        HistoryTransaction(4, R.drawable.share_add, stringResource(R.string.history_item_time_today), stringResource(R.string.history_filter_added), null, stringResource(R.string.history_item_amount_1200)),
+        HistoryTransaction(5, R.drawable.share_add, stringResource(R.string.history_item_time_today), stringResource(R.string.history_item_paid_this_month), null, stringResource(R.string.history_item_amount_1200))
+    )
+
+    val recentLoans = listOf(
+        HistoryTransaction(6, R.drawable.share_check, stringResource(R.string.history_item_date_recent), stringResource(R.string.history_item_iphone_15), stringResource(R.string.history_item_apple), stringResource(R.string.history_item_paid)),
+        HistoryTransaction(7, R.drawable.share_check, stringResource(R.string.history_item_date_recent), stringResource(R.string.history_item_iphone_15), stringResource(R.string.history_item_apple), stringResource(R.string.history_item_paid)),
+        HistoryTransaction(8, R.drawable.share_check, stringResource(R.string.history_item_date_recent), stringResource(R.string.history_item_iphone_15), stringResource(R.string.history_item_apple), stringResource(R.string.history_item_paid))
+    )
 
     Scaffold(
         topBar = {
@@ -55,13 +69,11 @@ fun HistoryScreen(
                     Title(text = stringResource(R.string.history_title))
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // Search Input
                     SearchInput(
                         value = searchQuery,
                         onValueChange = { searchQuery = it },
                         placeholder = stringResource(R.string.history_search_placeholder)
                     )
-
                     Spacer(modifier = Modifier.height(16.dp))
                 }
             }
@@ -95,57 +107,27 @@ fun HistoryScreen(
             }
 
             item {
-                Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                    Spacer(modifier = Modifier.height(16.dp))
-                    HorizontalDivider(color = Color(0xFFF0F0F0), thickness = 1.dp)
-                    Spacer(modifier = Modifier.height(24.dp))
-                }
+                Spacer(modifier = Modifier.height(16.dp))
+                HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp), color = Color(0xFFF0F0F0), thickness = 1.dp)
+                Spacer(modifier = Modifier.height(24.dp))
             }
 
             // Today Section
             item {
-                Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
                     SectionHeader(title = stringResource(R.string.history_section_today))
-                    Spacer(modifier = Modifier.height(8.dp))
-                    
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+
+            items(todayTransactions) { transaction ->
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
                     ItemRow(
-                        iconResId = R.drawable.share_arrow_upward,
-                        time = stringResource(R.string.history_item_time_today),
-                        description = stringResource(R.string.history_item_paid_this_month),
-                        company = stringResource(R.string.history_item_apple),
-                        amount = stringResource(R.string.history_item_amount_12555),
-                        onClick = onTransactionClick
-                    )
-                    ItemRow(
-                        iconResId = R.drawable.share_arrow_upward,
-                        time = stringResource(R.string.history_item_time_today),
-                        description = stringResource(R.string.history_item_paid_this_month),
-                        company = stringResource(R.string.history_item_apple),
-                        amount = stringResource(R.string.history_item_amount_12555),
-                        onClick = onTransactionClick
-                    )
-                    ItemRow(
-                        iconResId = R.drawable.share_arrow_upward,
-                        time = stringResource(R.string.history_item_time_today),
-                        description = stringResource(R.string.history_item_paid_this_month),
-                        company = stringResource(R.string.history_item_apple),
-                        amount = stringResource(R.string.history_item_amount_12555),
-                        onClick = onTransactionClick
-                    )
-                    ItemRow(
-                        iconResId = R.drawable.share_add,
-                        time = stringResource(R.string.history_item_time_today),
-                        description = stringResource(R.string.history_filter_added),
-                        company = null,
-                        amount = stringResource(R.string.history_item_amount_1200),
-                        onClick = onTransactionClick
-                    )
-                    ItemRow(
-                        iconResId = R.drawable.share_add,
-                        time = stringResource(R.string.history_item_time_today),
-                        description = stringResource(R.string.history_item_paid_this_month),
-                        company = null,
-                        amount = stringResource(R.string.history_item_amount_1200),
+                        iconResId = transaction.iconResId,
+                        time = transaction.time,
+                        description = transaction.description,
+                        company = transaction.company,
+                        amount = transaction.amount,
                         onClick = onTransactionClick
                     )
                 }
@@ -153,38 +135,28 @@ fun HistoryScreen(
 
             // Recent Loans Section
             item {
-                Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                    Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(32.dp))
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
                     SectionHeader(title = stringResource(R.string.history_section_recent_loans))
-                    Spacer(modifier = Modifier.height(16.dp))
-                    
-                    ItemRow(
-                        iconResId = R.drawable.share_check,
-                        time = stringResource(R.string.history_item_date_recent),
-                        description = stringResource(R.string.history_item_iphone_15),
-                        company = stringResource(R.string.history_item_apple),
-                        amount = stringResource(R.string.history_item_paid),
-                        onClick = onTransactionClick
-                    )
-                    ItemRow(
-                        iconResId = R.drawable.share_check,
-                        time = stringResource(R.string.history_item_date_recent),
-                        description = stringResource(R.string.history_item_iphone_15),
-                        company = stringResource(R.string.history_item_apple),
-                        amount = stringResource(R.string.history_item_paid),
-                        onClick = onTransactionClick
-                    )
-                    ItemRow(
-                        iconResId = R.drawable.share_check,
-                        time = stringResource(R.string.history_item_date_recent),
-                        description = stringResource(R.string.history_item_iphone_15),
-                        company = stringResource(R.string.history_item_apple),
-                        amount = stringResource(R.string.history_item_paid),
-                        onClick = onTransactionClick
-                    )
-                    
-                    Spacer(modifier = Modifier.height(32.dp))
                 }
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+
+            items(recentLoans) { transaction ->
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
+                    ItemRow(
+                        iconResId = transaction.iconResId,
+                        time = transaction.time,
+                        description = transaction.description,
+                        company = transaction.company,
+                        amount = transaction.amount,
+                        onClick = onTransactionClick
+                    )
+                }
+            }
+
+            item {
+                Spacer(modifier = Modifier.height(32.dp))
             }
         }
     }
