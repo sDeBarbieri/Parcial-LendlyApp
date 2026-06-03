@@ -33,8 +33,8 @@ fun NavGraphBuilder.loanNavGraph(navController: NavHostController) {
             LoanTransactionScreen(
                 onBackClick = { navController.popBackStack() },
                 onDoneClick = {
-                    navController.navigate(Routes.HOME) {
-                        popUpTo(Routes.HOME) { inclusive = true }
+                    navController.navigate(Routes.LOANS) {
+                        popUpTo(Routes.LOANS) { inclusive = true }
                     }
                 }
             )
