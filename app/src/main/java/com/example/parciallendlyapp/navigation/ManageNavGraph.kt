@@ -12,7 +12,7 @@ fun NavGraphBuilder.manageNavGraph(
 ) {
 
     navigation(
-        route = "manage_graph",
+        route = Routes.MANAGE_GRAPH,
         startDestination = Routes.MANAGE
     ) {
 

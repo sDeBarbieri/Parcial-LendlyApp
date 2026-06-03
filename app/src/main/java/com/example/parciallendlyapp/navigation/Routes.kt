@@ -1,6 +1,7 @@
 package com.example.parciallendlyapp.navigation
 
 object Routes {
+
     const val SPLASH = "splash"
     const val ONBOARDING = "onboarding"
     const val LOGIN = "login"
@@ -45,5 +46,13 @@ object Routes {
     const val TRANSACTION_DETAILS = "transaction_details"
 
     const val NOTIFICATIONS = "notifications"
+
+
+    // Valores de graphs para la navegación.
+    const val HOME_GRAPH = "home_graph"
+    const val LOAN_GRAPH = "loan_graph"
+    const val SHOP_GRAPH = "shop_graph"
+    const val MANAGE_GRAPH = "manage_graph"
+    const val HISTORY_GRAPH = "history_graph"
 
 }

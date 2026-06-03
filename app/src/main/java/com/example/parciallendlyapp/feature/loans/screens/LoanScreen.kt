@@ -7,19 +7,18 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.parciallendlyapp.R
 import com.example.parciallendlyapp.components.*
 
 @Composable
 fun LoanScreen(
+    navController: NavHostController,
     onGetLoanClick: () -> Unit = {}
 ) {
     Scaffold(
         topBar = {
-            TopBar(
-                onNotificationClick = { /* Acción */ },
-                onProfileClick = { /* Acción */ }
-            )
+            TopBar(navController = navController)
         }
     ) { innerPadding ->
         Column(

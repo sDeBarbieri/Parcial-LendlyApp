@@ -34,14 +34,7 @@ fun ManageScreen(navController: NavHostController) {
 
     Scaffold(
         topBar = {
-            TopBar(
-                onProfileClick = {
-                    navController.navigate(Routes.EDIT_PROFILE)
-                },
-                onNotificationClick = {
-                    navController.navigate(Routes.NOTIFICATIONS)
-                }
-            )
+            TopBar(navController = navController)
         }
     ) { paddingValues ->
 

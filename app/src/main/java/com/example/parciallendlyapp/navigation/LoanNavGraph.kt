@@ -11,11 +11,12 @@ import com.example.parciallendlyapp.feature.loans.screens.LoanTransactionScreen
 
 fun NavGraphBuilder.loanNavGraph(navController: NavHostController) {
     navigation(
-        route = "loan_graph",
+        route = Routes.LOAN_GRAPH,
         startDestination = Routes.LOANS
     ) {
         composable(Routes.LOANS) {
             LoanScreen(
+                navController = navController,
                 onGetLoanClick = {
                     navController.navigate(Routes.LOAN_FORM)
                 }
