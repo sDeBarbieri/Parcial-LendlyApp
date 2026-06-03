@@ -34,23 +34,27 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.parciallendlyapp.components.BrandList
 import com.example.parciallendlyapp.components.CategoryList
 import com.example.parciallendlyapp.components.HeaderRow
 import com.example.parciallendlyapp.components.ProductList
 import com.example.parciallendlyapp.feature.home.domain.model.ProductModel
+import com.example.parciallendlyapp.feature.shop.ShopViewModel
 import com.example.parciallendlyapp.feature.shop.screens.models.BrandModel
 import com.example.parciallendlyapp.feature.shop.screens.models.CategoryModel
 
 @Composable
 fun ShopScreen(
-    navController: NavHostController
+    navController: NavHostController,
+    viewModel: ShopViewModel = hiltViewModel()
 ) {
 
-    var searchText by remember {
-        mutableStateOf("")
-    }
+    val shopData = viewModel.shopData
+    var searchText by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
@@ -64,7 +68,12 @@ fun ShopScreen(
             )
         }
     ) { paddingValues ->
-
+        if (shopData == null) {
+            // Puedes mostrar un CircularProgressIndicator aquí
+            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
+        } else {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -134,24 +143,13 @@ fun ShopScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             CategoryList(
-                categories = listOf(
+                categories = shopData.categories.map { dto ->
                     CategoryModel(
-                        stringResource(R.string.shop_category_phone),
-                        R.drawable.shop_phone
-                    ),
-                    CategoryModel(
-                        stringResource(R.string.shop_category_headphones),
-                        R.drawable.shop_headphones
-                    ),
-                    CategoryModel(
-                        stringResource(R.string.shop_category_laptop),
-                        R.drawable.shop_laptop
-                    ),
-                    CategoryModel(
-                        stringResource(R.string.shop_category_phone),
-                        R.drawable.shop_phone
+                        name = dto.name,
+                        // Por ahora usamos una imagen local porque la API envía un icono/string
+                        imageRes = R.drawable.shop_phone
                     )
-                )
+                }
             )
 
             Spacer(modifier = Modifier.height(25.dp))
@@ -164,23 +162,13 @@ fun ShopScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             BrandList(
-                brands = listOf(
+                brands = shopData.brands.map { dto ->
                     BrandModel(
-                        name = stringResource(R.string.shop_brand_apple),
-                        imageRes = R.drawable.shop_brand_apple_banner,
-                        logoRes = R.drawable.shop_brand_jordan_logo
-                    ),
-                    BrandModel(
-                        name = stringResource(R.string.shop_brand_jordan),
-                        imageRes = R.drawable.shop_brand_jordan_banner,
-                        logoRes = R.drawable.shop_brand_jordan_logo
-                    ),
-                    BrandModel(
-                        name = stringResource(R.string.shop_brand_adidas),
-                        imageRes = R.drawable.shop_brand_adidas_banner,
-                        logoRes = R.drawable.shop_brand_jordan_logo
+                        name = dto.name,
+                        imageRes = R.drawable.shop_brand_apple_banner, // Placeholder
+                        logoRes = R.drawable.shop_brand_jordan_logo   // Placeholder
                     )
-                )
+                }
             )
 
             Spacer(modifier = Modifier.height(25.dp))
@@ -193,23 +181,14 @@ fun ShopScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             ProductList(
-                products = listOf(
+                products = shopData.products.map { dto ->
                     ProductModel(
-                        name = stringResource(R.string.shop_product_iphone),
-                        price = stringResource(R.string.shop_price_mock),
-                        imageRes = R.drawable.shop_phone
-                    ),
-                    ProductModel(
-                        name = stringResource(R.string.shop_product_sony),
-                        price = stringResource(R.string.shop_price_mock),
-                        imageRes = R.drawable.shop_headphones
-                    ),
-                    ProductModel(
-                        name = stringResource(R.string.shop_product_nike),
-                        price = stringResource(R.string.shop_price_mock),
-                        imageRes = R.drawable.shop_shoes
+                        name = dto.name,
+                        // Formateo de precio: ₱1,200 x 24 mo
+                        price = "₱${dto.monthlyInstallment.toInt()} x ${dto.installmentMonths} mo",
+                        imageRes = R.drawable.shop_phone // Placeholder hasta usar Coil
                     )
-                ),
+                },
                 onProductClick = {
                     navController.navigate(Routes.PRODUCT)
                 }
@@ -225,29 +204,20 @@ fun ShopScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             ProductList(
-                products = listOf(
+                products = shopData.featured.map { dto ->
                     ProductModel(
-                        name = "Surface Laptop",
-                        price = "₱1,200 × 24 mo",
-                        imageRes = R.drawable.shop_laptop2
-                    ),
-                    ProductModel(
-                        name = "Iphone 12 Pro Max",
-                        price = "₱1,200 × 24 mo",
-                        imageRes = R.drawable.shop_shirt
-                    ),
-                    ProductModel(
-                        name = "PS4 Play Station",
-                        price = "₱1,200 × 24 mo",
-                        imageRes = R.drawable.shop_ps4
+                        name = dto.name,
+                        price = "₱${dto.monthlyInstallment.toInt()} x ${dto.installmentMonths} mo",
+                        imageRes = R.drawable.shop_headphones // Placeholder
                     )
-                ),
+                },
                 onProductClick = {
                     navController.navigate(Routes.PRODUCT)
                 }
             )
 
         }
+            }
     }
 }
 
