@@ -147,6 +147,10 @@
     <string name="history_filter_balance">Balance</string>
     <string name="history_filter_paid_bills">Paid Bills</string>
     <string name="history_filter_added">Added</string>
+    <string name="history_filter_date">Date</string>
+    <string name="history_filter_status">Status</string>
+    <string name="history_filter_category">Category</string>
+    <string name="history_filter_merchant">Merchant</string>
     <string name="history_section_today">Today</string>
     <string name="history_section_recent_loans">Recent Loans</string>
     <string name="history_item_paid_this_month">Paid this month</string>
